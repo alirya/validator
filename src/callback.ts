@@ -1,31 +1,33 @@
 import Simple from "./simple";
 import SimpleReturn from "./validatable/simple";
 import Validatable from "./validatable/validatable";
-import Replace from "./validatable/replace";
-import Ambiguous from "./validatable/ambiguous";
-import CallbackContainer from "@dikac/t-function/callback/callback";
+import ValidationCallback from "./validatable/callback-function";
 
 /**
- * adapt callback to {@see Validator}
+ * create {@see Validator} from multiple callback
  */
-export default class Callback<
-    Base,
-    Type extends Base,
-    Extent extends Validatable<Base>
-> implements Simple<Base, Type, Extent>, CallbackContainer<(<Argument extends Base>(argument : Argument) => SimpleReturn<Base, Argument, Type, Extent>)> {
+export default function Callback<
+    Base = unknown,
+    Type extends Base = Base,
+    MessageType = unknown,
+>(
+    validation : <Argument extends Base>(argument:Base) => argument is Type,
+    message : <Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Validatable<Base, MessageType>>>, 'message'>) => MessageType,
+) : Simple<Base, Type, Readonly<Validatable<Base, MessageType>>>;
+export default function Callback<
+    Base = unknown,
+    Type extends Base = Base,
+    MessageType = unknown,
+>(
+    validation : <Argument extends Base>(argument:Base) => boolean,
+    message : <Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Validatable<Base, MessageType>>>, 'message'>) => MessageType,
+) : Simple<Base, Type, Readonly<Validatable<Base, MessageType>>> {
 
-    /**
-     * @param callback
-     */
-    constructor(
-        public callback : <Argument extends Base>(argument : Argument) => SimpleReturn<Base, Argument, Type, Extent>,
-    ) {
-    }
+    return function <Argument extends Base>(value) {
 
-    validate<Argument extends Type>(value: Argument) : Replace<Argument, true, Extent>;
-    validate<Argument extends Base>(value: Argument) : Ambiguous<Base, Argument, Type, false, true, Extent>;
-    validate<Argument extends Base>(value: Argument) {
+        return ValidationCallback(value, validation, message);
 
-        return this.callback(value);
-    }
+    } as Simple<Base, Type, Readonly<Validatable<Base, MessageType>>>
 }
+
+

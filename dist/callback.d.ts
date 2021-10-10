@@ -1,18 +1,7 @@
 import Simple from "./simple";
 import SimpleReturn from "./validatable/simple";
 import Validatable from "./validatable/validatable";
-import Replace from "./validatable/replace";
-import Ambiguous from "./validatable/ambiguous";
-import CallbackContainer from "@dikac/t-function/callback/callback";
 /**
- * adapt callback to {@see Validator}
+ * create {@see Validator} from multiple callback
  */
-export default class Callback<Base, Type extends Base, Extent extends Validatable<Base>> implements Simple<Base, Type, Extent>, CallbackContainer<(<Argument extends Base>(argument: Argument) => SimpleReturn<Base, Argument, Type, Extent>)> {
-    callback: <Argument extends Base>(argument: Argument) => SimpleReturn<Base, Argument, Type, Extent>;
-    /**
-     * @param callback
-     */
-    constructor(callback: <Argument extends Base>(argument: Argument) => SimpleReturn<Base, Argument, Type, Extent>);
-    validate<Argument extends Type>(value: Argument): Replace<Argument, true, Extent>;
-    validate<Argument extends Base>(value: Argument): Ambiguous<Base, Argument, Type, false, true, Extent>;
-}
+export default function Callback<Base = unknown, Type extends Base = Base, MessageType = unknown>(validation: <Argument extends Base>(argument: Base) => argument is Type, message: <Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Validatable<Base, MessageType>>>, 'message'>) => MessageType): Simple<Base, Type, Readonly<Validatable<Base, MessageType>>>;

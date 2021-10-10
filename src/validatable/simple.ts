@@ -1,12 +1,12 @@
 import Validatable from "./validatable";
-import Ambiguous from "./ambiguous";
+import Unambiguous from "./unambiguous";
 
 type Simple<
     Base = unknown,
     Argument extends Base = Base,
     Type extends Base = Base,
     ValidatableType extends Validatable<Base> = Validatable<Base>
-> = Ambiguous<
+> = Unambiguous<
     Base,
     Argument,
     Type,

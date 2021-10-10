@@ -1,15 +1,7 @@
-/**
- * adapt callback to {@see Validator}
- */
-export default class Callback {
-    /**
-     * @param callback
-     */
-    constructor(callback) {
-        this.callback = callback;
-    }
-    validate(value) {
-        return this.callback(value);
-    }
+import ValidationCallback from "./validatable/callback-function";
+export default function Callback(validation, message) {
+    return function (value) {
+        return ValidationCallback(value, validation, message);
+    };
 }
 //# sourceMappingURL=callback.js.map

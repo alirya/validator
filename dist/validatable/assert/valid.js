@@ -1,8 +1,8 @@
-import ThrowableValid from "../throwable/valid";
+import InvalidStringMessage from "../error/invalid-string-message";
 /**
- * Throw exception if given value is not {@link ValidatableInterface} type
+ * Throw exception if given value is not {@link InvalidStringMessage} type
  */
-export default function Valid(value, error = ThrowableValid) {
+export default function Valid(value, error = InvalidStringMessage) {
     if (!value.valid) {
         throw error(value);
     }

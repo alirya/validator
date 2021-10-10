@@ -1,16 +1,15 @@
-import ValidatableInterface from "@dikac/t-validatable/validatable";
 import Validatable from "../validatable";
-import ThrowableValid from "../throwable/valid";
+import InvalidStringMessage from "../error/invalid-string-message";
 
 /**
- * Throw exception if given value is not {@link ValidatableInterface} type
+ * Throw exception if given value is not {@link InvalidStringMessage} type
  */
 
 export default function Valid<
     Argument extends Validatable = Validatable,
 >(
     value : Argument,
-    error : (value:Argument)=>Error = ThrowableValid
+    error : (value:Argument)=>Error = InvalidStringMessage
 ) : asserts value is Argument {
 
     if(!value.valid) {

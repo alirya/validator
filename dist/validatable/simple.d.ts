@@ -1,4 +1,4 @@
 import Validatable from "./validatable";
-import Ambiguous from "./ambiguous";
-declare type Simple<Base = unknown, Argument extends Base = Base, Type extends Base = Base, ValidatableType extends Validatable<Base> = Validatable<Base>> = Ambiguous<Base, Argument, Type, false, true, ValidatableType>;
+import Unambiguous from "./unambiguous";
+declare type Simple<Base = unknown, Argument extends Base = Base, Type extends Base = Base, ValidatableType extends Validatable<Base> = Validatable<Base>> = Unambiguous<Base, Argument, Type, false, true, ValidatableType>;
 export default Simple;

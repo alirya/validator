@@ -12,3 +12,4 @@ type Simple<
 > = Validator<Base, Type, false, true, ValidatableType>;
 
 export default Simple;
+

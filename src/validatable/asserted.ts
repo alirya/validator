@@ -1,8 +1,10 @@
-import Value from "@dikac/t-value/value";
 import ValueInfer from "@dikac/t-value/value/infer";
 import ReadonlyWrapper from "./readonly-wrapper";
-import ThrowableValid from "./throwable/valid";
 import Validatable from "./validatable";
+import InvalidStringMessage from "./error/invalid-string-message";
+import Value from "@dikac/t-value/value";
+
+type KeepImport = Value;
 
 /**
  * @inheritDoc {@link ReadonlyWrapper}
@@ -21,7 +23,7 @@ export default class Asserted<
      */
     constructor(
         subject : ValidatableType,
-        public error : (result:ValidatableType)=>Error = ThrowableValid
+        public error : (result:ValidatableType)=>Error = InvalidStringMessage
     ) {
 
         super(subject);

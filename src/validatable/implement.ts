@@ -1,6 +1,9 @@
 import ValidatableI from "./validatable";
 import Replace from "./replace";
 
+/**
+ * @deprecated
+ */
 type Implement<
     Type,
     Argument,

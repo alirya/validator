@@ -1,5 +1,4 @@
-import AmbiguousInterface from "./validatable/ambiguous";
-import Replace from "./validatable/replace";
+import Unambiguous from "./validatable/unambiguous";
 import Validatable from "./validatable/validatable";
 /**
  * {@template Base} type which can be handled by implementation
@@ -9,15 +8,5 @@ import Validatable from "./validatable/validatable";
  * {@template Match} result to be used for {@template Match} or if {@template Argument} extends {@template Match}
  * {@template ValidatableType} return value for {@see Validator.validate}
  */
-export default interface Validator<Base = unknown, Type extends Base = Base, Ambiguous extends boolean = boolean, Match extends boolean = boolean, ValidatableType extends Validatable<Base> = Validatable<Base>> {
-    /**
-     * {@param value}
-     *
-     * @return
-     * {@link Value} contain {@param value}
-     * {@link Validatable.valid} to determine {@param value} validity
-     * {@link Message} explanation in human readable
-     */
-    validate<Argument extends Type>(value: Argument): Replace<Argument, Match, ValidatableType>;
-    validate<Argument extends Base>(value: Argument): AmbiguousInterface<Base, Argument, Type, Ambiguous, Match, ValidatableType>;
-}
+declare type Validator<Base = any, Type extends Base = Base, Ambiguous extends boolean = boolean, Match extends boolean = boolean, ValidatableType extends Validatable<Base> = Validatable<Base>> = <Argument extends Base, TypeArgument extends Type>(value: Argument | TypeArgument) => Unambiguous<Base, Argument, TypeArgument, Ambiguous, Match, ValidatableType>;
+export default Validator;

@@ -1,1 +1,0 @@
-{"version":3,"file":"wrapper.js","sourceRoot":"","sources":["../src/wrapper.ts"],"names":[],"mappings":"AAWA;;GAEG;AACH,MAAM,CAAC,OAAO,OAAO,OAAO;IAMxB,YACW,SAAyB;QAAzB,cAAS,GAAT,SAAS,CAAgB;IAEpC,CAAC;IAMD,QAAQ,CAA4C,KAAgB;QAChE,OAAQ,IAAI,CAAC,SAAS,CAAC,QAAQ,CAAC,KAAK,CAAC,CAAC;IAC3C,CAAC;CACJ"}

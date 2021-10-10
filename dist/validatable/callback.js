@@ -1,31 +1,27 @@
-var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, privateMap, value) {
-    if (!privateMap.has(receiver)) {
-        throw new TypeError("attempted to set private field on non-instance");
-    }
-    privateMap.set(receiver, value);
-    return value;
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, privateMap) {
-    if (!privateMap.has(receiver)) {
-        throw new TypeError("attempted to get private field on non-instance");
-    }
-    return privateMap.get(receiver);
-};
-var _message;
-import MemoizeGetter from "@dikac/t-object/value/value/set-getter";
+import MemoizeAccessor from "@dikac/t-object/function/memoize-accessor";
 export default class Callback {
-    constructor(value, validation, message) {
+    constructor(value, validation, messageFactory) {
         this.value = value;
         this.validation = validation;
-        _message.set(this, void 0);
-        __classPrivateFieldSet(this, _message, message);
+        this.messageFactory = messageFactory;
     }
     get valid() {
-        return MemoizeGetter(this, 'valid', this.validation(this.value));
+        return this.validation(this.value);
     }
     get message() {
-        return MemoizeGetter(this, 'message', __classPrivateFieldGet(this, _message).call(this, this));
+        return this.messageFactory(this);
     }
 }
-_message = new WeakMap();
+__decorate([
+    MemoizeAccessor()
+], Callback.prototype, "valid", null);
+__decorate([
+    MemoizeAccessor()
+], Callback.prototype, "message", null);
 //# sourceMappingURL=callback.js.map

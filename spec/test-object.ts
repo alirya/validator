@@ -1,19 +1,35 @@
-import ValidatorSimple from "../dist/simple";
+import Validator  from "../dist/validator";
+import ValidatorSimple  from "../dist/simple";
 import Validatable from "../dist/validatable/validatable";
 import ReturnSimple from "../dist/validatable/simple";
 
-export default class TestObject implements ValidatorSimple<unknown, object, Validatable<unknown, string>> {
+export default function TestObject()  : ValidatorSimple<unknown, object, Validatable<unknown, string>> {
 
-    validate<Argument extends object>(value: Argument): Validatable<Argument, string, true>
-    validate<Argument extends unknown>(value: Argument): ReturnSimple<unknown, Argument, object, Validatable<unknown, string>>
-    validate<Argument extends unknown>(value: Argument)/*: ReturnSimple<unknown, Argument, object, Instance<unknown, string>> | Instance<Argument, object, true>*/
-    {
+    return function<Argument>(value : Argument) {
 
         return <ReturnSimple<unknown, Argument, object, Validatable<unknown, string>>> {
-            valid : typeof value === "string",
+            valid : typeof value === "object",
             value : value,
             message : 'message'
         }
-    }
 
+    } as ValidatorSimple<unknown, object, Validatable<unknown, string>>
+}
+
+const test : Validator<unknown, object, false, true> = TestObject();
+
+
+const result = test(1);
+
+if(result.valid) {
+
+    const object : object = result.value;
+    // @ts-expect-error
+    const number : number = result.value;
+
+} else {
+
+    // @ts-expect-error
+    const object : object = result.value;
+    const number : number = result.value;
 }

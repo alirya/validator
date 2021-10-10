@@ -1,5 +1,5 @@
 import ReadonlyWrapper from "./readonly-wrapper";
-import ThrowableValid from "./throwable/valid";
+import InvalidStringMessage from "./error/invalid-string-message";
 /**
  * @inheritDoc {@link ReadonlyWrapper}
  *
@@ -11,7 +11,7 @@ export default class Asserted extends ReadonlyWrapper {
      * @param subject
      * @param error
      */
-    constructor(subject, error = ThrowableValid) {
+    constructor(subject, error = InvalidStringMessage) {
         super(subject);
         this.error = error;
     }

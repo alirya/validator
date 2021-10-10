@@ -2,7 +2,7 @@ import Value from "@dikac/t-value/value";
 import Validatable from "@dikac/t-validatable/validatable";
 import Message from "@dikac/t-message/message";
 import Validation from "../boolean/validation/validation";
-import MemoizeGetter from "@dikac/t-object/value/value/set-getter";
+import MemoizeAccessor from "@dikac/t-object/function/memoize-accessor";
 
 export default class Callback<
     ValueType = unknown,
@@ -15,23 +15,23 @@ export default class Callback<
     Readonly<Validation<(value:ValueType)=>boolean>>
 {
 
-    #message : (result:Readonly<Value<ValueType> & Validatable<boolean>>)=> MessageType;
-
     constructor(
         readonly value : Type,
         readonly validation : (value:ValueType)=>boolean,
-        message : (result:Readonly<Value<ValueType> & Validatable<boolean>>)=> MessageType,
+        readonly messageFactory : (result:Readonly<Value<ValueType> & Validatable<boolean>>)=> MessageType,
     ) {
-        this.#message = message;
+
     }
 
+    @MemoizeAccessor()
     get valid() {
 
-        return MemoizeGetter(this, 'valid', this.validation(this.value));
+        return this.validation(this.value);
     }
 
+    @MemoizeAccessor()
     get message() {
 
-        return MemoizeGetter(this, 'message', this.#message(this));
+        return this.messageFactory(this);
     }
 }
