@@ -1,7 +1,7 @@
 import Simple from "./simple";
 import SimpleReturn from "./validatable/simple";
 import Validatable from "./validatable/validatable";
-import ValidationCallback from "./validatable/callback-function";
+import ValidationCallback from "./validatable/callback";
 
 /**
  * create {@see Validator} from multiple callback

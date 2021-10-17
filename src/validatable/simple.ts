@@ -1,18 +1,18 @@
-import Validatable from "./validatable";
+import ValidatableType from "./validatable";
 import Unambiguous from "./unambiguous";
 
 type Simple<
-    Base = unknown,
-    Argument extends Base = Base,
-    Type extends Base = Base,
-    ValidatableType extends Validatable<Base> = Validatable<Base>
+    Allow = unknown,
+    Argument extends Allow = Allow,
+    Expectation extends Allow = Allow,
+    Validatable extends ValidatableType<Allow> = ValidatableType<Allow>
 > = Unambiguous<
-    Base,
+    Allow,
     Argument,
-    Type,
+    Expectation,
     false,
     true,
-    ValidatableType
+    Validatable
 >;
 
 export default Simple;

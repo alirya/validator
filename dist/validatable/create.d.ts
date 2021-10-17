@@ -1,2 +1,2 @@
 import Validatable from "./validatable";
-export default function Create<ValueT, Valid extends boolean, MessageT>(value: ValueT, valid: Valid, message: MessageT): Validatable<ValueT, MessageT, Valid>;
+export default function Create<Value, Valid extends boolean, Message>(value: Value, valid: Valid, message: Message): Validatable<Value, Message, Valid>;

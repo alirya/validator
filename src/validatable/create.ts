@@ -1,14 +1,14 @@
 import Validatable from "./validatable";
 
 export default function Create<
-    ValueT,
+    Value,
     Valid extends boolean,
-    MessageT
+    Message
 >(
-    value : ValueT,
+    value : Value,
     valid : Valid,
-    message : MessageT
-) : Validatable<ValueT, MessageT, Valid> {
+    message : Message
+) : Validatable<Value, Message, Valid> {
 
     return {
         message : message,

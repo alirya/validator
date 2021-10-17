@@ -1,9 +1,8 @@
-import Wrapper from "../../dist/validatable/readonly-wrapper";
-import WrapperMerge from "../../dist/validatable/readonly-merge";
+import Wrapper from "../../../dist/validatable/readonly-wrapper";
+import WrapperMerge from "../../../dist/validatable/readonly-merge";
 import Validatable from "@dikac/t-validatable/validatable";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
-
 
 describe('construct', function () {
 

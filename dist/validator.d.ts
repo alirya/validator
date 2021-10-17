@@ -1,12 +1,17 @@
 import Unambiguous from "./validatable/unambiguous";
-import Validatable from "./validatable/validatable";
+import ValidatableType from "./validatable/validatable";
 /**
- * {@template Base} type which can be handled by implementation
- * {@template Type} valid value type
+ * {@template Allow} type which can be handled by implementation
  *
- * {@template Ambiguous} result to be used for {@template Base} or if {@template Argument} extends {@template Base}
- * {@template Match} result to be used for {@template Match} or if {@template Argument} extends {@template Match}
- * {@template ValidatableType} return value for {@see Validator.validate}
+ * {@template Expectation} desired value type
+ *
+ * {@template Allowed} result to be used for matching {@template Allow} or
+ * for {@template AllowArgument} if extends {@template Allow}
+ *
+ * {@template Expected} result to be used for matching {@template Expectation} or
+ * for {@template ExpectedArgument} if extends {@template Expectation}
+ *
+ * {@template ValidatableType} return value for {@see Validator} callback
  */
-declare type Validator<Base = any, Type extends Base = Base, Ambiguous extends boolean = boolean, Match extends boolean = boolean, ValidatableType extends Validatable<Base> = Validatable<Base>> = <Argument extends Base, TypeArgument extends Type>(value: Argument | TypeArgument) => Unambiguous<Base, Argument, TypeArgument, Ambiguous, Match, ValidatableType>;
+declare type Validator<Allow = any, Expectation extends Allow = Allow, Allowed extends boolean = boolean, Expected extends boolean = boolean, Validatable extends ValidatableType<Allow> = ValidatableType<Allow>> = <AllowArgument extends Allow, ExpectedArgument extends Expectation>(value: AllowArgument | ExpectedArgument) => Unambiguous<Allow, AllowArgument, ExpectedArgument, Allowed, Expected, Validatable>;
 export default Validator;

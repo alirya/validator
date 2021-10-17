@@ -1,17 +1,17 @@
 import ReplaceValue from "@dikac/t-value/value/replace";
-import ValidatableI from "./validatable";
+import ValidatableType from "./validatable";
 import ReplaceValidatable from "@dikac/t-validatable/boolean/replace";
 
 type Unambiguous<
-    Base = unknown,
-    Argument extends Base = Base,
-    Type extends Base = Base,
-    Ambiguous extends boolean = boolean,
-    Match extends boolean = boolean,
-    Validatable extends ValidatableI<Base> = ValidatableI<Base>
+    Allow = unknown,
+    Argument extends Allow = Allow,
+    Expectation extends Allow = Allow,
+    Allowed extends boolean = boolean,
+    Expected extends boolean = boolean,
+    Validatable extends ValidatableType<Allow> = ValidatableType<Allow>
 > =
-     ReplaceValue<ReplaceValidatable<Validatable, Ambiguous>, Argument> |
-     ReplaceValue<ReplaceValidatable<Validatable, Match>, Type>
+     ReplaceValue<ReplaceValidatable<Validatable, Allowed>, Argument> |
+     ReplaceValue<ReplaceValidatable<Validatable, Expected>, Expectation>
 ;
 
 export default Unambiguous;

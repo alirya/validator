@@ -1,0 +1,1 @@
+{"version":3,"file":"callback-from-object.js","sourceRoot":"","sources":["../../src/validatable/callback-from-object.ts"],"names":[],"mappings":"AAKA,OAAO,aAAa,MAAM,kBAAkB,CAAC;AAyB7C,MAAM,CAAC,OAAO,UAAU,kBAAkB,CAItC,MAAgI;IAGhI,OAAO,IAAI,aAAa,CAAC,MAAM,CAAC,KAAK,EAAE,MAAM,CAAC,UAAU,EAAE,MAAM,CAAC,OAAO,CAAC,CAAC;AAC9E,CAAC"}

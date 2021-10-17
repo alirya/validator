@@ -1,4 +1,4 @@
-import ValidationCallback from "./validatable/callback-function";
+import ValidationCallback from "./validatable/callback";
 export default function Callback(validation, message) {
     return function (value) {
         return ValidationCallback(value, validation, message);

@@ -1,6 +1,6 @@
 import IsObject from "@dikac/t-object/boolean/object";
-import Asserted from "../../dist/validatable/asserted";
-import CallbackFunction from "../../dist/validatable/callback-function";
+import Asserted from "../../../dist/validatable/asserted";
+import CallbackFunction from "../../../dist/validatable/callback";
 import Validatable from "@dikac/t-validatable/validatable";
 import Value from "@dikac/t-value/value";
 
@@ -11,7 +11,6 @@ function TestMessage (value : Validatable & Value) {
 }
 
 describe('invalid', function () {
-
 
     let subject = CallbackFunction(1, IsObject, TestMessage);
     let callback = new Asserted(subject);

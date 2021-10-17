@@ -5,7 +5,6 @@ import Valid from "../../../../dist/validatable/assert/valid";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 
-
 describe('compiler compatible', ()=>{
 
     let argument : Validatable & Value & Message = {
