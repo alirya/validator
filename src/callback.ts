@@ -21,6 +21,15 @@ export default function Callback<
 >(
     validation : <Argument extends Base>(argument:Base) => boolean,
     message : <Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Validatable<Base, MessageType>>>, 'message'>) => MessageType,
+) : Simple<Base, Type, Readonly<Validatable<Base, MessageType>>>;
+
+export default function Callback<
+    Base = unknown,
+    Type extends Base = Base,
+    MessageType = unknown,
+>(
+    validation : <Argument extends Base>(argument:Base) => boolean,
+    message : <Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Validatable<Base, MessageType>>>, 'message'>) => MessageType,
 ) : Simple<Base, Type, Readonly<Validatable<Base, MessageType>>> {
 
     return function <Argument extends Base>(value) {
