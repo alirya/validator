@@ -1,1 +1,0 @@
-{"version":3,"file":"readonly.js","sourceRoot":"","sources":["../../src/validatable/readonly.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,OAAO,UAAU,QAAQ,CAK5B,KAAiB,EACjB,KAAiB,EACjB,OAAqB;IAGrB,OAAO;QACH,IAAI,KAAK;YACL,OAAO,KAAK,CAAC;QACjB,CAAC;QACD,IAAI,KAAK;YACL,OAAO,KAAK,CAAC;QACjB,CAAC;QACD,IAAI,OAAO;YACP,OAAO,OAAO,CAAC;QACnB,CAAC;KACJ,CAAA;AACL,CAAC"}

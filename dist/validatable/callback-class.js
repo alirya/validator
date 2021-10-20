@@ -6,10 +6,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import MemoizeAccessor from "@dikac/t-object/function/memoize-accessor";
 export default class CallbackClass {
-    constructor(value, validation, messageFactory) {
+    constructor({ value, validation, message, }) {
         this.value = value;
         this.validation = validation;
-        this.messageFactory = messageFactory;
+        this.messageFactory = message;
     }
     get valid() {
         return this.validation(this.value);

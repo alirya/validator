@@ -8,18 +8,18 @@ import InvalidStringMessage from "./error/invalid-string-message";
  */
 export default class Asserted extends ReadonlyWrapper {
     /**
-     * @param subject
+     * @param validatable
      * @param error
      */
-    constructor(subject, error = InvalidStringMessage) {
-        super(subject);
+    constructor(validatable, error = InvalidStringMessage) {
+        super(validatable);
         this.error = error;
     }
     get value() {
         if (!this.valid) {
-            throw this.error(this.subject);
+            throw this.error(this);
         }
-        return this.subject.value;
+        return this.validatable.value;
     }
 }
 //# sourceMappingURL=asserted.js.map

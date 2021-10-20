@@ -3,6 +3,7 @@ import ReadonlyWrapper from "./readonly-wrapper";
 import Validatable from "./validatable";
 import InvalidStringMessage from "./error/invalid-string-message";
 import Value from "@dikac/t-value/value";
+import ValidatableContainer from "@dikac/t-validatable/validatable/validatable";
 
 type KeepImport = Value;
 
@@ -18,24 +19,24 @@ export default class Asserted<
     ValidatableType
 > {
     /**
-     * @param subject
+     * @param validatable
      * @param error
      */
     constructor(
-        subject : ValidatableType,
-        public error : (result:ValidatableType)=>Error = InvalidStringMessage
+        validatable : ValidatableType,
+        public error : (validatable: ValidatableContainer<ValidatableType>)=>Error = InvalidStringMessage
     ) {
 
-        super(subject);
+        super(validatable);
     }
 
     get value() : ValueInfer<ValidatableType> {
 
         if(!this.valid) {
 
-            throw this.error(this.subject);
+            throw this.error(this);
         }
 
-        return <ValueInfer<ValidatableType>> this.subject.value;
+        return <ValueInfer<ValidatableType>> this.validatable.value;
     }
 }

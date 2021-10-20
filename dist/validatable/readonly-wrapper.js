@@ -2,17 +2,17 @@
  * read only wrapper for {@link Message}, {@link Value} and {@link ValidatableInterface}
  */
 export default class ReadonlyWrapper {
-    constructor(subject) {
-        this.subject = subject;
+    constructor(validatable) {
+        this.validatable = validatable;
     }
     get valid() {
-        return this.subject.valid;
+        return this.validatable.valid;
     }
     get message() {
-        return this.subject.message;
+        return this.validatable.message;
     }
     get value() {
-        return this.subject.value;
+        return this.validatable.value;
     }
 }
 //# sourceMappingURL=readonly-wrapper.js.map

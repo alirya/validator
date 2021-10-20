@@ -1,6 +1,7 @@
 import ValueInfer from "@dikac/t-value/value/infer";
 import ReadonlyWrapper from "./readonly-wrapper";
 import Validatable from "./validatable";
+import ValidatableContainer from "@dikac/t-validatable/validatable/validatable";
 /**
  * @inheritDoc {@link ReadonlyWrapper}
  *
@@ -8,11 +9,11 @@ import Validatable from "./validatable";
  * accessing value {@link Value}
  */
 export default class Asserted<ValidatableType extends Validatable = Validatable> extends ReadonlyWrapper<ValidatableType> {
-    error: (result: ValidatableType) => Error;
+    error: (validatable: ValidatableContainer<ValidatableType>) => Error;
     /**
-     * @param subject
+     * @param validatable
      * @param error
      */
-    constructor(subject: ValidatableType, error?: (result: ValidatableType) => Error);
+    constructor(validatable: ValidatableType, error?: (validatable: ValidatableContainer<ValidatableType>) => Error);
     get value(): ValueInfer<ValidatableType>;
 }

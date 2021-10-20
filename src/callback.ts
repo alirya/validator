@@ -34,7 +34,7 @@ export default function Callback<
 
     return function <Argument extends Base>(value) {
 
-        return ValidationCallback(value, validation, message);
+        return ValidationCallback({value, validation, message});
 
     } as Simple<Base, Type, Readonly<Validatable<Base, MessageType>>>
 }

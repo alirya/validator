@@ -8,28 +8,28 @@ import InferValidatable from "@dikac/t-validatable/boolean/infer";
  */
 
 export default class ReadonlyWrapper<
-    Subject extends Validatable
+    ValidatableType extends Validatable
 > implements
     Readonly<Validatable<
-        InferValue<Subject>,
-        InferMessage<Subject>,
-        InferValidatable<Subject>
+        InferValue<ValidatableType>,
+        InferMessage<ValidatableType>,
+        InferValidatable<ValidatableType>
     >> {
 
-    constructor(protected subject : Subject) {}
+    constructor(public validatable : ValidatableType) {}
 
-    get valid() : InferValidatable<Subject> {
+    get valid() : InferValidatable<ValidatableType> {
 
-        return <InferValidatable<Subject>> this.subject.valid;
+        return <InferValidatable<ValidatableType>> this.validatable.valid;
     }
 
-    get message() : InferMessage<Subject> {
+    get message() : InferMessage<ValidatableType> {
 
-        return <InferMessage<Subject>> this.subject.message;
+        return <InferMessage<ValidatableType>> this.validatable.message;
     }
 
-    get value() : InferValue<Subject> {
+    get value() : InferValue<ValidatableType> {
 
-        return <InferValue<Subject>> this.subject.value;
+        return <InferValue<ValidatableType>> this.validatable.value;
     }
 }
