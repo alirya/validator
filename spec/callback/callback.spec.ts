@@ -4,7 +4,7 @@ import MessageString from "@dikac/t-string/assert/string/string";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
-let callback = Callback<unknown, string, string>(
+let callback = Callback.Parameter<unknown, string, string>(
     String,
     (result) : string => MessageString(result.valid, result.value)
 );

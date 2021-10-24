@@ -15,7 +15,7 @@ type KeepImport = Value;
  */
 export default class Asserted<
     ValidatableType extends Validatable = Validatable
-> extends ReadonlyWrapper<
+> extends ReadonlyWrapper.Object<
     ValidatableType
 > {
     /**
@@ -24,7 +24,7 @@ export default class Asserted<
      */
     constructor(
         validatable : ValidatableType,
-        public error : (validatable: ValidatableContainer<ValidatableType>)=>Error = InvalidStringMessage
+        public error : (validatable: ValidatableContainer<ValidatableType>)=>Error = InvalidStringMessage.Object
     ) {
 
         super(validatable);

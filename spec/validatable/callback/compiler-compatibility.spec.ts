@@ -4,46 +4,51 @@ import TestMessage from "./test-message";
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 
 
+describe('function', function () {
 
-describe('guard', function () {
+    describe('parameter', function () {
 
-    let wrapper = CallbackFunction({}, (v:unknown) : v is string => true, TestMessage);
+        describe('guard', function () {
 
-    if(wrapper.valid) {
+            let wrapper = CallbackFunction.Function.Parameter({}, (v:unknown) : v is string => true, TestMessage);
 
-        let string : string = wrapper.value;
-        let valid : boolean = wrapper.valid;
-        let message : string = wrapper.message;
+            if(wrapper.valid) {
 
-    } else {
+                let string : string = wrapper.value;
+                let valid : boolean = wrapper.valid;
+                let message : string = wrapper.message;
 
-        // @ts-ignore
-        let string : string = wrapper.value;
-        let valid : boolean = wrapper.valid;
-        let message : string = wrapper.message;
+            } else {
 
-    }
+                // @ts-ignore
+                let string : string = wrapper.value;
+                let valid : boolean = wrapper.valid;
+                let message : string = wrapper.message;
 
-});
+            }
 
-describe('validate', function () {
+        });
 
-    let v = 12;
-    let wrapper = CallbackFunction(v, (v: unknown) : boolean => true, TestMessage);
+        describe('validation', function () {
 
-    if(wrapper.valid) {
+            let v = 12;
+            let wrapper = new CallbackFunction.Parameter(v, (v: unknown) : boolean => true, TestMessage);
 
-        let string : number = wrapper.value;
-        let valid : boolean = wrapper.valid;
-        let message : string = wrapper.message;
+            if(wrapper.valid) {
 
-    } else {
+                let string : number = wrapper.value;
+                let valid : boolean = wrapper.valid;
+                let message : string = wrapper.message;
 
-        // @ts-ignore
-        let string : number = wrapper.value;
-        let valid : boolean = wrapper.valid;
-        let message : string = wrapper.message;
+            } else {
 
-    }
+                // @ts-ignore
+                let string : number = wrapper.value;
+                let valid : boolean = wrapper.valid;
+                let message : string = wrapper.message;
 
+            }
+
+        });
+    });
 });

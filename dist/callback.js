@@ -1,7 +1,19 @@
 import ValidationCallback from "./validatable/callback";
-export default function Callback(validation, message) {
+/**
+ * create {@see Validator} from multiple callback
+ */
+export default Callback;
+var Callback;
+(function (Callback) {
+    Callback.Object = CallbackObject;
+    Callback.Parameter = CallbackParameter;
+})(Callback || (Callback = {}));
+export function CallbackObject({ validation, message }) {
+    return CallbackParameter(validation, message);
+}
+export function CallbackParameter(validation, message) {
     return function (value) {
-        return ValidationCallback({ value, validation, message });
+        return new ValidationCallback.Parameter(value, validation, message);
     };
 }
 //# sourceMappingURL=callback.js.map

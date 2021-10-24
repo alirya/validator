@@ -3,29 +3,27 @@ import TestMessage from "./test-message";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 
-describe('construct', function () {
+describe('class', function () {
 
-    it("data", () => {
+    describe('parameter', function () {
 
-        let wrapper = CallbackFunction({}, (v)=>typeof v === "object", TestMessage);
+        it("valid", () => {
 
-        expect(wrapper.valid).toBeTrue()
-        expect(wrapper.value).toEqual({})
-        expect(wrapper.message).toBe('type:object, valid:true')
+            let wrapper = new CallbackFunction.Parameter({}, (v)=>typeof v === "object", TestMessage);
+
+            expect(wrapper.valid).toBeTrue()
+            expect(wrapper.value).toEqual({})
+            expect(wrapper.message).toBe('type:object, valid:true')
+        });
+
+        it("invalid", () => {
+
+            let wrapper = new CallbackFunction.Parameter('str', (v)=>typeof v === "object", TestMessage);
+
+            expect(wrapper.valid).toBeFalse()
+            expect(wrapper.value).toBe('str')
+            expect(wrapper.message).toBe('type:string, valid:false')
+        });
+
     });
-
-});
-
-
-describe('set', function () {
-
-    it("data", () => {
-
-        let wrapper = CallbackFunction('str', (v)=>typeof v === "object", TestMessage);
-
-        expect(wrapper.valid).toBeFalse()
-        expect(wrapper.value).toBe('str')
-        expect(wrapper.message).toBe('type:string, valid:false')
-    });
-
 });

@@ -12,7 +12,7 @@ function TestMessage (value : Validatable & Value) {
 
 describe('invalid', function () {
 
-    let subject = CallbackFunction(1, IsObject, TestMessage);
+    let subject = new CallbackFunction.Parameter(1, IsObject, TestMessage);
     let callback = new Asserted(subject);
 
     it("check value", () => {
@@ -35,7 +35,7 @@ describe('invalid', function () {
 
 describe('valid', function () {
 
-    let subject = CallbackFunction({}, IsObject, TestMessage);
+    let subject = new CallbackFunction.Parameter({}, IsObject, TestMessage);
     let callback = new Asserted(subject);
 
     it("check value", () => {

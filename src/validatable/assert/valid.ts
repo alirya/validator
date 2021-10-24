@@ -9,7 +9,7 @@ export default function Valid<
     Argument extends Validatable = Validatable,
 >(
     value : Argument,
-    error : (validatable:Argument)=>Error = (validatable)=>InvalidStringMessage({validatable})
+    error : (validatable:Argument)=>Error = InvalidStringMessage.Parameter
 ) : asserts value is Argument {
 
     if(!value.valid) {
