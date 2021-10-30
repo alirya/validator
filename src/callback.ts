@@ -100,7 +100,7 @@ export function CallbackParameter<
 
     return function (value) {
 
-        return new ValidationCallback.Parameter(value, validation, message);
+        return new ValidationCallback.Class.Parameter(value, validation, message);
 
     } as Simple<Base, Type, Readonly<Validatable<Base, MessageType>>>
 }

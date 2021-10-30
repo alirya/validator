@@ -13,7 +13,7 @@ export function CallbackObject({ validation, message }) {
 }
 export function CallbackParameter(validation, message) {
     return function (value) {
-        return new ValidationCallback.Parameter(value, validation, message);
+        return new ValidationCallback.Class.Parameter(value, validation, message);
     };
 }
 //# sourceMappingURL=callback.js.map

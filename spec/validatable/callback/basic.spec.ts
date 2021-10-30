@@ -9,7 +9,7 @@ describe('class', function () {
 
         it("valid", () => {
 
-            let wrapper = new CallbackFunction.Parameter({}, (v)=>typeof v === "object", TestMessage);
+            let wrapper = new CallbackFunction.Class.Parameter({}, (v)=>typeof v === "object", TestMessage);
 
             expect(wrapper.valid).toBeTrue()
             expect(wrapper.value).toEqual({})
@@ -18,7 +18,7 @@ describe('class', function () {
 
         it("invalid", () => {
 
-            let wrapper = new CallbackFunction.Parameter('str', (v)=>typeof v === "object", TestMessage);
+            let wrapper = new CallbackFunction.Class.Parameter('str', (v)=>typeof v === "object", TestMessage);
 
             expect(wrapper.valid).toBeFalse()
             expect(wrapper.value).toBe('str')

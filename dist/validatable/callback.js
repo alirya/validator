@@ -61,8 +61,11 @@ export class CallbackObject extends CallbackParameter {
  */
 var Callback;
 (function (Callback) {
-    Callback.Parameter = CallbackParameter;
-    Callback.Object = CallbackObject;
+    let Class;
+    (function (Class) {
+        Class.Parameter = CallbackParameter;
+        Class.Object = CallbackObject;
+    })(Class = Callback.Class || (Callback.Class = {}));
     let Function;
     (function (Function) {
         Function.Parameter = CallbackFunctionParameter;

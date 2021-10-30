@@ -24,9 +24,7 @@ export interface CallbackType<ValueType = unknown, Type extends ValueType = Valu
 /**
  * class object argument
  */
-export declare type CallbackArgument<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = Readonly<Value<Type> & {
-    validation: (value: ValueType) => boolean;
-} & Message<(result: Readonly<Value<ValueType> & BaseValidatable<boolean>>) => MessageType>>;
+export declare type CallbackArgument<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackFunctionArgumentValidation<ValueType, Type, MessageType>;
 /**
  * main implementation
  *
@@ -59,20 +57,24 @@ export declare class CallbackObject<ValueType = unknown, Type extends ValueType 
  * namespace aliases
  */
 declare namespace Callback {
-    const Parameter: typeof CallbackParameter;
-    const Object: typeof CallbackObject;
-    type Type<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackType<ValueType, Type, MessageType>;
-    type Argument<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackArgument<ValueType, Type, MessageType>;
+    namespace Class {
+        const Parameter: typeof CallbackParameter;
+        const Object: typeof CallbackObject;
+        type Type<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackType<ValueType, Type, MessageType>;
+        type Argument<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackArgument<ValueType, Type, MessageType>;
+    }
     namespace Function {
         const Parameter: typeof CallbackFunctionParameter;
         const Object: typeof CallbackFunctionObject;
         type Type<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackFunctionType<ValueType, Type, MessageType>;
-        type Argument<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackFunctionArgument<ValueType, Type, MessageType>;
+        type ArgumentGuard<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackFunctionArgumentGuard<ValueType, Type, MessageType>;
+        type ArgumentValidation<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackFunctionArgumentValidation<ValueType, Type, MessageType>;
     }
 }
-export declare type CallbackFunctionArgument<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = Value<ValueType> & Message<(result: Readonly<StrictOmit<Validatable<ValueType>, 'message'>>) => MessageType>;
+export declare type CallbackFunctionArgumentGuard<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = Value<Type> & Guard<ValueType, Type> & Message<(result: Readonly<StrictOmit<Validatable<ValueType>, 'message'>>) => MessageType>;
+export declare type CallbackFunctionArgumentValidation<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = Value<Type> & Validation<[ValueType], boolean> & Message<(result: Readonly<StrictOmit<Validatable<ValueType>, 'message'>>) => MessageType>;
 export declare type CallbackFunctionType<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = Return<ValueType, ValueType, Type, Readonly<Value<ValueType> & BaseValidatable & Message<MessageType>>>;
-export declare function CallbackFunctionObject<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown>({ value, validation, message }: CallbackFunctionArgument<ValueType, Type, MessageType> & Guard<ValueType, Type>): CallbackFunctionType<ValueType, Type, MessageType>;
-export declare function CallbackFunctionObject<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown>({ value, validation, message }: CallbackFunctionArgument<ValueType, Type, MessageType> & Validation<[ValueType], boolean>): CallbackFunctionType<ValueType, Type, MessageType>;
+export declare function CallbackFunctionObject<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown>({ value, validation, message }: CallbackFunctionArgumentGuard<ValueType, Type, MessageType>): CallbackFunctionType<ValueType, Type, MessageType>;
+export declare function CallbackFunctionObject<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown>({ value, validation, message }: CallbackFunctionArgumentValidation<ValueType, Type, MessageType>): CallbackFunctionType<ValueType, Type, MessageType>;
 export declare function CallbackFunctionParameter<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown>(value: ValueType, validation: (value: ValueType) => value is Type, message: (result: Readonly<StrictOmit<Validatable<ValueType>, 'message'>>) => MessageType): CallbackFunctionType<ValueType, Type, MessageType>;
 export declare function CallbackFunctionParameter<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown>(value: Type, validation: (value: ValueType) => boolean, message: (result: Readonly<StrictOmit<Validatable<ValueType>, 'message'>>) => MessageType): CallbackFunctionType<ValueType, Type, MessageType>;

@@ -32,7 +32,7 @@ describe('function', function () {
         describe('validation', function () {
 
             let v = 12;
-            let wrapper = new CallbackFunction.Parameter(v, (v: unknown) : boolean => true, TestMessage);
+            let wrapper = new CallbackFunction.Class.Parameter(v, (v: unknown) : boolean => true, TestMessage);
 
             if(wrapper.valid) {
 
