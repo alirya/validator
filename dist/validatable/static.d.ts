@@ -1,4 +1,4 @@
-import ValidatableTypes from "@dikac/t-validatable/validatable";
-import Value from "@dikac/t-value/value";
-declare type Static<Allow = unknown, Argument extends Allow = Allow, Expectation extends Allow = Allow, Allowed extends boolean = boolean, Expected extends boolean = boolean, Validatable extends {} = {}> = ValidatableTypes<Allowed> & Value<Argument> & Omit<Validatable, 'value' | 'valid'> | ValidatableTypes<Expected> & Value<Expectation> & Omit<Validatable, 'value' | 'valid'>;
+import ValidatableType from "./dynamic";
+import StaticValue from "../value/static";
+declare type Static<Allow = unknown, Argument extends Allow = Allow, Expectation extends Allow = Allow, Allowed extends boolean = boolean, Expected extends boolean = boolean, Validatable extends ValidatableType<Allow> = ValidatableType<Allow>> = StaticValue<Allow, Argument, Expectation, Allowed, Expected, Validatable>;
 export default Static;

@@ -1,7 +1,5 @@
-import Message from "@dikac/t-message/message";
 import Value from "@dikac/t-value/value";
-import ValidatableInterface from "@dikac/t-validatable/validatable";
-import DynamicValue from "../value/dynamic";
+import Validatable from "@dikac/t-validatable/validatable";
 
 /**
  * extended {@see ValidatableInterface} with added {@see Message}
@@ -9,8 +7,8 @@ import DynamicValue from "../value/dynamic";
  */
 type Dynamic<
     Base = unknown,
-    MessageType = unknown,
     Boolean extends boolean = boolean
-> = Message<MessageType> & DynamicValue<Base, Boolean>;
+> = Value<Base> &
+    Validatable<Boolean>;
 
 export default Dynamic;

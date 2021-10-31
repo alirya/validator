@@ -1,18 +1,12 @@
 import ValidatableType from "./dynamic";
 import Static from "./static";
+import SimpleValue from "../value/simple";
 
 type Simple<
     Allow = unknown,
     Argument extends Allow = Allow,
     Expectation extends Allow = Allow,
     Validatable extends ValidatableType<Allow> = ValidatableType<Allow>
-> = Static<
-    Allow,
-    Argument,
-    Expectation,
-    false,
-    true,
-    Validatable
->;
+> = SimpleValue<Allow, Argument, Expectation, Validatable>;
 
 export default Simple;
