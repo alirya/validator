@@ -9,16 +9,6 @@ import Value from "@dikac/t-value/value";
 import ValidatableInterface from "@dikac/t-validatable/validatable";
 import {ReadonlyWrapperObject, ReadonlyWrapperParameter, ReadonlyWrapperType} from "../readonly-wrapper";
 
-export default InvalidStringMessage;
-namespace InvalidStringMessage {
-
-    export const Parameter = InvalidStringMessageParameter;
-    export const Object = InvalidStringMessageObject;
-    export type Argument<ValidatableType extends Validatable, Error extends globalThis.Error> =
-        InvalidStringMessageArgument<ValidatableType , Error>;
-}
-
-
 const defaultError = New(ValidatableInvalid.Parameter);
 
 /**
@@ -67,7 +57,6 @@ export function InvalidStringMessageObject<ValidatableType extends Validatable, 
     return InvalidStringMessageParameter(validatable, message, error);
 }
 
-
 export function InvalidStringMessageParameter<ValidatableType extends Validatable>(
     validatable: ValidatableType,
     message ?: (validatable: Infer<ValidatableType>) => string,
@@ -88,3 +77,12 @@ export function InvalidStringMessageParameter<ValidatableType extends Validatabl
     return error(validatable, message(validatable.message as Infer<ValidatableType>))
 }
 
+namespace InvalidStringMessage {
+
+    export const Parameter = InvalidStringMessageParameter;
+    export const Object = InvalidStringMessageObject;
+    export type Argument<ValidatableType extends Validatable, Error extends globalThis.Error> =
+        InvalidStringMessageArgument<ValidatableType , Error>;
+}
+
+export default InvalidStringMessage;

@@ -3,12 +3,6 @@ import Infer from "@dikac/t-message/message/infer";
 import Message from "@dikac/t-message/message";
 import ValidatableContainer from "@dikac/t-validatable/validatable/validatable";
 import StrictOmit from "@dikac/t-object/strict-omit";
-export default InvalidStringMessage;
-declare namespace InvalidStringMessage {
-    const Parameter: typeof InvalidStringMessageParameter;
-    const Object: typeof InvalidStringMessageObject;
-    type Argument<ValidatableType extends Validatable, Error extends globalThis.Error> = InvalidStringMessageArgument<ValidatableType, Error>;
-}
 /**
  * @param validatable
  *
@@ -28,3 +22,9 @@ export declare function InvalidStringMessageObject<ValidatableType extends Valid
 export declare function InvalidStringMessageObject<ValidatableType extends Validatable, Error extends globalThis.Error>({ validatable, message, error, }: InvalidStringMessageArgument<ValidatableType, Error>): Error;
 export declare function InvalidStringMessageParameter<ValidatableType extends Validatable>(validatable: ValidatableType, message?: (validatable: Infer<ValidatableType>) => string): globalThis.Error;
 export declare function InvalidStringMessageParameter<ValidatableType extends Validatable, Error extends globalThis.Error>(validatable: ValidatableType, message?: (validatable: Infer<ValidatableType>) => string, error?: (validatable: ValidatableType, message: string) => Error): Error;
+declare namespace InvalidStringMessage {
+    const Parameter: typeof InvalidStringMessageParameter;
+    const Object: typeof InvalidStringMessageObject;
+    type Argument<ValidatableType extends Validatable, Error extends globalThis.Error> = InvalidStringMessageArgument<ValidatableType, Error>;
+}
+export default InvalidStringMessage;

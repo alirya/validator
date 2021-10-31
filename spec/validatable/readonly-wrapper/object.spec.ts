@@ -28,9 +28,9 @@ describe('set', function () {
         let validatable =  {valid:true};
         let wrapper = new WrapperMerge.Object({...value, ...message, ...validatable});
 
-        value.value = 3;
-        validatable.valid = false;
-        message.message = 'message 2';
+        wrapper.validatable.value = 3;
+        wrapper.validatable.valid = false;
+        wrapper.validatable.message = 'message 2';
 
         expect(wrapper.message).toBe('message 2')
         expect(wrapper.valid).toBeFalse()

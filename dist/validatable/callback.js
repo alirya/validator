@@ -6,16 +6,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import MemoizeAccessor from "@dikac/t-object/function/memoize-accessor";
 /**
- * assemble {@see Validatable} from value,
- * callback validation, and callback message
- *
- * this contain multiple class and function implementation
- *
- * function implementation version offer
- * more accurate type
- */
-export default Callback;
-/**
  * main implementation
  *
  */
@@ -39,7 +29,7 @@ export class CallbackParameter {
         return this.validation(this.value);
     }
     get message() {
-        return this.messageFactory(this);
+        return this.messageFactory(this.value, this.valid);
     }
 }
 __decorate([
@@ -53,8 +43,20 @@ __decorate([
  */
 export class CallbackObject extends CallbackParameter {
     constructor({ value, validation, message, }) {
-        super(value, validation, message);
+        super(value, validation, () => message(this));
     }
+}
+/**
+ * destructure argument implementation for function
+ */
+export function CallbackFunctionObject(argument) {
+    return new CallbackObject(argument);
+}
+/**
+ * parameter argument implementation for function
+ */
+export function CallbackFunctionParameter(value, validation, message) {
+    return new CallbackParameter(value, validation, message);
 }
 /**
  * namespace aliases
@@ -72,16 +74,5 @@ var Callback;
         Function.Object = CallbackFunctionObject;
     })(Function = Callback.Function || (Callback.Function = {}));
 })(Callback || (Callback = {}));
-/**
- * destructure argument implementation for function
- */
-export function CallbackFunctionObject({ value, validation, message }) {
-    return new CallbackParameter(value, validation, message);
-}
-/**
- * parameter argument implementation for function
- */
-export function CallbackFunctionParameter(value, validation, message) {
-    return new CallbackParameter(value, validation, message);
-}
+export default Callback;
 //# sourceMappingURL=callback.js.map

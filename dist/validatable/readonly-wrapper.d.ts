@@ -8,7 +8,6 @@ import ValidatableInterface from "@dikac/t-validatable/validatable";
 /**
  * read only wrapper for {@link Message}, {@link Value} and {@link ValidatableInterface}
  */
-export default ReadonlyWrapper;
 export interface ReadonlyWrapperType<ValueType extends Value, MessageType extends Message, ValidatableType extends ValidatableInterface> extends Readonly<Validatable<InferValue<ValueType>, InferMessage<MessageType>, InferValidatable<ValidatableType>>> {
     readonly valueContainer: ValueType;
     readonly messageContainer: MessageType;
@@ -32,3 +31,4 @@ declare namespace ReadonlyWrapper {
     const Parameter: typeof ReadonlyWrapperParameter;
     const Object: typeof ReadonlyWrapperObject;
 }
+export default ReadonlyWrapper;

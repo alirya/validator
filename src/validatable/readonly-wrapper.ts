@@ -13,8 +13,6 @@ import Simple from "../simple";
  * read only wrapper for {@link Message}, {@link Value} and {@link ValidatableInterface}
  */
 
-export default ReadonlyWrapper;
-
 export interface ReadonlyWrapperType<
     ValueType extends Value,
     MessageType extends Message,
@@ -83,3 +81,5 @@ namespace ReadonlyWrapper {
     export const Object = ReadonlyWrapperObject;
 
 }
+
+export default ReadonlyWrapper;

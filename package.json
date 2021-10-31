@@ -1,6 +1,6 @@
 {
   "name": "@dikac/t-validator",
-  "version": "0.19.0-beta.3",
+  "version": "0.19.0-beta.4",
   "description": "Typescript validator",
   "dependencies": {
     "@dikac/t-boolean": "^0.11.0-beta.0",
@@ -8,7 +8,7 @@
     "@dikac/t-message": "^0.11.3",
     "@dikac/t-object": "^0.37.0-alpha.0",
     "@dikac/t-string": "^0.15.4",
-    "@dikac/t-validatable": "^0.20.0-beta.3",
+    "@dikac/t-validatable": "^0.20.0-beta.4",
     "@dikac/t-value": "^0.14.6",
     "ts-toolbelt": "^9.6.0"
   },

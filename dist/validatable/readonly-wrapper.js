@@ -1,7 +1,3 @@
-/**
- * read only wrapper for {@link Message}, {@link Value} and {@link ValidatableInterface}
- */
-export default ReadonlyWrapper;
 export class ReadonlyWrapperParameter {
     constructor(valueContainer, messageContainer, validatableContainer) {
         this.valueContainer = valueContainer;
@@ -29,4 +25,5 @@ var ReadonlyWrapper;
     ReadonlyWrapper.Parameter = ReadonlyWrapperParameter;
     ReadonlyWrapper.Object = ReadonlyWrapperObject;
 })(ReadonlyWrapper || (ReadonlyWrapper = {}));
+export default ReadonlyWrapper;
 //# sourceMappingURL=readonly-wrapper.js.map
