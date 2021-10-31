@@ -3,34 +3,32 @@ import SimpleReturn from "./validatable/simple";
 import Validatable from "./validatable/validatable";
 import ValidationCallback from "./validatable/callback";
 import Validation from "@dikac/t-boolean/validation/validation";
-import Message from "@dikac/t-message/message";
+import BaseMessage from "@dikac/t-message/message";
 import Guard from "@dikac/t-boolean/validation/guard";
+import Message from "./message/function/message";
 
 /**
  * create {@see Validator} from multiple callback
  */
 
-
 export type CallbackMessage<
     Base = unknown,
     Type extends Base = Base,
     MessageType = unknown
-    > =
-    (<Argument extends Base>(value: Argument, valid: false) => MessageType) |
-    (<Argument extends Type>(value: Argument, valid: true) => MessageType);
+> = Message.Parameter<Base, Type, MessageType>;
 
 export type CallbackType<
     Base = unknown,
     Type extends Base = Base,
     MessageType = unknown
-    > = Simple<Base, Type, Readonly<Validatable<Base, MessageType>>>;
+> = Simple<Base, Type, Readonly<Validatable<Base, MessageType>>>;
 
 export type CallbackArgument<
     Base = unknown,
     Type extends Base = Base,
     MessageType = unknown,
     > =
-    Message<<Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Validatable<Base, MessageType>>>, 'message'>) => MessageType>
+    BaseMessage<<Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Validatable<Base, MessageType>>>, 'message'>) => MessageType>
 
 export function CallbackObject<
     Base = unknown,
