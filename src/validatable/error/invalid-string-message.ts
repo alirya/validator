@@ -1,5 +1,5 @@
 import ValidatableInvalid from "@dikac/t-validatable/error/invalid";
-import Validatable from "../validatable";
+import Dynamic from "../dynamic";
 import Infer from "@dikac/t-message/message/infer";
 import Message from "@dikac/t-message/message";
 import ValidatableContainer from "@dikac/t-validatable/validatable/validatable";
@@ -23,31 +23,31 @@ const defaultError = New(ValidatableInvalid.Parameter);
  * default : {@see ValidatableInvalid}
  */
 
-export type InvalidStringMessageArgument<ValidatableType extends Validatable, Error extends globalThis.Error> =
+export type InvalidStringMessageArgument<ValidatableType extends Dynamic, Error extends globalThis.Error> =
     ValidatableContainer<ValidatableType> &
     Message<(validatable: Infer<ValidatableType>) => string> &
     {error: (validatable: ValidatableType, message : string) => Error}
     //{error: (a : ValidatableContainer<ValidatableType> & Message<string>) => Error}
 
-export function InvalidStringMessageObject<ValidatableType extends Validatable>({
+export function InvalidStringMessageObject<ValidatableType extends Dynamic>({
         validatable
   } : Pick<InvalidStringMessageArgument<ValidatableType, globalThis.Error>, 'validatable'>
 ) : globalThis.Error;
 
-export function InvalidStringMessageObject<ValidatableType extends Validatable>({
+export function InvalidStringMessageObject<ValidatableType extends Dynamic>({
         validatable,
         message,
   } : StrictOmit<InvalidStringMessageArgument<ValidatableType, globalThis.Error>, 'error'>
 ) : globalThis.Error;
 
-export function InvalidStringMessageObject<ValidatableType extends Validatable, Error extends globalThis.Error>({
+export function InvalidStringMessageObject<ValidatableType extends Dynamic, Error extends globalThis.Error>({
         validatable,
         message,
         error,
   } : InvalidStringMessageArgument<ValidatableType, Error>
 ) : Error;
 
-export function InvalidStringMessageObject<ValidatableType extends Validatable, Error extends globalThis.Error>({
+export function InvalidStringMessageObject<ValidatableType extends Dynamic, Error extends globalThis.Error>({
       validatable,
       message = JSON.stringify,
       error = defaultError,
@@ -57,18 +57,18 @@ export function InvalidStringMessageObject<ValidatableType extends Validatable, 
     return InvalidStringMessageParameter(validatable, message, error);
 }
 
-export function InvalidStringMessageParameter<ValidatableType extends Validatable>(
+export function InvalidStringMessageParameter<ValidatableType extends Dynamic>(
     validatable: ValidatableType,
     message ?: (validatable: Infer<ValidatableType>) => string,
 ) : globalThis.Error;
 
-export function InvalidStringMessageParameter<ValidatableType extends Validatable, Error extends globalThis.Error>(
+export function InvalidStringMessageParameter<ValidatableType extends Dynamic, Error extends globalThis.Error>(
     validatable: ValidatableType,
     message ?: (validatable: Infer<ValidatableType>) => string,
     error ?: (validatable: ValidatableType, message : string) => Error
 ) : Error;
 
-export function InvalidStringMessageParameter<ValidatableType extends Validatable, Error extends globalThis.Error>(
+export function InvalidStringMessageParameter<ValidatableType extends Dynamic, Error extends globalThis.Error>(
     validatable: ValidatableType,
     message : (validatable: Infer<ValidatableType>) => string = JSON.stringify,
     error : (validatable: ValidatableType, message : string) => Error|globalThis.Error = defaultError
@@ -81,7 +81,7 @@ namespace InvalidStringMessage {
 
     export const Parameter = InvalidStringMessageParameter;
     export const Object = InvalidStringMessageObject;
-    export type Argument<ValidatableType extends Validatable, Error extends globalThis.Error> =
+    export type Argument<ValidatableType extends Dynamic, Error extends globalThis.Error> =
         InvalidStringMessageArgument<ValidatableType , Error>;
 }
 

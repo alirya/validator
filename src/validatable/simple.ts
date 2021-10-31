@@ -1,12 +1,12 @@
-import ValidatableType from "./validatable";
-import Unambiguous from "./unambiguous";
+import ValidatableType from "./dynamic";
+import Static from "./static";
 
 type Simple<
     Allow = unknown,
     Argument extends Allow = Allow,
     Expectation extends Allow = Allow,
     Validatable extends ValidatableType<Allow> = ValidatableType<Allow>
-> = Unambiguous<
+> = Static<
     Allow,
     Argument,
     Expectation,

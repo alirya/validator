@@ -1,6 +1,6 @@
 import Value from "@dikac/t-value/value";
 import BaseValidatable from "@dikac/t-validatable/validatable";
-import Validatable from "./validatable";
+import Dynamic from "./dynamic";
 import Message from "@dikac/t-message/message";
 import MemoizeAccessor from "@dikac/t-object/function/memoize-accessor";
 import Validation from "@dikac/t-boolean/validation/validation";
@@ -11,7 +11,7 @@ import Return from "./simple";
 import StrictOmit from "@dikac/t-object/strict-omit";
 
 /**
- * assemble {@see Validatable} from value,
+ * assemble {@see Dynamic} from value,
  * callback validation, and callback message
  *
  * this contain multiple class and function implementation
@@ -29,7 +29,7 @@ export interface CallbackType<
     Type extends ValueType = ValueType,
     MessageType = unknown
     > extends
-    Readonly<Validatable<ValueType, MessageType>>,
+    Readonly<Dynamic<ValueType, MessageType>>,
     Readonly<Validation<[ValueType], boolean>> {}
 
 /**
@@ -107,7 +107,7 @@ export type CallbackFunctionArgumentGuard<
     > =
     Value<Type> &
     Guard<ValueType, Type> &
-    Message<(result:Readonly<StrictOmit<Validatable<ValueType>,'message'>>)=> MessageType>;
+    Message<(result:Readonly<StrictOmit<Dynamic<ValueType>,'message'>>)=> MessageType>;
 
 export type CallbackFunctionArgumentValidation<
     ValueType = unknown,
@@ -116,7 +116,7 @@ export type CallbackFunctionArgumentValidation<
     > =
     Value<Type> &
     Validation<[ValueType], boolean> &
-    Message<(result:Readonly<StrictOmit<Validatable<ValueType>,'message'>>)=> MessageType>;
+    Message<(result:Readonly<StrictOmit<Dynamic<ValueType>,'message'>>)=> MessageType>;
 
 export type CallbackFunctionType<
     ValueType = unknown,

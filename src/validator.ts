@@ -1,5 +1,5 @@
-import Unambiguous from "./validatable/unambiguous";
-import ValidatableType from "./validatable/validatable";
+import Static from "./validatable/static";
+import ValidatableType from "./validatable/dynamic";
 
 /**
  * {@template Allow} type which can be handled by implementation
@@ -23,6 +23,6 @@ type Validator<
     Validatable extends ValidatableType<Allow> = ValidatableType<Allow>
 > =
     <AllowArgument extends Allow, ExpectedArgument extends Expectation>(value : AllowArgument|ExpectedArgument) =>
-        Unambiguous<Allow, AllowArgument, ExpectedArgument, Allowed, Expected, Validatable>
+        Static<Allow, AllowArgument, ExpectedArgument, Allowed, Expected, Validatable>
 
 export default Validator;

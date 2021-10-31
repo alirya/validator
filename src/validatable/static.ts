@@ -1,8 +1,8 @@
 import ReplaceValue from "@dikac/t-value/value/replace";
-import ValidatableType from "./validatable";
+import ValidatableType from "./dynamic";
 import ReplaceValidatable from "@dikac/t-validatable/boolean/replace";
 
-type Unambiguous<
+type Static<
     Allow = unknown,
     Argument extends Allow = Allow,
     Expectation extends Allow = Allow,
@@ -14,4 +14,4 @@ type Unambiguous<
      ReplaceValue<ReplaceValidatable<Validatable, Expected>, Expectation>
 ;
 
-export default Unambiguous;
+export default Static;

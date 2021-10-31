@@ -1,4 +1,4 @@
-import ValidatableType from "./validatable/validatable";
+import ValidatableType from "./validatable/dynamic";
 import Validator from "./validator";
 /**
  * simple implementation of {@see Validator}

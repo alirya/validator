@@ -1,6 +1,6 @@
 import InferMessage from "@dikac/t-message/message/infer";
 import InferValue from "@dikac/t-value/value/infer";
-import Validatable from "./validatable";
+import Dynamic from "./dynamic";
 import InferValidatable from "@dikac/t-validatable/boolean/infer";
 import Value from "@dikac/t-value/value";
 import Message from "@dikac/t-message/message";
@@ -17,7 +17,7 @@ export interface ReadonlyWrapperType<
     ValueType extends Value,
     MessageType extends Message,
     ValidatableType extends ValidatableInterface,
-> extends Readonly<Validatable<
+> extends Readonly<Dynamic<
         InferValue<ValueType>,
         InferMessage<MessageType>,
         InferValidatable<ValidatableType>
@@ -59,7 +59,7 @@ export class ReadonlyWrapperParameter<
 }
 
 export class ReadonlyWrapperObject<
-    ValidatableType extends Validatable
+    ValidatableType extends Dynamic
 > extends ReadonlyWrapperParameter<ValidatableType, ValidatableType, ValidatableType>{
 
     constructor(public validatable : ValidatableType) {

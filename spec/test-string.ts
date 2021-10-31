@@ -1,6 +1,6 @@
 import Validator  from "../dist/validator";
 import ValidatorSimple  from "../dist/simple";
-import Validatable from "../dist/validatable/validatable";
+import Validatable from "../dist/validatable/dynamic";
 import ReturnSimple from "../dist/validatable/simple";
 
 export default function TestString()  : ValidatorSimple<unknown, string, Validatable<unknown, string>> {

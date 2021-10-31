@@ -1,6 +1,6 @@
 import InferMessage from "@dikac/t-message/message/infer";
 import InferValue from "@dikac/t-value/value/infer";
-import Validatable from "./validatable";
+import Dynamic from "./dynamic";
 import InferValidatable from "@dikac/t-validatable/boolean/infer";
 import Value from "@dikac/t-value/value";
 import Message from "@dikac/t-message/message";
@@ -8,7 +8,7 @@ import ValidatableInterface from "@dikac/t-validatable/validatable";
 /**
  * read only wrapper for {@link Message}, {@link Value} and {@link ValidatableInterface}
  */
-export interface ReadonlyWrapperType<ValueType extends Value, MessageType extends Message, ValidatableType extends ValidatableInterface> extends Readonly<Validatable<InferValue<ValueType>, InferMessage<MessageType>, InferValidatable<ValidatableType>>> {
+export interface ReadonlyWrapperType<ValueType extends Value, MessageType extends Message, ValidatableType extends ValidatableInterface> extends Readonly<Dynamic<InferValue<ValueType>, InferMessage<MessageType>, InferValidatable<ValidatableType>>> {
     readonly valueContainer: ValueType;
     readonly messageContainer: MessageType;
     readonly validatableContainer: ValidatableType;
@@ -22,7 +22,7 @@ export declare class ReadonlyWrapperParameter<ValueType extends Value, MessageTy
     get value(): InferValue<ValueType>;
     get message(): InferMessage<MessageType>;
 }
-export declare class ReadonlyWrapperObject<ValidatableType extends Validatable> extends ReadonlyWrapperParameter<ValidatableType, ValidatableType, ValidatableType> {
+export declare class ReadonlyWrapperObject<ValidatableType extends Dynamic> extends ReadonlyWrapperParameter<ValidatableType, ValidatableType, ValidatableType> {
     validatable: ValidatableType;
     constructor(validatable: ValidatableType);
 }

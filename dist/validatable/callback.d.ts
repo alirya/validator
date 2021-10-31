@@ -1,13 +1,13 @@
 import Value from "@dikac/t-value/value";
 import BaseValidatable from "@dikac/t-validatable/validatable";
-import Validatable from "./validatable";
+import Dynamic from "./dynamic";
 import Message from "@dikac/t-message/message";
 import Validation from "@dikac/t-boolean/validation/validation";
 import Guard from "@dikac/t-boolean/validation/guard";
 import Return from "./simple";
 import StrictOmit from "@dikac/t-object/strict-omit";
 /**
- * assemble {@see Validatable} from value,
+ * assemble {@see Dynamic} from value,
  * callback validation, and callback message
  *
  * this contain multiple class and function implementation
@@ -18,7 +18,7 @@ import StrictOmit from "@dikac/t-object/strict-omit";
 /**
  * class type
  */
-export interface CallbackType<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> extends Readonly<Validatable<ValueType, MessageType>>, Readonly<Validation<[ValueType], boolean>> {
+export interface CallbackType<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> extends Readonly<Dynamic<ValueType, MessageType>>, Readonly<Validation<[ValueType], boolean>> {
 }
 /**
  * class object argument
@@ -52,8 +52,8 @@ export declare class CallbackParameter<ValueType = unknown, Type extends ValueTy
 export declare class CallbackObject<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> extends CallbackParameter<ValueType, Type, MessageType> {
     constructor({ value, validation, message, }: CallbackArgument<ValueType, Type, MessageType>);
 }
-export declare type CallbackFunctionArgumentGuard<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = Value<Type> & Guard<ValueType, Type> & Message<(result: Readonly<StrictOmit<Validatable<ValueType>, 'message'>>) => MessageType>;
-export declare type CallbackFunctionArgumentValidation<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = Value<Type> & Validation<[ValueType], boolean> & Message<(result: Readonly<StrictOmit<Validatable<ValueType>, 'message'>>) => MessageType>;
+export declare type CallbackFunctionArgumentGuard<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = Value<Type> & Guard<ValueType, Type> & Message<(result: Readonly<StrictOmit<Dynamic<ValueType>, 'message'>>) => MessageType>;
+export declare type CallbackFunctionArgumentValidation<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = Value<Type> & Validation<[ValueType], boolean> & Message<(result: Readonly<StrictOmit<Dynamic<ValueType>, 'message'>>) => MessageType>;
 export declare type CallbackFunctionType<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = Return<ValueType, ValueType, Type, Readonly<Value<ValueType> & BaseValidatable & Message<MessageType>>>;
 export declare function CallbackFunctionObject<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown>({ value, validation, message }: CallbackFunctionArgumentGuard<ValueType, Type, MessageType>): CallbackFunctionType<ValueType, Type, MessageType>;
 export declare function CallbackFunctionObject<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown>({ value, validation, message }: CallbackFunctionArgumentValidation<ValueType, Type, MessageType>): CallbackFunctionType<ValueType, Type, MessageType>;

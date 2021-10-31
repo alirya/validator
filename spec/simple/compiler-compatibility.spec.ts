@@ -1,9 +1,9 @@
 import Simple from "../../dist/simple";
 import Validator from "../../dist/validator";
-import Validatable from "../../dist/validatable/validatable";
+import Validatable from "../../dist/validatable/dynamic";
 import BaseInfer from "../../dist/base/infer";
 import TypeInfer from "../../dist/expectation/infer";
-import ValidatorInfer from "../../dist/validatable/infer-unambiguous";
+import ValidatorInfer from "../../dist/validatable/infer-static";
 import ExtendInfer from "../../dist/expectation/infer";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
