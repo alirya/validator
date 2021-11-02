@@ -1,4 +1,3 @@
-import Dynamic from "../../validatable/dynamic";
 import Value from "@dikac/t-value/value";
 import ValidatableInterface from "@dikac/t-validatable/validatable";
 export declare type DynamicParameter<Base = unknown, MessageType = unknown, ExtraArgument extends unknown[] = unknown[]> = (<Argument extends Base>(value: Argument, valid: boolean, ...extra: ExtraArgument[]) => MessageType);
