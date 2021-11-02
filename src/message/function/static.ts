@@ -1,36 +1,49 @@
 import SimpleReturn from "../../validatable/simple";
+import StaticReturn from "../../validatable/static";
 import Dynamic from "../../validatable/dynamic";
 import Value from "@dikac/t-value/value";
 import ValidatableInterface from "@dikac/t-validatable/validatable";
 
 export type StaticParameter<
-    Base = unknown,
-    Type extends Base = Base,
+    Allow = unknown,
+    Argument extends Allow = Allow,
+    Expectation extends Allow = Allow,
+    Allowed extends boolean = boolean,
+    Expected extends boolean = boolean,
     MessageType = unknown
 > =
-    (<Argument extends Base>(value: Argument, valid: false) => MessageType) |
-    (<Argument extends Type>(value: Argument, valid: true) => MessageType);
+    (<Value extends Argument>(value: Value, valid: Allowed) => MessageType) |
+    (<Value extends Expectation>(value: Value, valid: Expected) => MessageType);
 
 export type StaticObject<
-    Base = unknown,
-    Type extends Base = Base,
-    MessageType = unknown
+    Allow = unknown,
+    Argument extends Allow = Allow,
+    Expectation extends Allow = Allow,
+    Allowed extends boolean = boolean,
+    Expected extends boolean = boolean,
+    MessageType = unknown,
 > =
-    <Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Dynamic<Base, MessageType>>>, 'message'>) => MessageType;
+    <Value extends Argument>(argument: Omit<StaticReturn<Allow, Value, Expectation, Allowed, Expected, Readonly<Dynamic<Allow, MessageType>>>, 'message'>) => MessageType;
 
 export namespace Static {
 
     export type Parameter<
-        Base = unknown,
-        Type extends Base = Base,
+        Allow = unknown,
+        Argument extends Allow = Allow,
+        Expectation extends Allow = Allow,
+        Allowed extends boolean = boolean,
+        Expected extends boolean = boolean,
         MessageType = unknown
-        > = StaticParameter<Base, Type, MessageType>;
+        > = StaticParameter<Allow, Argument, Expectation, Allowed, Expected, MessageType>;
 
     export type Object<
-        Base = unknown,
-        Type extends Base = Base,
+        Allow = unknown,
+        Argument extends Allow = Allow,
+        Expectation extends Allow = Allow,
+        Allowed extends boolean = boolean,
+        Expected extends boolean = boolean,
         MessageType = unknown
-        > = StaticObject<Base, Type, MessageType>;
+        > = StaticObject<Allow, Argument, Expectation, Allowed, Expected, MessageType>;
 }
 
 export default Static;

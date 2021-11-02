@@ -5,17 +5,12 @@ import ValidationCallback from "./validatable/callback";
 import Validation from "@dikac/t-boolean/validation/validation";
 import BaseMessage from "@dikac/t-message/message";
 import Guard from "@dikac/t-boolean/validation/guard";
-import Message from "./message/function/static";
+import Message from "./message/function/simple";
 
 /**
  * create {@see Validator} from multiple callback
  */
 
-export type CallbackMessage<
-    Base = unknown,
-    Type extends Base = Base,
-    MessageType = unknown
-> = Message.Parameter<Base, Type, MessageType>;
 
 export type CallbackType<
     Base = unknown,
@@ -72,39 +67,39 @@ export function CallbackObject<
 
 export function CallbackParameter<
     Base = unknown,
-    Type extends Base = Base,
+    Expectation extends Base = Base,
     MessageType = unknown,
 >(
-    validation : <Argument extends Base>(argument:Base) => argument is Type,
+    validation : <Value extends Base>(argument:Value|Expectation) => argument is Expectation,
     // message : <Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Validatable<Base, MessageType>>>, 'message'>) => MessageType,
-    message : CallbackMessage<Base, Type, MessageType>,
+    message : Message.Parameter<Base, Expectation, MessageType>,
 
-) : Simple<Base, Type, Readonly<Dynamic<Base, MessageType>>>;
+) : Simple<Base, Expectation, Readonly<Dynamic<Base, MessageType>>>;
 export function CallbackParameter<
     Base = unknown,
-    Type extends Base = Base,
+    Expectation extends Base = Base,
     MessageType = unknown,
 >(
     validation : <Argument extends Base>(argument:Base) => boolean,
     //  message : <Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Validatable<Base, MessageType>>>, 'message'>) => MessageType,
-    message : CallbackMessage<Base, Type, MessageType>,
-) : Simple<Base, Type, Readonly<Dynamic<Base, MessageType>>>;
+    message : Message.Parameter<Base, Expectation, MessageType>,
+) : Simple<Base, Expectation, Readonly<Dynamic<Base, MessageType>>>;
 
 export function CallbackParameter<
     Base = unknown,
-    Type extends Base = Base,
+    Expectation extends Base = Base,
     MessageType = unknown,
 >(
     validation : <Argument extends Base>(argument:Base) => boolean,
-    message : CallbackMessage<Base, Type, MessageType>,
+    message : Message.Parameter<Base, Expectation, MessageType>,
     //message : <Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Validatable<Base, MessageType>>>, 'message'>) => MessageType,
-) : Simple<Base, Type, Readonly<Dynamic<Base, MessageType>>> {
+) : Simple<Base, Expectation, Readonly<Dynamic<Base, MessageType>>> {
 
     return function (value) {
 
         return new ValidationCallback.Class.Parameter(value, validation, message);
 
-    } as Simple<Base, Type, Readonly<Dynamic<Base, MessageType>>>
+    } as Simple<Base, Expectation, Readonly<Dynamic<Base, MessageType>>>
 }
 
 
@@ -114,7 +109,6 @@ namespace Callback {
     export const Parameter = CallbackParameter;
     export type Type<Base = unknown, Type extends Base = Base, MessageType = unknown> = CallbackType<Base, Type, MessageType>;
     export type Argument<Base = unknown, Type extends Base = Base, MessageType = unknown> = CallbackArgument<Base, Type, MessageType>;
-    export type Message<Base = unknown, Type extends Base = Base, MessageType = unknown> = CallbackMessage<Base, Type, MessageType>;
 }
 
 
