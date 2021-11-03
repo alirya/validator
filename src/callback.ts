@@ -59,7 +59,7 @@ export function CallbackObject<
 
     return function (value) {
 
-        return new ValidationCallback.Class.Object({value, validation, message});
+        return ValidationCallback.Function.Object({value, validation, message});
 
     } as Simple<Base, Type, Readonly<Dynamic<Base, MessageType>>>
 }
@@ -97,7 +97,7 @@ export function CallbackParameter<
 
     return function (value) {
 
-        return new ValidationCallback.Class.Parameter(value, validation, message);
+        return ValidationCallback.Function.Parameter(value, validation, message);
 
     } as Simple<Base, Expectation, Readonly<Dynamic<Base, MessageType>>>
 }

@@ -9,6 +9,8 @@ import {ReadonlyWrapperObject, ReadonlyWrapperParameter, ReadonlyWrapperType} fr
 import Guard from "@dikac/t-boolean/validation/guard";
 import Return from "./simple";
 import StrictOmit from "@dikac/t-object/strict-omit";
+import Argument from "@dikac/t-function/argument/argument";
+import {Optional, Writable} from "utility-types";
 
 /**
  * assemble {@see Dynamic} from value,
@@ -27,10 +29,13 @@ import StrictOmit from "@dikac/t-object/strict-omit";
 export interface CallbackType<
     ValueType = unknown,
     Type extends ValueType = ValueType,
-    MessageType = unknown
-    > extends
+    MessageType = unknown,
+    Arguments extends unknown[]= unknown[]
+> extends
     Readonly<Dynamic<ValueType, MessageType>>,
-    Readonly<Validation<[ValueType], boolean>> {}
+    Readonly<Validation<[ValueType, ...Arguments], boolean>>,
+    Readonly<Argument<Arguments>>
+{}
 
 /**
  * class object argument
@@ -38,8 +43,9 @@ export interface CallbackType<
 export type CallbackArgument<
     ValueType = unknown,
     Type extends ValueType = ValueType,
-    MessageType = unknown
-    > = CallbackFunctionArgumentValidation<ValueType, Type, MessageType>;
+    MessageType = unknown,
+    Arguments extends unknown[]= unknown[]
+    > = CallbackFunctionArgumentValidation<ValueType, Type, MessageType, Arguments>;
 
 /**
  * main implementation
@@ -49,7 +55,8 @@ export class CallbackParameter<
     ValueType = unknown,
     Type extends ValueType = ValueType,
     MessageType = unknown,
-    > implements CallbackType<ValueType, Type, MessageType> {
+    Arguments extends unknown[] = unknown[]
+    > implements CallbackType<ValueType, Type, MessageType, Arguments> {
 
     /**
      *
@@ -60,23 +67,26 @@ export class CallbackParameter<
      *
      * @param messageFactory
      * to generate message
+     *
+     * @param argument
      */
     constructor(
         readonly value : Type,
-        readonly validation : (value:ValueType)=>boolean,
-        readonly messageFactory : (value:ValueType, message: boolean)=> MessageType,
+        readonly validation : (value:ValueType, ...argument:Arguments)=>boolean,
+        readonly messageFactory : (value:ValueType, message: boolean, ...argument:Arguments)=> MessageType,
+        readonly argument : Arguments,
     ) {}
 
     @MemoizeAccessor()
     get valid() {
 
-        return this.validation(this.value);
+        return this.validation(this.value, ...this.argument);
     }
 
     @MemoizeAccessor()
     get message() {
 
-        return this.messageFactory(this.value, this.valid);
+        return this.messageFactory(this.value, this.valid, ...this.argument);
     }
 }
 
@@ -93,9 +103,10 @@ export class CallbackObject<
         value,
         validation,
         message,
+        argument
     } : CallbackArgument<ValueType, Type, MessageType>) {
 
-        super(value, validation, ()=>message(this));
+        super(value, validation, ()=>message(this), argument);
     }
 
 }
@@ -104,8 +115,10 @@ export type CallbackFunctionArgumentGuard<
     ValueType = unknown,
     Type extends ValueType = ValueType,
     MessageType = unknown,
+    Arguments extends unknown[] = unknown[]
     > =
     Value<Type> &
+    Readonly<Argument<Arguments>> &
     Guard<ValueType, Type> &
     Message<(result:Readonly<StrictOmit<Dynamic<ValueType>,'message'>>)=> MessageType>;
 
@@ -113,9 +126,11 @@ export type CallbackFunctionArgumentValidation<
     ValueType = unknown,
     Type extends ValueType = ValueType,
     MessageType = unknown,
+    Arguments extends unknown[] = unknown[]
     > =
     Value<Type> &
     Validation<[ValueType], boolean> &
+    Readonly<Argument<Arguments>> &
     Message<(result:Readonly<StrictOmit<Dynamic<ValueType>,'message'>>)=> MessageType>;
 
 export type CallbackFunctionType<
@@ -154,30 +169,55 @@ export function CallbackFunctionObject<
     ValueType = unknown,
     Type extends ValueType = ValueType,
     MessageType = unknown,
-    >(argument : CallbackFunctionArgumentValidation<ValueType, Type, MessageType> & Validation<[ValueType], boolean>
+    Argument extends unknown[] = unknown[],
+    >(argument : CallbackFunctionArgumentValidation<ValueType, Type, MessageType, Argument> & Validation<[ValueType], boolean>
+) :  Readonly<Value<ValueType> & BaseValidatable<boolean> & Message<MessageType>>;
+
+export function CallbackFunctionObject<
+    ValueType = unknown,
+    Type extends ValueType = ValueType,
+    MessageType = unknown,
+    >(argument : StrictOmit<CallbackFunctionArgumentValidation<ValueType, Type, MessageType, []>, 'argument'> & Validation<[ValueType], boolean>
+) :  Readonly<Value<ValueType> & BaseValidatable<boolean> & Message<MessageType>>;
+
+
+export function CallbackFunctionObject<
+    ValueType = unknown,
+    Type extends ValueType = ValueType,
+    MessageType = unknown,
+    Argument extends unknown[] = unknown[],
+>(argument : Writable<Optional<CallbackFunctionArgumentValidation<ValueType, Type, MessageType, Argument>, 'argument'>> & Validation<[ValueType], boolean>
 ) :  Readonly<Value<ValueType> & BaseValidatable<boolean> & Message<MessageType>> {
 
-    return new CallbackObject(argument)
+    if(!argument.argument) {
+        argument.argument = [] as any;
+    }
+
+    return new CallbackObject(argument as CallbackFunctionArgumentValidation<ValueType, Type, MessageType, Argument>)
 }
 
 export function CallbackFunctionParameter<
     ValueType = unknown,
     Type extends ValueType = ValueType,
     MessageType = unknown,
-    >(
+    Argument extends unknown[] = unknown[],
+>(
     value : ValueType,
     validation : (value:ValueType)=>value is Type,
     message : (value:ValueType, message: boolean)=> MessageType,
+    argument ?: Argument,
 ) : CallbackFunctionType<ValueType, Type, MessageType>
 
 export function CallbackFunctionParameter<
     ValueType = unknown,
     Type extends ValueType = ValueType,
     MessageType = unknown,
-    >(
+    Argument extends unknown[] = unknown[],
+>(
     value : Type,
     validation : (value:ValueType)=>boolean,
     message : (value:ValueType, message: boolean)=> MessageType,
+    argument ?: Argument,
 ) : CallbackFunctionType<ValueType, Type, MessageType>
 
 
@@ -188,13 +228,15 @@ export function CallbackFunctionParameter<
     ValueType = unknown,
     Type extends ValueType = ValueType,
     MessageType = unknown,
-    >(
+    Argument extends unknown[] = unknown[],
+>(
     value : ValueType,
     validation : (value:ValueType)=>boolean,
     message : (value:ValueType, message: boolean)=> MessageType,
-) :  Readonly<Value<ValueType> & BaseValidatable<boolean> & Message<MessageType>> {
+    argument : Argument|[] = [],
+) :  Readonly<Dynamic<ValueType, MessageType>> {
 
-    return new CallbackParameter(value, validation, message)
+    return new CallbackParameter(value, validation, message, argument)
 }
 
 
@@ -245,22 +287,26 @@ namespace Callback {
         export type ArgumentGuard<
             ValueType = unknown,
             Type extends ValueType = ValueType,
-            MessageType = unknown
-            > = CallbackFunctionArgumentGuard<
+            MessageType = unknown,
+            Arguments extends unknown[] = unknown[]
+        > = CallbackFunctionArgumentGuard<
             ValueType,
             Type,
-            MessageType
-            >
+            MessageType,
+            Arguments
+        >
 
         export type ArgumentValidation<
             ValueType = unknown,
             Type extends ValueType = ValueType,
-            MessageType = unknown
-            > = CallbackFunctionArgumentValidation<
+            MessageType = unknown,
+            Arguments extends unknown[] = unknown[]
+        > = CallbackFunctionArgumentValidation<
             ValueType,
             Type,
-            MessageType
-            >
+            MessageType,
+            Arguments
+        >
     }
 }
 

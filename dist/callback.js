@@ -1,12 +1,12 @@
 import ValidationCallback from "./validatable/callback";
 export function CallbackObject({ validation, message }) {
     return function (value) {
-        return new ValidationCallback.Class.Object({ value, validation, message });
+        return ValidationCallback.Function.Object({ value, validation, message });
     };
 }
 export function CallbackParameter(validation, message) {
     return function (value) {
-        return new ValidationCallback.Class.Parameter(value, validation, message);
+        return ValidationCallback.Function.Parameter(value, validation, message);
     };
 }
 var Callback;

@@ -19,17 +19,20 @@ export class CallbackParameter {
      *
      * @param messageFactory
      * to generate message
+     *
+     * @param argument
      */
-    constructor(value, validation, messageFactory) {
+    constructor(value, validation, messageFactory, argument) {
         this.value = value;
         this.validation = validation;
         this.messageFactory = messageFactory;
+        this.argument = argument;
     }
     get valid() {
-        return this.validation(this.value);
+        return this.validation(this.value, ...this.argument);
     }
     get message() {
-        return this.messageFactory(this.value, this.valid);
+        return this.messageFactory(this.value, this.valid, ...this.argument);
     }
 }
 __decorate([
@@ -42,21 +45,21 @@ __decorate([
  * destructure argument version
  */
 export class CallbackObject extends CallbackParameter {
-    constructor({ value, validation, message, }) {
-        super(value, validation, () => message(this));
+    constructor({ value, validation, message, argument }) {
+        super(value, validation, () => message(this), argument);
     }
 }
-/**
- * destructure argument implementation for function
- */
 export function CallbackFunctionObject(argument) {
+    if (!argument.argument) {
+        argument.argument = [];
+    }
     return new CallbackObject(argument);
 }
 /**
  * parameter argument implementation for function
  */
-export function CallbackFunctionParameter(value, validation, message) {
-    return new CallbackParameter(value, validation, message);
+export function CallbackFunctionParameter(value, validation, message, argument = []) {
+    return new CallbackParameter(value, validation, message, argument);
 }
 /**
  * namespace aliases

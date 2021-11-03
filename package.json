@@ -10,7 +10,8 @@
     "@dikac/t-string": "^0.15.4",
     "@dikac/t-validatable": "^0.20.0-beta.4",
     "@dikac/t-value": "^0.14.6",
-    "ts-toolbelt": "^9.6.0"
+    "ts-toolbelt": "^9.6.0",
+    "utility-types": "^3.10.0"
   },
   "devDependencies": {
     "@types/jasmine": "^3.10.1",
