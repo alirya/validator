@@ -9,7 +9,7 @@ export default function Valid<
     Argument extends Dynamic = Dynamic,
 >(
     value : Argument,
-    error : (validatable:Argument)=>Error = InvalidStringMessage.Parameter
+    error : (validatable:Argument)=>Error = InvalidStringMessage.Parameters
 ) : asserts value is Argument {
 
     if(!value.valid) {

@@ -6,13 +6,13 @@ import Value from "@dikac/t-value/value";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 
-function TestMessage (value : Validatable & Value) {
-    return 'type:' + typeof value.value + ', valid:' + (value.valid ? 'true' : 'false')
+function TestMessage (value, valid) {
+    return 'type:' + typeof value + ', valid:' + (valid ? 'true' : 'false')
 }
 
 describe('invalid', function () {
 
-    let subject = new CallbackFunction.Class.Parameter(1, IsObject, TestMessage);
+    let subject = new CallbackFunction.Class.Parameters(1, IsObject, TestMessage, []);
     let callback = new Asserted(subject);
 
     it("check value", () => {
@@ -35,7 +35,7 @@ describe('invalid', function () {
 
 describe('valid', function () {
 
-    let subject = new CallbackFunction.Class.Parameter({}, IsObject, TestMessage);
+    let subject = new CallbackFunction.Class.Parameters({}, IsObject, TestMessage, []);
     let callback = new Asserted(subject);
 
     it("check value", () => {

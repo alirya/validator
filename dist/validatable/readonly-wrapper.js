@@ -1,29 +1,12 @@
-export class ReadonlyWrapperParameter {
-    constructor(valueContainer, messageContainer, validatableContainer) {
-        this.valueContainer = valueContainer;
-        this.messageContainer = messageContainer;
-        this.validatableContainer = validatableContainer;
-    }
-    get valid() {
-        return this.validatableContainer.valid;
-    }
-    get value() {
-        return this.valueContainer.value;
-    }
-    get message() {
-        return this.messageContainer.message;
-    }
-}
-export class ReadonlyWrapperObject extends ReadonlyWrapperParameter {
-    constructor(validatable) {
-        super(validatable, validatable, validatable);
-        this.validatable = validatable;
-    }
-}
+import ReadonlyWrapperParameters from "./readonly-wrapper-parameters";
+import ReadonlyWrapperParameter from "./readonly-wrapper-parameter";
+/**
+ * read only wrapper for {@link Message}, {@link Value} and {@link ValidatableInterface}
+ */
 var ReadonlyWrapper;
 (function (ReadonlyWrapper) {
+    ReadonlyWrapper.Parameters = ReadonlyWrapperParameters;
     ReadonlyWrapper.Parameter = ReadonlyWrapperParameter;
-    ReadonlyWrapper.Object = ReadonlyWrapperObject;
 })(ReadonlyWrapper || (ReadonlyWrapper = {}));
 export default ReadonlyWrapper;
 //# sourceMappingURL=readonly-wrapper.js.map

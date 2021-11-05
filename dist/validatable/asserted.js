@@ -6,12 +6,12 @@ import InvalidStringMessage from "./error/invalid-string-message";
  * throw exception when {@link Dynamic} is in valid (false) when
  * accessing value {@link Value}
  */
-export default class Asserted extends ReadonlyWrapper.Object {
+export default class Asserted extends ReadonlyWrapper.Parameter {
     /**
      * @param validatable
      * @param error
      */
-    constructor(validatable, error = InvalidStringMessage.Object) {
+    constructor(validatable, error = InvalidStringMessage.Parameter) {
         super(validatable);
         this.error = error;
     }

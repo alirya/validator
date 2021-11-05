@@ -1,16 +1,20 @@
-import ValidatableInvalid from "@dikac/t-validatable/error/invalid";
-import New from "@dikac/t-function/new";
-const defaultError = New(ValidatableInvalid.Parameter);
-export function InvalidStringMessageObject({ validatable, message = JSON.stringify, error = defaultError, }) {
-    return InvalidStringMessageParameter(validatable, message, error);
-}
-export function InvalidStringMessageParameter(validatable, message = JSON.stringify, error = defaultError) {
-    return error(validatable, message(validatable.message));
-}
+import InvalidStringMessageParameter from "./invalid-string-message-parameter";
+import InvalidStringMessageParameters from "./invalid-string-message-parameters";
+/**
+ * @param validatable
+ *
+ * @param message
+ * message conversion
+ * default : {@see JSON.stringify}
+ *
+ * @param error
+ * error object factory
+ * default : {@see ValidatableInvalid}
+ */
 var InvalidStringMessage;
 (function (InvalidStringMessage) {
     InvalidStringMessage.Parameter = InvalidStringMessageParameter;
-    InvalidStringMessage.Object = InvalidStringMessageObject;
+    InvalidStringMessage.Parameters = InvalidStringMessageParameters;
 })(InvalidStringMessage || (InvalidStringMessage = {}));
 export default InvalidStringMessage;
 //# sourceMappingURL=invalid-string-message.js.map

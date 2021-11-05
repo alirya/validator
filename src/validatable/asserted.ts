@@ -15,7 +15,7 @@ type KeepImport = Value;
  */
 export default class Asserted<
     ValidatableType extends Dynamic = Dynamic
-> extends ReadonlyWrapper.Object<
+> extends ReadonlyWrapper.Parameter<
     ValidatableType
 > {
     /**
@@ -24,7 +24,7 @@ export default class Asserted<
      */
     constructor(
         validatable : ValidatableType,
-        public error : (validatable: ValidatableContainer<ValidatableType>)=>Error = InvalidStringMessage.Object
+        public error : (validatable: ValidatableContainer<ValidatableType>)=>Error = InvalidStringMessage.Parameter
     ) {
 
         super(validatable);

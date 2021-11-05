@@ -8,7 +8,7 @@ import ValidatableContainer from "@dikac/t-validatable/validatable/validatable";
  * throw exception when {@link Dynamic} is in valid (false) when
  * accessing value {@link Value}
  */
-export default class Asserted<ValidatableType extends Dynamic = Dynamic> extends ReadonlyWrapper.Object<ValidatableType> {
+export default class Asserted<ValidatableType extends Dynamic = Dynamic> extends ReadonlyWrapper.Parameter<ValidatableType> {
     error: (validatable: ValidatableContainer<ValidatableType>) => Error;
     /**
      * @param validatable

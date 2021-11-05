@@ -59,7 +59,7 @@ export function CallbackObject<
 
     return function (value) {
 
-        return ValidationCallback.Function.Object({value, validation, message});
+        return ValidationCallback.Function.Parameter({value, validation, message});
 
     } as Simple<Base, Type, Readonly<Dynamic<Base, MessageType>>>
 }
@@ -72,7 +72,7 @@ export function CallbackParameter<
 >(
     validation : <Value extends Base>(argument:Value|Expectation) => argument is Expectation,
     // message : <Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Validatable<Base, MessageType>>>, 'message'>) => MessageType,
-    message : Message.Parameter<Base, Expectation, MessageType>,
+    message : Message.Parameters<Base, Expectation, MessageType>,
 
 ) : Simple<Base, Expectation, Readonly<Dynamic<Base, MessageType>>>;
 export function CallbackParameter<
@@ -82,7 +82,7 @@ export function CallbackParameter<
 >(
     validation : <Argument extends Base>(argument:Base) => boolean,
     //  message : <Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Validatable<Base, MessageType>>>, 'message'>) => MessageType,
-    message : Message.Parameter<Base, Expectation, MessageType>,
+    message : Message.Parameters<Base, Expectation, MessageType>,
 ) : Simple<Base, Expectation, Readonly<Dynamic<Base, MessageType>>>;
 
 export function CallbackParameter<
@@ -91,13 +91,13 @@ export function CallbackParameter<
     MessageType = unknown,
 >(
     validation : <Argument extends Base>(argument:Base) => boolean,
-    message : Message.Parameter<Base, Expectation, MessageType>,
+    message : Message.Parameters<Base, Expectation, MessageType>,
     //message : <Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Validatable<Base, MessageType>>>, 'message'>) => MessageType,
 ) : Simple<Base, Expectation, Readonly<Dynamic<Base, MessageType>>> {
 
     return function (value) {
 
-        return ValidationCallback.Function.Parameter(value, validation, message);
+        return ValidationCallback.Function.Parameters(value, validation, message);
 
     } as Simple<Base, Expectation, Readonly<Dynamic<Base, MessageType>>>
 }

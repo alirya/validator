@@ -10,7 +10,7 @@ describe('function', function () {
 
         describe('guard', function () {
 
-            let wrapper = CallbackFunction.Function.Parameter({}, (v:unknown) : v is string => true, TestMessageParameter);
+            let wrapper = CallbackFunction.Function.Parameters({}, (v:unknown) : v is string => true, TestMessageParameter);
 
             if(wrapper.valid) {
 
@@ -32,7 +32,7 @@ describe('function', function () {
         describe('validation', function () {
 
             let v = 12;
-            let wrapper = new CallbackFunction.Class.Parameter(v, (v: unknown) : boolean => true, TestMessageParameter);
+            let wrapper = new CallbackFunction.Class.Parameters(v, (v: unknown) : boolean => true, TestMessageParameter, []);
 
             if(wrapper.valid) {
 

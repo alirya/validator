@@ -2,7 +2,7 @@ import InvalidStringMessage from "../error/invalid-string-message";
 /**
  * Throw exception if given value is not {@link InvalidStringMessage} type
  */
-export default function Valid(value, error = InvalidStringMessage.Parameter) {
+export default function Valid(value, error = InvalidStringMessage.Parameters) {
     if (!value.valid) {
         throw error(value);
     }

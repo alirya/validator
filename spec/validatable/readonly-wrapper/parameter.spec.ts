@@ -8,13 +8,13 @@ describe('construct', function () {
 
     it("data", () => {
 
-        let standard = new WrapperMerge.Parameter(
+        let standard = new WrapperMerge.Parameters(
             {value:1},
             {message:'message'},
             {valid:true},
         );
 
-        let wrapper = new Wrapper.Object(standard);
+        let wrapper = new WrapperMerge.Parameter(standard);
 
         expect(wrapper.valid).toBeTrue()
         expect(wrapper.value).toBe(1)
@@ -28,13 +28,13 @@ describe('set', function () {
 
     it("data", () => {
 
-        let standard = new WrapperMerge.Parameter(
+        let standard = new WrapperMerge.Parameters(
             {value:3},
             {message:'message 2'},
             <Validatable<boolean>>{valid:false},
         );
 
-        let wrapper = new Wrapper.Object(standard);
+        let wrapper = new WrapperMerge.Parameter(standard);
 
         expect(wrapper.valid).toBeFalse()
         expect(wrapper.value).toBe(3)
