@@ -3,6 +3,6 @@ export type DynamicParameters<
     MessageType = unknown,
     ExtraArgument extends unknown[] = unknown[]
 > =
-    (<Argument extends Base>(value: Argument, valid: boolean, ...extra:ExtraArgument[]) => MessageType);
+    (<Argument extends Base>(value: Argument, valid: boolean, ...extra:ExtraArgument) => MessageType);
 
 export default DynamicParameters;
