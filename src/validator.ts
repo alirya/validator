@@ -20,7 +20,7 @@ type Validator<
     Expectation extends Allow = Allow,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
-    Validatable extends ValidatableType<Allow> = ValidatableType<Allow>
+    Validatable extends {} = {}
 > =
     <AllowArgument extends Allow, ExpectedArgument extends Expectation>(value : AllowArgument|ExpectedArgument) =>
         Static<Allow, AllowArgument, ExpectedArgument, Allowed, Expected, Validatable>

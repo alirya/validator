@@ -8,7 +8,8 @@ export type StaticParameter<
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     MessageType = unknown,
+    ExtraType = {}
 > =
-    <Value extends Argument>(argument: Omit<StaticReturn<Allow, Value, Expectation, Allowed, Expected, Readonly<Dynamic<Allow, MessageType>>>, 'message'>) => MessageType;
+    <Value extends Argument>(argument: Omit<StaticReturn<Allow, Value, Expectation, Allowed, Expected, Readonly<Dynamic<Allow, MessageType>>>, 'message'> & ExtraType) => MessageType;
 
 export default StaticParameter;

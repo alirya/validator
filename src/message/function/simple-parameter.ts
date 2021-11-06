@@ -5,6 +5,7 @@ export type SimpleParameter<
     Allow = unknown,
     Expectation extends Allow = Allow,
     MessageType = unknown,
+    ExtraType = {}
 > =
     <Value extends Allow>(argument: Omit<SimpleReturn<Allow, Value, Expectation, Readonly<Dynamic<Allow, MessageType>>>, 'message'>) => MessageType;
 
