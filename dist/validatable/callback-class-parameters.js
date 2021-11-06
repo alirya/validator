@@ -10,23 +10,11 @@ import MemoizeAccessor from "@dikac/t-object/function/memoize-accessor";
  *
  */
 export default class CallbackClassParameters {
-    /**
-     *
-     * @param value
-     * value to be validated by {@param validation}
-     *
-     * @param validation
-     *
-     * @param messageFactory
-     * to generate message
-     *
-     * @param argument
-     */
     constructor(value, validation, messageFactory, argument) {
         this.value = value;
         this.validation = validation;
         this.messageFactory = messageFactory;
-        this.argument = argument;
+        this.argument = (argument !== null && argument !== void 0 ? argument : []);
     }
     get valid() {
         return this.validation(this.value, ...this.argument);

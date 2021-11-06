@@ -40,6 +40,7 @@ export default class CallbackClassParameters<ValueType = unknown, Type extends V
      *
      * @param argument
      */
+    constructor(value: Type, validation: (value: ValueType) => boolean, messageFactory: (value: ValueType, message: boolean) => MessageType);
     constructor(value: Type, validation: (value: ValueType, ...argument: Arguments) => boolean, messageFactory: (value: ValueType, message: boolean, ...argument: Arguments) => MessageType, argument: Arguments);
     get valid(): boolean;
     get message(): MessageType;

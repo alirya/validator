@@ -45,6 +45,8 @@ export default class CallbackClassParameters<
     Arguments extends unknown[] = unknown[]
     > implements CallbackClassParametersType<ValueType, Type, MessageType, Arguments> {
 
+    readonly argument : Arguments;
+
     /**
      *
      * @param value
@@ -58,21 +60,34 @@ export default class CallbackClassParameters<
      * @param argument
      */
     constructor(
+        value : Type,
+        validation : (value:ValueType)=>boolean,
+        messageFactory : (value:ValueType, message: boolean)=> MessageType,
+    );
+    constructor(
+        value : Type,
+        validation : (value:ValueType, ...argument:Arguments)=>boolean,
+        messageFactory : (value:ValueType, message: boolean, ...argument:Arguments)=> MessageType,
+        argument : Arguments,
+    )
+    constructor(
         readonly value : Type,
         readonly validation : (value:ValueType, ...argument:Arguments)=>boolean,
         readonly messageFactory : (value:ValueType, message: boolean, ...argument:Arguments)=> MessageType,
-        readonly argument : Arguments,
-    ) {}
+        argument ?: Arguments,
+    ) {
+        this.argument = (argument ?? []) as Arguments;
+    }
 
     @MemoizeAccessor()
     get valid() {
 
-        return this.validation(this.value, ...this.argument);
+        return this.validation(this.value, ...(this.argument as Arguments));
     }
 
     @MemoizeAccessor()
     get message() {
 
-        return this.messageFactory(this.value, this.valid, ...this.argument);
+        return this.messageFactory(this.value, this.valid, ...(this.argument as Arguments));
     }
 }
