@@ -1,5 +1,7 @@
 import StaticParameter from "./static-parameter";
 import StaticParameters from "./static-parameters";
+import StaticReturn from "../../value/static";
+import Dynamic from "../../value/dynamic";
 
 export namespace Static {
 
@@ -9,8 +11,10 @@ export namespace Static {
         Expectation extends Allow = Allow,
         Allowed extends boolean = boolean,
         Expected extends boolean = boolean,
-        MessageType = unknown
-        > = StaticParameter<Allow, Argument, Expectation, Allowed, Expected, MessageType>;
+        MessageType = unknown,
+        Validatable extends StaticReturn<Allow, Argument, Expectation, Allowed, Expected, Readonly<Dynamic<Allow>>> =
+            StaticReturn<Allow, Argument, Expectation, Allowed, Expected, Readonly<Dynamic<Allow>>>
+        > = StaticParameter<Allow, Argument, Expectation, Allowed, Expected, MessageType, Validatable>;
 
     export type Parameters<
         Allow = unknown,
@@ -18,8 +22,9 @@ export namespace Static {
         Expectation extends Allow = Allow,
         Allowed extends boolean = boolean,
         Expected extends boolean = boolean,
-        MessageType = unknown
-        > = StaticParameters<Allow, Argument, Expectation, Allowed, Expected, MessageType>;
+        MessageType = unknown,
+        ExtraArgument extends unknown[] = unknown[]
+        > = StaticParameters<Allow, Argument, Expectation, Allowed, Expected, MessageType, ExtraArgument>;
 }
 
 export default Static;
