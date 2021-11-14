@@ -21,8 +21,8 @@ describe('compiler compatibility', () => {
     let overload1 : ValidatorInfer<Simple<unknown, number, Validatable<unknown, string>>> = {value:1, valid:true, message:'message'};
     let overload2 : ValidatorInfer<Simple<unknown, number, Validatable<unknown, string>>> = {value:<unknown>1, valid:false, message:'message'};
 
-    let extend1 : ExtendInfer<Simple<unknown, number, Validatable<unknown, string>>> = true;
+    let extend1 : ExtendInfer<Simple<unknown, number, Validatable<unknown, string>>> = 1;
 
-    let extend2 : ExtendInfer<Simple<unknown, number, Validatable<unknown, string>>> = true;
+    let extend2 : ExtendInfer<Simple<unknown, number, Validatable<unknown, string>>> = 1;
 
 });

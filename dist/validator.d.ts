@@ -13,5 +13,5 @@ import ValidatableType from "./validatable/dynamic";
  *
  * {@template ValidatableType} return value for {@see Validator} callback
  */
-declare type Validator<Allow = any, Expectation extends Allow = Allow, Allowed extends boolean = boolean, Expected extends boolean = boolean, Validatable extends ValidatableType<Allow> = ValidatableType<Allow>> = <AllowArgument extends Allow, ExpectedArgument extends Expectation>(value: AllowArgument | ExpectedArgument) => Static<Allow, AllowArgument, ExpectedArgument, Allowed, Expected, Validatable>;
+declare type Validator<Allow = any, Expectation extends Allow = Allow, Allowed extends boolean = boolean, Expected extends boolean = boolean, Validatable extends ValidatableType<Allow> = ValidatableType<Allow>> = <AllowArgument extends Allow>(value: AllowArgument) => Static<Allow, AllowArgument, Expectation, Allowed, Expected, Validatable>;
 export default Validator;

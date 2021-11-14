@@ -53,6 +53,8 @@ describe('compiler compatibility', ()=>{
             if(validatable.valid) {
 
                 let value : object = validatable.value;
+
+                //@ts-expect-error
                 let exact : ReturnType<typeof TestObject> = validatable.value;
 
                 let boolean : boolean = validatable.valid;
