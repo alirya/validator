@@ -1,6 +1,6 @@
 import Simple from "./simple";
 import SimpleReturn from "./validatable/simple";
-import Dynamic from "./validatable/dynamic";
+import Validatable from "./validatable/validatable";
 import ValidationCallback from "./validatable/callback";
 import Validation from "@dikac/t-boolean/validation/validation";
 import BaseMessage from "@dikac/t-message/message";
@@ -16,7 +16,7 @@ export type CallbackParameterArgument<
     Type extends Base = Base,
     MessageType = unknown,
     > =
-    BaseMessage<<Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Dynamic<Base, MessageType>>>, 'message'>) => MessageType>
+    BaseMessage<<Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Validatable<Base, MessageType>>>, 'message'>) => MessageType>
 
 export default function CallbackParameter<
     Base = unknown,
@@ -27,7 +27,7 @@ export default function CallbackParameter<
         validation,
         message
     } : CallbackParameterArgument<Base, Type, MessageType> & Guard<Base, Type>
-) : Simple<Base, Type, Readonly<Dynamic<Base, MessageType>>>;
+) : Simple<Base, Type, Readonly<Validatable<Base, MessageType>>>;
 export default function CallbackParameter<
     Base = unknown,
     Type extends Base = Base,
@@ -37,7 +37,7 @@ export default function CallbackParameter<
         validation,
         message
     } : CallbackParameterArgument<Base, Type, MessageType> & Validation<[Base]>
-) : Simple<Base, Type, Readonly<Dynamic<Base, MessageType>>>;
+) : Simple<Base, Type, Readonly<Validatable<Base, MessageType>>>;
 
 export default function CallbackParameter<
     Base = unknown,
@@ -48,12 +48,12 @@ export default function CallbackParameter<
         validation,
         message
     } : CallbackParameterArgument<Base, Type, MessageType> & Validation<[Base]>
-) : Simple<Base, Type, Readonly<Dynamic<Base, MessageType>>> {
+) : Simple<Base, Type, Readonly<Validatable<Base, MessageType>>> {
 
     return function (value) {
 
         return ValidationCallback.Function.Parameter({value, validation, message});
 
-    } as Simple<Base, Type, Readonly<Dynamic<Base, MessageType>>>
+    } as Simple<Base, Type, Readonly<Validatable<Base, MessageType>>>
 }
 

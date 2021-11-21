@@ -1,4 +1,4 @@
-import Dynamic from "../dynamic";
+import Validatable from "../validatable";
 import InvalidStringMessageParameter, { InvalidStringMessageParameterArgument } from "./invalid-string-message-parameter";
 import InvalidStringMessageParameters from "./invalid-string-message-parameters";
 /**
@@ -15,6 +15,6 @@ import InvalidStringMessageParameters from "./invalid-string-message-parameters"
 declare namespace InvalidStringMessage {
     const Parameter: typeof InvalidStringMessageParameter;
     const Parameters: typeof InvalidStringMessageParameters;
-    type Argument<ValidatableType extends Dynamic, Error extends globalThis.Error> = InvalidStringMessageParameterArgument<ValidatableType, Error>;
+    type Argument<ValidatableType extends Validatable, Error extends globalThis.Error> = InvalidStringMessageParameterArgument<ValidatableType, Error>;
 }
 export default InvalidStringMessage;

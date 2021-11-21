@@ -1,4 +1,4 @@
-import Dynamic from "../dynamic";
+import Validatable from "../validatable";
 import Infer from "@dikac/t-message/message/infer";
 /**
  * @param validatable
@@ -11,5 +11,5 @@ import Infer from "@dikac/t-message/message/infer";
  * error object factory
  * default : {@see ValidatableInvalid}
  */
-export default function InvalidStringMessageParameters<ValidatableType extends Dynamic>(validatable: ValidatableType, message?: (validatable: Infer<ValidatableType>) => string): globalThis.Error;
-export default function InvalidStringMessageParameters<ValidatableType extends Dynamic, Error extends globalThis.Error>(validatable: ValidatableType, message?: (validatable: Infer<ValidatableType>) => string, error?: (validatable: ValidatableType, message: string) => Error): Error;
+export default function InvalidStringMessageParameters<ValidatableType extends Validatable>(validatable: ValidatableType, message?: (validatable: Infer<ValidatableType>) => string): globalThis.Error;
+export default function InvalidStringMessageParameters<ValidatableType extends Validatable, Error extends globalThis.Error>(validatable: ValidatableType, message?: (validatable: Infer<ValidatableType>) => string, error?: (validatable: ValidatableType, message: string) => Error): Error;

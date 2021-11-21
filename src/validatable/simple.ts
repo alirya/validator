@@ -1,4 +1,4 @@
-import ValidatableType from "./dynamic";
+import ValidatableType from "./validatable";
 import Static from "./static";
 import SimpleValue from "../value/simple";
 

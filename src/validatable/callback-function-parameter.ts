@@ -1,6 +1,6 @@
 import Value from "@dikac/t-value/value";
 import BaseValidatable from "@dikac/t-validatable/validatable";
-import Dynamic from "./dynamic";
+import Validatable from "./validatable";
 import Message from "@dikac/t-message/message";
 import Validation from "@dikac/t-boolean/validation/validation";
 import Guard from "@dikac/t-boolean/validation/guard";
@@ -12,7 +12,7 @@ import CallbackClassParameter from "./callback-class-parameter";
 
 
 /**
- * assemble {@see Dynamic} from value,
+ * assemble {@see Validatable} from value,
  * callback validation, and callback message
  *
  * this contain multiple class and function implementation
@@ -29,7 +29,7 @@ export type CallbackFunctionArgumentGuard<
     Value<Type> &
     Readonly<Argument<Arguments>> &
     Guard<ValueType, Type> &
-    Message<(result:Readonly<StrictOmit<Dynamic<ValueType>,'message'>>)=> MessageType>;
+    Message<(result:Readonly<StrictOmit<Validatable<ValueType>,'message'>>)=> MessageType>;
 
 export type CallbackFunctionArgumentValidation<
     ValueType = unknown,
@@ -40,7 +40,7 @@ export type CallbackFunctionArgumentValidation<
     Value<Type> &
     Validation<[ValueType], boolean> &
     Readonly<Argument<Arguments>> &
-    Message<(result:Readonly<StrictOmit<Dynamic<ValueType>,'message'>>)=> MessageType>;
+    Message<(result:Readonly<StrictOmit<Validatable<ValueType>,'message'>>)=> MessageType>;
 
 
 export default function CallbackFunctionParameter<

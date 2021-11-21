@@ -1,11 +1,11 @@
-import Dynamic from "./dynamic";
+import Validatable from "./validatable";
 import Validation from "@dikac/t-boolean/validation/validation";
 import Argument from "@dikac/t-function/argument/argument";
 /**
  * class type
  */
 /**
- * assemble {@see Dynamic} from value,
+ * assemble {@see Validatable} from value,
  * callback validation, and callback message
  *
  * this contain multiple class and function implementation
@@ -17,7 +17,7 @@ import Argument from "@dikac/t-function/argument/argument";
  * main implementation
  *
  */
-export interface CallbackClassParametersType<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[]> extends Readonly<Dynamic<ValueType, MessageType>>, Readonly<Validation<[ValueType, ...Arguments], boolean>>, Readonly<Argument<Arguments>> {
+export interface CallbackClassParametersType<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[]> extends Readonly<Validatable<ValueType, MessageType>>, Readonly<Validation<[ValueType, ...Arguments], boolean>>, Readonly<Argument<Arguments>> {
 }
 /**
  * main implementation

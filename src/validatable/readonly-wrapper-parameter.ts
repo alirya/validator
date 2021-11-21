@@ -1,4 +1,4 @@
-import Dynamic from "./dynamic";
+import Validatable from "./validatable";
 import ReadonlyWrapperParameters from "./readonly-wrapper-parameters";
 
 /**
@@ -6,7 +6,7 @@ import ReadonlyWrapperParameters from "./readonly-wrapper-parameters";
  */
 
 export default class ReadonlyWrapperObject<
-    ValidatableType extends Dynamic
+    ValidatableType extends Validatable
 > extends ReadonlyWrapperParameters<ValidatableType, ValidatableType, ValidatableType>{
 
     constructor(public validatable : ValidatableType) {

@@ -3,7 +3,7 @@ import BaseValidatable from "@dikac/t-validatable/validatable";
 import Message from "@dikac/t-message/message";
 import Return from "./simple";
 /**
- * assemble {@see Dynamic} from value,
+ * assemble {@see Validatable} from value,
  * callback validation, and callback message
  *
  * this contain multiple class and function implementation
