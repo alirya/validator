@@ -1,5 +1,5 @@
 import ValidatableInvalid from "@dikac/t-validatable/error/invalid";
-import Dynamic from "../dynamic";
+import Validatable from "../validatable";
 import Infer from "@dikac/t-message/message/infer";
 import New from "@dikac/t-function/new";
 
@@ -18,18 +18,18 @@ const defaultError = New(ValidatableInvalid.Parameter);
  */
 
 
-export default function InvalidStringMessageParameters<ValidatableType extends Dynamic>(
+export default function InvalidStringMessageParameters<ValidatableType extends Validatable>(
     validatable: ValidatableType,
     message ?: (validatable: Infer<ValidatableType>) => string,
 ) : globalThis.Error;
 
-export default function InvalidStringMessageParameters<ValidatableType extends Dynamic, Error extends globalThis.Error>(
+export default function InvalidStringMessageParameters<ValidatableType extends Validatable, Error extends globalThis.Error>(
     validatable: ValidatableType,
     message ?: (validatable: Infer<ValidatableType>) => string,
     error ?: (validatable: ValidatableType, message : string) => Error
 ) : Error;
 
-export default function InvalidStringMessageParameters<ValidatableType extends Dynamic, Error extends globalThis.Error>(
+export default function InvalidStringMessageParameters<ValidatableType extends Validatable, Error extends globalThis.Error>(
     validatable: ValidatableType,
     message : (validatable: Infer<ValidatableType>) => string = JSON.stringify,
     error : (validatable: ValidatableType, message : string) => Error|globalThis.Error = defaultError

@@ -1,4 +1,4 @@
-import Dynamic from "../dynamic";
+import Validatable from "../validatable";
 import InvalidStringMessage from "../error/invalid-string-message";
 
 /**
@@ -6,7 +6,7 @@ import InvalidStringMessage from "../error/invalid-string-message";
  */
 
 export default function Valid<
-    Argument extends Dynamic = Dynamic,
+    Argument extends Validatable = Validatable,
 >(
     value : Argument,
     error : (validatable:Argument)=>Error = InvalidStringMessage.Parameters

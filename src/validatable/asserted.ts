@@ -1,6 +1,6 @@
 import ValueInfer from "@dikac/t-value/value/infer";
 import ReadonlyWrapper from "./readonly-wrapper";
-import Dynamic from "./dynamic";
+import Validatable from "./validatable";
 import InvalidStringMessage from "./error/invalid-string-message";
 import Value from "@dikac/t-value/value";
 import ValidatableContainer from "@dikac/t-validatable/validatable/validatable";
@@ -10,11 +10,11 @@ type KeepImport = Value;
 /**
  * @inheritDoc {@link ReadonlyWrapper}
  *
- * throw exception when {@link Dynamic} is in valid (false) when
+ * throw exception when {@link Validatable} is in valid (false) when
  * accessing value {@link Value}
  */
 export default class Asserted<
-    ValidatableType extends Dynamic = Dynamic
+    ValidatableType extends Validatable = Validatable
 > extends ReadonlyWrapper.Parameter<
     ValidatableType
 > {

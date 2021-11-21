@@ -3,7 +3,7 @@ import InvalidStringMessage from "./error/invalid-string-message";
 /**
  * @inheritDoc {@link ReadonlyWrapper}
  *
- * throw exception when {@link Dynamic} is in valid (false) when
+ * throw exception when {@link Validatable} is in valid (false) when
  * accessing value {@link Value}
  */
 export default class Asserted extends ReadonlyWrapper.Parameter {

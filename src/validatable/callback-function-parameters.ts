@@ -1,13 +1,13 @@
 import Value from "@dikac/t-value/value";
 import BaseValidatable from "@dikac/t-validatable/validatable";
-import Dynamic from "./dynamic";
+import Validatable from "./validatable";
 import Message from "@dikac/t-message/message";
 import Return from "./simple";
 import CallbackClassParameters from "./callback-class-parameters";
 
 
 /**
- * assemble {@see Dynamic} from value,
+ * assemble {@see Validatable} from value,
  * callback validation, and callback message
  *
  * this contain multiple class and function implementation
@@ -116,7 +116,7 @@ export default function CallbackFunctionParameters<
     validation : (value:ValueType)=>boolean,
     message : (value:ValueType, message: boolean)=> MessageType,
     argument : Argument|[] = [],
-) :  Readonly<Dynamic<ValueType, MessageType>> {
+) :  Readonly<Validatable<ValueType, MessageType>> {
 
     return new CallbackClassParameters(value, validation, message, argument)
 }

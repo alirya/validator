@@ -1,4 +1,4 @@
-import Dynamic from "./dynamic";
+import Validatable from "./validatable";
 import MemoizeAccessor from "@dikac/t-object/function/memoize-accessor";
 import Validation from "@dikac/t-boolean/validation/validation";
 import Argument from "@dikac/t-function/argument/argument";
@@ -10,7 +10,7 @@ import Argument from "@dikac/t-function/argument/argument";
 
 
 /**
- * assemble {@see Dynamic} from value,
+ * assemble {@see Validatable} from value,
  * callback validation, and callback message
  *
  * this contain multiple class and function implementation
@@ -29,7 +29,7 @@ export interface CallbackClassParametersType<
     MessageType = unknown,
     Arguments extends unknown[]= unknown[]
     > extends
-    Readonly<Dynamic<ValueType, MessageType>>,
+    Readonly<Validatable<ValueType, MessageType>>,
     Readonly<Validation<[ValueType, ...Arguments], boolean>>,
     Readonly<Argument<Arguments>>
 {}
