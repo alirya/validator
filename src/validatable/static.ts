@@ -1,6 +1,4 @@
-import ReplaceValue from "@dikac/t-value/value/replace";
 import ValidatableType from "./validatable";
-import ReplaceValidatable from "@dikac/t-validatable/boolean/replace";
 import StaticValue from "../value/static";
 
 type Static<

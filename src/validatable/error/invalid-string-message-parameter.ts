@@ -25,7 +25,6 @@ export type InvalidStringMessageParameterArgument<ValidatableType extends Valida
     ValidatableContainer<ValidatableType> &
     Partial<Message<(validatable: Infer<ValidatableType>) => string>> &
     {error ?: (validatable: ValidatableType, message : string) => Error}
-    //{error: (a : ValidatableContainer<ValidatableType> & Message<string>) => Error}
 
 export default function InvalidStringMessageParameter<ValidatableType extends Validatable>({
         validatable

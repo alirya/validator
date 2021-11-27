@@ -71,7 +71,6 @@ export function CallbackParameter<
     MessageType = unknown,
 >(
     validation : <Value extends Base>(argument:Value|Expectation) => argument is Expectation,
-    // message : <Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Validatable<Base, MessageType>>>, 'message'>) => MessageType,
     message : Message.Parameters<Base, Expectation, MessageType>,
 
 ) : Simple<Base, Expectation, Readonly<Validatable<Base, MessageType>>>;
@@ -81,7 +80,6 @@ export function CallbackParameter<
     MessageType = unknown,
 >(
     validation : <Argument extends Base>(argument:Base) => boolean,
-    //  message : <Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Validatable<Base, MessageType>>>, 'message'>) => MessageType,
     message : Message.Parameters<Base, Expectation, MessageType>,
 ) : Simple<Base, Expectation, Readonly<Validatable<Base, MessageType>>>;
 
@@ -92,7 +90,6 @@ export function CallbackParameter<
 >(
     validation : <Argument extends Base>(argument:Base) => boolean,
     message : Message.Parameters<Base, Expectation, MessageType>,
-    //message : <Argument extends Base>(argument: Omit<SimpleReturn<Base, Argument, Type, Readonly<Validatable<Base, MessageType>>>, 'message'>) => MessageType,
 ) : Simple<Base, Expectation, Readonly<Validatable<Base, MessageType>>> {
 
     return function (value) {
