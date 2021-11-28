@@ -45,6 +45,7 @@ export type CallbackFunctionArgumentValidation<
 
 export default function CallbackFunctionParameter<
     ValueType = unknown,
+    Allow extends ValueType = ValueType,
     Type extends ValueType = ValueType,
     MessageType = unknown,
     >({
@@ -52,10 +53,11 @@ export default function CallbackFunctionParameter<
           validation,
           message
       } : CallbackFunctionArgumentGuard<ValueType, Type, MessageType>
-) : CallbackFunctionType<ValueType, Type, MessageType>
+) : CallbackFunctionType<ValueType, ValueType, Type, MessageType>
 
 export default function CallbackFunctionParameter<
     ValueType = unknown,
+    Allow extends ValueType = ValueType,
     Type extends ValueType = ValueType,
     MessageType = unknown,
     >({
@@ -63,7 +65,7 @@ export default function CallbackFunctionParameter<
           validation,
           message
       } : CallbackFunctionArgumentValidation<ValueType, Type, MessageType>
-) : CallbackFunctionType<ValueType, Type, MessageType>
+) : CallbackFunctionType<ValueType, ValueType, Type, MessageType>
 /**
  * destructure argument implementation for function
  */

@@ -2,6 +2,7 @@ import Value from "@dikac/t-value/value";
 import BaseValidatable from "@dikac/t-validatable/validatable";
 import Message from "@dikac/t-message/message";
 import Return from "./simple";
+import MessageSimple from "../message/function/simple-parameters";
 /**
  * assemble {@see Validatable} from value,
  * callback validation, and callback message
@@ -11,7 +12,7 @@ import Return from "./simple";
  * function implementation version offer
  * more accurate type
  */
-export declare type CallbackFunctionType<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = Return<ValueType, ValueType, Type, Readonly<Value<ValueType> & BaseValidatable & Message<MessageType>>>;
+export declare type CallbackFunctionType<ValueType = unknown, Allow extends ValueType = ValueType, Type extends ValueType = ValueType, MessageType = unknown> = Return<ValueType, ValueType, Type, Readonly<Value<ValueType> & BaseValidatable & Message<MessageType>>>;
 /**
  * guard
  *
@@ -21,7 +22,7 @@ export declare type CallbackFunctionType<ValueType = unknown, Type extends Value
  * @param argument
  * @constructor
  */
-export default function CallbackFunctionParameters<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Argument extends unknown[] = unknown[]>(value: ValueType, validation: (value: ValueType, ...extra: Argument) => value is Type, message: (value: ValueType, message: boolean, ...extra: Argument) => MessageType, argument: Argument): CallbackFunctionType<ValueType, Type, MessageType>;
+export default function CallbackFunctionParameters<ValueType = unknown, Allow extends ValueType = ValueType, Type extends ValueType = ValueType, MessageType = unknown, Argument extends unknown[] = unknown[]>(value: ValueType, validation: (value: ValueType, ...extra: Argument) => value is Type, message: MessageSimple<ValueType, Allow, Type, MessageType, Argument>, argument: Argument): CallbackFunctionType<ValueType, Allow, Type, MessageType>;
 /**
  * boolean
  *
@@ -31,7 +32,7 @@ export default function CallbackFunctionParameters<ValueType = unknown, Type ext
  * @param argument
  * @constructor
  */
-export default function CallbackFunctionParameters<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Argument extends unknown[] = unknown[]>(value: Type, validation: (value: ValueType, ...extra: Argument) => boolean, message: (value: ValueType, message: boolean, ...extra: Argument) => MessageType, argument: Argument): CallbackFunctionType<ValueType, Type, MessageType>;
+export default function CallbackFunctionParameters<ValueType = unknown, Allow extends ValueType = ValueType, Type extends ValueType = ValueType, MessageType = unknown, Argument extends unknown[] = unknown[]>(value: Type, validation: (value: ValueType, ...extra: Argument) => boolean, message: MessageSimple<ValueType, Allow, Type, MessageType, Argument>, argument: Argument): CallbackFunctionType<ValueType, Allow, Type, MessageType>;
 /**
  * guard
  *
@@ -40,7 +41,7 @@ export default function CallbackFunctionParameters<ValueType = unknown, Type ext
  * @param message
  * @constructor
  */
-export default function CallbackFunctionParameters<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown>(value: ValueType, validation: (value: ValueType) => value is Type, message: (value: ValueType, message: boolean) => MessageType): CallbackFunctionType<ValueType, Type, MessageType>;
+export default function CallbackFunctionParameters<ValueType = unknown, Allow extends ValueType = ValueType, Type extends ValueType = ValueType, MessageType = unknown>(value: ValueType, validation: (value: ValueType) => value is Type, message: MessageSimple<ValueType, Allow, Type, MessageType>): CallbackFunctionType<ValueType, Allow, Type, MessageType>;
 /**
  * boolean
  *
@@ -49,4 +50,4 @@ export default function CallbackFunctionParameters<ValueType = unknown, Type ext
  * @param message
  * @constructor
  */
-export default function CallbackFunctionParameters<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown>(value: Type, validation: (value: ValueType) => boolean, message: (value: ValueType, message: boolean) => MessageType): CallbackFunctionType<ValueType, Type, MessageType>;
+export default function CallbackFunctionParameters<ValueType = unknown, Allow extends ValueType = ValueType, Type extends ValueType = ValueType, MessageType = unknown>(value: Type, validation: (value: ValueType) => boolean, message: MessageSimple<ValueType, Allow, Type, MessageType>): CallbackFunctionType<ValueType, Allow, Type, MessageType>;

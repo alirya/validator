@@ -28,7 +28,7 @@ export interface CallbackClassParametersType<
     Type extends ValueType = ValueType,
     MessageType = unknown,
     Arguments extends unknown[]= unknown[]
-    > extends
+> extends
     Readonly<Validatable<ValueType, MessageType>>,
     Readonly<Validation<[ValueType, ...Arguments], boolean>>,
     Readonly<Argument<Arguments>>

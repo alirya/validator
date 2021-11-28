@@ -28,8 +28,8 @@ declare namespace Callback {
     namespace Function {
         const Parameter: typeof CallbackFunctionParameter;
         const Parameters: typeof CallbackFunctionParameters;
-        type Type<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackFunctionType<ValueType, Type, MessageType>;
-        type ArgumentGuard<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[]> = CallbackFunctionArgumentGuard<ValueType, Type, MessageType, Arguments>;
+        type Type<ValueType = unknown, Allow extends ValueType = ValueType, Type extends ValueType = ValueType, MessageType = unknown> = CallbackFunctionType<ValueType, Allow, Type, MessageType>;
+        type ArgumentGuard<ValueType = unknown, Allow extends ValueType = ValueType, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[]> = CallbackFunctionArgumentGuard<ValueType, Type, MessageType, Arguments>;
         type ArgumentValidation<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[]> = CallbackFunctionArgumentValidation<ValueType, Type, MessageType, Arguments>;
     }
 }

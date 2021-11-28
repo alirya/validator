@@ -55,17 +55,20 @@ namespace Callback {
 
         export type Type<
             ValueType = unknown,
+            Allow extends ValueType = ValueType,
             Type extends ValueType = ValueType,
             MessageType = unknown,
             > =
             CallbackFunctionType<
                 ValueType,
+                Allow,
                 Type,
                 MessageType
                 >;
 
         export type ArgumentGuard<
             ValueType = unknown,
+            Allow extends ValueType = ValueType,
             Type extends ValueType = ValueType,
             MessageType = unknown,
             Arguments extends unknown[] = unknown[]

@@ -4,7 +4,7 @@ import Validatable from "./validatable";
 import Message from "@dikac/t-message/message";
 import Return from "./simple";
 import CallbackClassParameters from "./callback-class-parameters";
-
+import MessageSimple from "../message/function/simple-parameters";
 
 /**
  * assemble {@see Validatable} from value,
@@ -18,6 +18,7 @@ import CallbackClassParameters from "./callback-class-parameters";
 
 export type CallbackFunctionType<
     ValueType = unknown,
+    Allow extends ValueType = ValueType,
     Type extends ValueType = ValueType,
     MessageType = unknown
     > =
@@ -35,15 +36,16 @@ export type CallbackFunctionType<
  */
 export default function CallbackFunctionParameters<
     ValueType = unknown,
+    Allow extends ValueType = ValueType,
     Type extends ValueType = ValueType,
     MessageType = unknown,
     Argument extends unknown[] = unknown[],
 >(
     value : ValueType,
     validation : (value:ValueType, ...extra: Argument)=>value is Type,
-    message : (value:ValueType, message: boolean, ...extra: Argument)=> MessageType,
+    message : MessageSimple<ValueType, Allow, Type, MessageType, Argument>,
     argument : Argument,
-) : CallbackFunctionType<ValueType, Type, MessageType>
+) : CallbackFunctionType<ValueType, Allow, Type, MessageType>
 
 /**
  * boolean
@@ -56,15 +58,16 @@ export default function CallbackFunctionParameters<
  */
 export default function CallbackFunctionParameters<
     ValueType = unknown,
+    Allow extends ValueType = ValueType,
     Type extends ValueType = ValueType,
     MessageType = unknown,
     Argument extends unknown[] = unknown[],
 >(
     value : Type,
     validation : (value:ValueType, ...extra: Argument)=>boolean,
-    message : (value:ValueType, message: boolean, ...extra: Argument)=> MessageType,
+    message : MessageSimple<ValueType, Allow, Type, MessageType, Argument>,
     argument : Argument,
-) : CallbackFunctionType<ValueType, Type, MessageType>
+) : CallbackFunctionType<ValueType, Allow, Type, MessageType>
 
 /**
  * guard
@@ -76,13 +79,14 @@ export default function CallbackFunctionParameters<
  */
 export default function CallbackFunctionParameters<
     ValueType = unknown,
+    Allow extends ValueType = ValueType,
     Type extends ValueType = ValueType,
     MessageType = unknown,
 >(
     value : ValueType,
     validation : (value:ValueType)=>value is Type,
-    message : (value:ValueType, message: boolean)=> MessageType,
-) : CallbackFunctionType<ValueType, Type, MessageType>
+    message : MessageSimple<ValueType, Allow, Type, MessageType>,
+) : CallbackFunctionType<ValueType, Allow, Type, MessageType>
 
 /**
  * boolean
@@ -94,13 +98,15 @@ export default function CallbackFunctionParameters<
  */
 export default function CallbackFunctionParameters<
     ValueType = unknown,
+    Allow extends ValueType = ValueType,
     Type extends ValueType = ValueType,
     MessageType = unknown,
 >(
     value : Type,
     validation : (value:ValueType)=>boolean,
-    message : (value:ValueType, message: boolean)=> MessageType,
-) : CallbackFunctionType<ValueType, Type, MessageType>
+    // message : (value:ValueType, message: boolean)=> MessageType,
+    message : MessageSimple<ValueType, Allow, Type, MessageType>,
+) : CallbackFunctionType<ValueType, Allow, Type, MessageType>
 
 
 /**

@@ -52,11 +52,11 @@ export default class CallbackClassParameter<
     > extends CallbackClassParameters<ValueType, Type, MessageType> {
 
     constructor({
-                    value,
-                    validation,
-                    message,
-                    argument
-                } : CallbackClassParameterArgument<ValueType, Type, MessageType>) {
+        value,
+        validation,
+        message,
+        argument
+    } : CallbackClassParameterArgument<ValueType, Type, MessageType>) {
 
         super(value, validation, ()=>message(this), argument);
     }
