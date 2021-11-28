@@ -1,6 +1,6 @@
 import Simple from "./simple";
 import Validatable from "./validatable/validatable";
-import ValidationCallback from "./validatable/callback";
+import ValidationCallback from "./validatable/callback-function-parameters";
 import Message from "./message/function/simple";
 
 /**
@@ -36,7 +36,7 @@ export default function CallbackParameters<
 
     return function (value) {
 
-        return ValidationCallback.Function.Parameters(value, validation, message);
+        return ValidationCallback(value, validation, message);
 
     } as Simple<Base, Expectation, Readonly<Validatable<Base, MessageType>>>
 }

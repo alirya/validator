@@ -116,8 +116,7 @@ export default function CallbackFunctionParameters<
     validation : (value:ValueType)=>boolean,
     message : (value:ValueType, message: boolean)=> MessageType,
     argument : Argument|[] = [],
-) :  Readonly<Validatable<ValueType, MessageType>> {
+) : Readonly<Validatable<ValueType, MessageType>> {
 
     return new CallbackClassParameters(value, validation, message, argument)
 }
-
