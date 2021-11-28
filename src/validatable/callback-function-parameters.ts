@@ -104,7 +104,6 @@ export default function CallbackFunctionParameters<
 >(
     value : Type,
     validation : (value:ValueType)=>boolean,
-    // message : (value:ValueType, message: boolean)=> MessageType,
     message : MessageSimple<ValueType, Allow, Type, MessageType>,
 ) : CallbackFunctionType<ValueType, Allow, Type, MessageType>
 

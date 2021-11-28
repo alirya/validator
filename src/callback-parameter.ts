@@ -1,5 +1,4 @@
 import Simple from "./simple";
-import SimpleReturn from "./validatable/simple";
 import Validatable from "./validatable/validatable";
 import ValidationCallback from "./validatable/callback";
 import Validation from "@dikac/t-boolean/validation/validation";
