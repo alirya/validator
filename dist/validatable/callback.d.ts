@@ -22,7 +22,7 @@ declare namespace Callback {
     namespace Class {
         const Parameter: typeof CallbackClassParameter;
         const Parameters: typeof CallbackClassParameters;
-        type Type<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackClassParametersType<ValueType, Type, MessageType>;
+        type Type<ValueType = unknown, MessageType = unknown> = CallbackClassParametersType<ValueType, MessageType>;
         type Argument<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackClassParameterArgument<ValueType, Type, MessageType>;
     }
     namespace Function {

@@ -6,7 +6,7 @@ import Validation from "@dikac/t-boolean/validation/validation";
 import BaseMessage from "@dikac/t-message/message";
 import Guard from "@dikac/t-boolean/validation/guard";
 import Message from "./message/function/simple";
-import CallbackParameter, {CallbackParameterArgument} from "./callback-parameter";
+import CallbackParameter from "./callback-parameter";
 import CallbackParameters from "./callback-parameters";
 
 /**
@@ -18,8 +18,7 @@ namespace Callback {
 
     export const Parameter = CallbackParameter;
     export const Parameters = CallbackParameters;
-    export type Argument<Base = unknown, Type extends Base = Base, MessageType = unknown> =
-        CallbackParameterArgument<Base, Type, MessageType>;
+
 }
 
 export default Callback;

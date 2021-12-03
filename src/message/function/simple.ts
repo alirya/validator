@@ -16,8 +16,8 @@ export namespace Simple {
         Allow = unknown,
         Expectation extends Allow = Allow,
         MessageType = unknown,
-        Validatable extends SimpleReturn<Allow, Allow, Expectation, Readonly<Dynamic<Allow>>> =
-            SimpleReturn<Allow, Allow, Expectation, Readonly<Dynamic<Allow>>>
+        Validatable extends SimpleReturn<Allow, Expectation, Readonly<Dynamic<Allow>>> =
+            SimpleReturn<Allow, Expectation, Readonly<Dynamic<Allow>>>
     > = SimpleParameter<Allow, Expectation, MessageType, Validatable>;
 }
 

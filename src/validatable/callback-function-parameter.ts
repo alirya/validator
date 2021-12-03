@@ -95,5 +95,6 @@ export default function CallbackFunctionParameter<
         argument.argument = [] as any;
     }
 
-    return new CallbackClassParameter(argument as CallbackFunctionArgumentValidation<ValueType, Type, MessageType, Argument>)
+    return new CallbackClassParameter(argument as CallbackFunctionArgumentValidation<ValueType, Type, MessageType, Argument>) as
+        Readonly<Value<ValueType> & BaseValidatable<boolean> & Message<MessageType>>
 }

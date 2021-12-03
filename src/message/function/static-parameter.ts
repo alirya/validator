@@ -1,17 +1,20 @@
 import StaticReturn from "../../value/static";
 import Dynamic from "../../value/dynamic";
 import ReplaceValue from "@dikac/t-value/value/replace";
+import ReplaceValidatable from "@dikac/t-validatable/boolean/replace";
 
-export type StaticParameter<
+export interface StaticParameter<
     Allow = unknown,
-    Argument extends Allow = Allow,
     Expectation extends Allow = Allow,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     MessageType = unknown,
-    Validatable extends StaticReturn<Allow, Argument, Expectation, Allowed, Expected, Readonly<Dynamic<Allow>>> =
-        StaticReturn<Allow, Argument, Expectation, Allowed, Expected, Readonly<Dynamic<Allow>>>
-> =
-    <Value extends Argument>(argument: ReplaceValue<Validatable, Value>) => MessageType;
+    Validatable extends StaticReturn<Allow, Expectation, Allowed, Expected, Readonly<Dynamic<Allow>>> =
+        StaticReturn<Allow, Expectation, Allowed, Expected, Readonly<Dynamic<Allow>>>
+> {
+    <Value extends Allow>(argument: ReplaceValidatable<ReplaceValue<Validatable, Value>, Allowed>) : MessageType;
+    <Value extends Expectation>(argument: ReplaceValidatable<ReplaceValue<Validatable, Value>, Expected>) : MessageType;
+}
+
 
 export default StaticParameter;

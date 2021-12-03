@@ -7,6 +7,6 @@ type InferStatic<ValidatorType> = ValidatorType extends Validator<
     infer Allowed,
     infer Expected,
     infer Validatable
-> ? Static<Allow, Allow, Expectation, Allowed, Expected, Validatable> : never;
+> ? Static<Allow, Expectation, Allowed, Expected, Validatable> : never;
 
 export default InferStatic;

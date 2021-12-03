@@ -4,13 +4,12 @@ import ReplaceValidatable from "@dikac/t-validatable/boolean/replace";
 
 type Static<
     Allow = unknown,
-    Argument extends Allow = Allow,
     Expectation extends Allow = Allow,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     Validatable extends Dynamic<Allow> = Dynamic<Allow>
 > =
-    ReplaceValue<ReplaceValidatable<Validatable, Allowed>, Argument> |
+    ReplaceValue<ReplaceValidatable<Validatable, Allowed>, Allow> |
     ReplaceValue<ReplaceValidatable<Validatable, Expected>, Expectation>
 ;
 

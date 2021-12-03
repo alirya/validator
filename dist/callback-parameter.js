@@ -1,7 +1,8 @@
-import ValidationCallback from "./validatable/callback";
-export default function CallbackParameter({ validation, message }) {
-    return function (value) {
-        return ValidationCallback.Function.Parameter({ value, validation, message });
-    };
+import CallbackParameters from "./callback-parameters";
+export default function CallbackParameter(
+// validation : <Argument extends Allow>(argument:Allow) => boolean,
+// message : StaticMessage<Allow, Expectation, Allowed, Expected, Infer<Validatable>>,
+{ validation, message, }) {
+    return CallbackParameters(validation, (value, valid) => message({ value, valid }));
 }
 //# sourceMappingURL=callback-parameter.js.map

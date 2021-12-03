@@ -31,10 +31,9 @@ namespace Callback {
 
         export type Type<
             ValueType = unknown,
-            Type extends ValueType = ValueType,
             MessageType = unknown,
             > =
-            CallbackClassParametersType<ValueType, Type, MessageType>;
+            CallbackClassParametersType<ValueType, MessageType>;
 
         export type Argument<
             ValueType = unknown,

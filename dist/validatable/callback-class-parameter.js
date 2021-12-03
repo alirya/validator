@@ -14,7 +14,7 @@ import CallbackClassParameters from "./callback-class-parameters";
  */
 export default class CallbackClassParameter extends CallbackClassParameters {
     constructor({ value, validation, message, argument }) {
-        super(value, validation, () => message(this), argument);
+        super(value, (value, ...argument) => validation(value, ...argument), () => message(this), argument);
     }
 }
 //# sourceMappingURL=callback-class-parameter.js.map

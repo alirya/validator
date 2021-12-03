@@ -3,12 +3,10 @@ import Static from "./static";
 
 type Simple<
     Allow = unknown,
-    Argument extends Allow = Allow,
     Expectation extends Allow = Allow,
     Validatable extends Dynamic<Allow> = Dynamic<Allow>
 > = Static<
     Allow,
-    Argument,
     Expectation,
     false,
     true,
