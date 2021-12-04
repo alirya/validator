@@ -1,11 +1,10 @@
-import ReplaceValue from "@dikac/t-value/value/replace";
-import ValidatableReplace from "@dikac/t-validatable/boolean/replace";
 import Validatable from "./validatable";
+import ReplaceValue from "../value/replace";
 
 type Replace<
     ValueType,
     Boolean extends boolean,
-    ValidatableType extends Validatable
-> = ReplaceValue<ValidatableReplace<ValidatableType, Boolean>, ValueType>;
+    ValidatableType extends Validatable<ValueType>
+> = ReplaceValue<ValueType, Boolean, ValidatableType>;
 
 export default Replace;

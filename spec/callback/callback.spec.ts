@@ -1,10 +1,10 @@
-import Callback, {CallbackParameter} from "../../dist/callback";
+import Callback from "../../dist/callback-parameters";
 import String from "@dikac/t-string/boolean/string";
-import MessageString from "@dikac/t-string/assert/string/string";
+import MessageString from "@dikac/t-string/assert/string/string-parameters";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
-let callback = CallbackParameter<unknown, string, string>(
+let callback = Callback<unknown, string, string>(
     String,
     (value, valid: boolean) : string => MessageString(valid, value)
 );

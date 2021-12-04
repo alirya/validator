@@ -1,8 +1,8 @@
-import CallbackClassParameter, {CallbackClassParameterArgument} from "./callback-class-parameter";
+import CallbackClassParameter, {CallbackClassParameterArgumentGuard, CallbackClassParameterArgumentValidation} from "./callback-class-parameter";
 import CallbackClassParameters, {CallbackClassParametersType} from "./callback-class-parameters";
 import CallbackFunctionParameters, {CallbackFunctionType} from "./callback-function-parameters";
 import CallbackFunctionParameter from "./callback-function-parameter";
-import {CallbackFunctionArgumentGuard, CallbackFunctionArgumentValidation} from "./callback-function-parameter";
+import {CallbackFunctionParameterArgumentGuard, CallbackFunctionParameterArgumentValidation} from "./callback-function-parameter";
 
 /**
  * assemble {@see Dynamic} from value,
@@ -19,7 +19,6 @@ import {CallbackFunctionArgumentGuard, CallbackFunctionArgumentValidation} from 
  * class type
  */
 
-
 /**
  * namespace aliases
  */
@@ -35,11 +34,21 @@ namespace Callback {
             > =
             CallbackClassParametersType<ValueType, MessageType>;
 
-        export type Argument<
+        export type ArgumentGuard<
             ValueType = unknown,
             Type extends ValueType = ValueType,
             MessageType = unknown
-            > = CallbackClassParameterArgument<
+            > = CallbackClassParameterArgumentGuard<
+            ValueType,
+            Type,
+            MessageType
+            >
+
+        export type ArgumentValidation<
+            ValueType = unknown,
+            Type extends ValueType = ValueType,
+            MessageType = unknown
+            > = CallbackClassParameterArgumentValidation<
             ValueType,
             Type,
             MessageType
@@ -68,7 +77,7 @@ namespace Callback {
             Type extends ValueType = ValueType,
             MessageType = unknown,
             Arguments extends unknown[] = unknown[]
-        > = CallbackFunctionArgumentGuard<
+        > = CallbackFunctionParameterArgumentGuard<
             ValueType,
             Type,
             MessageType,
@@ -80,7 +89,7 @@ namespace Callback {
             Type extends ValueType = ValueType,
             MessageType = unknown,
             Arguments extends unknown[] = unknown[]
-        > = CallbackFunctionArgumentValidation<
+        > = CallbackFunctionParameterArgumentValidation<
             ValueType,
             Type,
             MessageType,

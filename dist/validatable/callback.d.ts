@@ -1,8 +1,8 @@
-import CallbackClassParameter, { CallbackClassParameterArgument } from "./callback-class-parameter";
+import CallbackClassParameter, { CallbackClassParameterArgumentGuard, CallbackClassParameterArgumentValidation } from "./callback-class-parameter";
 import CallbackClassParameters, { CallbackClassParametersType } from "./callback-class-parameters";
 import CallbackFunctionParameters, { CallbackFunctionType } from "./callback-function-parameters";
 import CallbackFunctionParameter from "./callback-function-parameter";
-import { CallbackFunctionArgumentGuard, CallbackFunctionArgumentValidation } from "./callback-function-parameter";
+import { CallbackFunctionParameterArgumentGuard, CallbackFunctionParameterArgumentValidation } from "./callback-function-parameter";
 /**
  * assemble {@see Dynamic} from value,
  * callback validation, and callback message
@@ -23,14 +23,15 @@ declare namespace Callback {
         const Parameter: typeof CallbackClassParameter;
         const Parameters: typeof CallbackClassParameters;
         type Type<ValueType = unknown, MessageType = unknown> = CallbackClassParametersType<ValueType, MessageType>;
-        type Argument<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackClassParameterArgument<ValueType, Type, MessageType>;
+        type ArgumentGuard<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackClassParameterArgumentGuard<ValueType, Type, MessageType>;
+        type ArgumentValidation<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackClassParameterArgumentValidation<ValueType, Type, MessageType>;
     }
     namespace Function {
         const Parameter: typeof CallbackFunctionParameter;
         const Parameters: typeof CallbackFunctionParameters;
         type Type<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackFunctionType<ValueType, Type, MessageType>;
-        type ArgumentGuard<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[]> = CallbackFunctionArgumentGuard<ValueType, Type, MessageType, Arguments>;
-        type ArgumentValidation<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[]> = CallbackFunctionArgumentValidation<ValueType, Type, MessageType, Arguments>;
+        type ArgumentGuard<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[]> = CallbackFunctionParameterArgumentGuard<ValueType, Type, MessageType, Arguments>;
+        type ArgumentValidation<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[]> = CallbackFunctionParameterArgumentValidation<ValueType, Type, MessageType, Arguments>;
     }
 }
 export default Callback;

@@ -1,7 +1,8 @@
 import Validatable from "./validatable";
 import Validation from "@dikac/t-boolean/validation/validation";
+import ValidationFunction from "@dikac/t-boolean/function/validation";
 import Argument from "@dikac/t-function/argument/argument";
-import DynamicParameters from "../message/function/dynamic-parameters";
+import ValidatableParameters from "../message/function/validatable-parameters";
 /**
  * class type
  */
@@ -25,8 +26,8 @@ export declare type CallbackClassParametersType<ValueType = unknown, MessageType
  */
 export default class CallbackClassParameters<ValueType = unknown, MessageType = unknown, Arguments extends unknown[] = unknown[], Boolean extends boolean = boolean> implements CallbackClassParametersType<ValueType, MessageType, Arguments, Boolean> {
     readonly value: ValueType;
-    readonly validation: (value: ValueType, ...argument: Arguments) => Boolean;
-    readonly messageFactory: DynamicParameters<ValueType, MessageType, Arguments, Boolean>;
+    readonly validation: ValidationFunction<[ValueType, ...Arguments], Boolean>;
+    readonly messageFactory: ValidatableParameters<ValueType, MessageType, Arguments, Boolean>;
     readonly argument: Arguments;
     /**
      *
@@ -40,7 +41,8 @@ export default class CallbackClassParameters<ValueType = unknown, MessageType = 
      *
      * @param argument
      */
-    constructor(value: ValueType, validation: (value: ValueType, ...argument: Arguments) => Boolean, messageFactory: DynamicParameters<ValueType, MessageType, Arguments, Boolean>, argument: Arguments);
+    constructor(value: ValueType, validation: ValidationFunction<[ValueType], Boolean>, messageFactory: ValidatableParameters<ValueType, MessageType, [], Boolean>);
+    constructor(value: ValueType, validation: ValidationFunction<[ValueType, ...Arguments], Boolean>, messageFactory: ValidatableParameters<ValueType, MessageType, Arguments, Boolean>, argument: Arguments);
     get valid(): Boolean;
     get message(): MessageType;
 }

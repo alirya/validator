@@ -1,5 +1,5 @@
 import StaticReturn from "../../value/static";
-import Dynamic from "../../value/dynamic";
+import Dynamic from "../../value/validatable";
 import ReplaceValue from "@dikac/t-value/value/replace";
 import ReplaceValidatable from "@dikac/t-validatable/boolean/replace";
 export interface StaticParameter<Allow = unknown, Expectation extends Allow = Allow, Allowed extends boolean = boolean, Expected extends boolean = boolean, MessageType = unknown, Validatable extends StaticReturn<Allow, Expectation, Allowed, Expected, Readonly<Dynamic<Allow>>> = StaticReturn<Allow, Expectation, Allowed, Expected, Readonly<Dynamic<Allow>>>> {

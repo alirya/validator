@@ -3,8 +3,8 @@ import SimpleValue from "../value/simple";
 
 type Simple<
     Allow = unknown,
-    Expectation extends Allow = Allow,
-    Validatable extends ValidatableType<Allow> = ValidatableType<Allow>
+    Expectation = unknown,
+    Validatable extends ValidatableType<Allow|Expectation> = ValidatableType<Allow|Expectation>
 > = SimpleValue<Allow, Expectation, Validatable>;
 
 export default Simple;

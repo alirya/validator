@@ -1,7 +1,7 @@
 import StaticParameter from "./static-parameter";
 import StaticParameters from "./static-parameters";
 import StaticReturn from "../../value/static";
-import Dynamic from "../../value/dynamic";
+import Dynamic from "../../value/validatable";
 
 export namespace Static {
 

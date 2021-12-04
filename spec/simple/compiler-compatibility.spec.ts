@@ -1,6 +1,6 @@
 import Simple from "../../dist/simple";
 import Validator from "../../dist/validator";
-import Validatable from "../../dist/validatable/dynamic";
+import Validatable from "../../dist/validatable/validatable";
 import BaseInfer from "../../dist/base/infer";
 import TypeInfer from "../../dist/expectation/infer";
 import ValidatorInfer from "../../dist/validatable/infer-static";

@@ -1,7 +1,7 @@
 import SimpleParameter from "./simple-parameter";
 import SimpleParameters from "./simple-parameters";
 import SimpleReturn from "../../value/simple";
-import Dynamic from "../../value/dynamic";
+import Dynamic from "../../value/validatable";
 
 export namespace Simple {
 

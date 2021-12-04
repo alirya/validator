@@ -3,10 +3,10 @@ import StaticValue from "../value/static";
 
 type Static<
     Allow = unknown,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
-    Validatable extends ValidatableType<Allow> = ValidatableType<Allow>
+    Validatable extends ValidatableType<Allow|Expectation> = ValidatableType<Allow|Expectation>
 > = StaticValue<Allow, Expectation, Allowed, Expected, Validatable>
 ;
 

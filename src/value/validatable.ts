@@ -1,14 +1,14 @@
 import Value from "@dikac/t-value/value";
-import Validatable from "@dikac/t-validatable/validatable";
+import BaseValidatable from "@dikac/t-validatable/validatable";
 
 /**
  * extended {@see ValidatableInterface} with added {@see Message}
  * and {@see Value} for {@see Validator} result
  */
-type Dynamic<
+type Validatable<
     Base = unknown,
     Boolean extends boolean = boolean
 > = Value<Base> &
-    Validatable<Boolean>;
+    BaseValidatable<Boolean>;
 
-export default Dynamic;
+export default Validatable;

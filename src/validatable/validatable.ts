@@ -1,5 +1,5 @@
 import Message from "@dikac/t-message/message";
-import DynamicValue from "../value/dynamic";
+import DynamicValue from "../value/validatable";
 
 /**
  * extended {@see ValidatableInterface} with added {@see Message}

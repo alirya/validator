@@ -1,12 +1,11 @@
 import Value from "@dikac/t-value/value";
 import BaseValidatable from "@dikac/t-validatable/validatable";
-import Validatable from "./validatable";
 import Message from "@dikac/t-message/message";
-import Validation from "@dikac/t-boolean/validation/validation";
-import Guard from "@dikac/t-boolean/validation/guard";
 import StrictOmit from "@dikac/t-object/strict-omit";
-import Argument from "@dikac/t-function/argument/argument";
-import { CallbackFunctionType } from "./callback-function-parameters";
+import { Required } from "utility-types";
+import { CallbackClassParameterArgumentGuard as CallbackFunctionParameterArgumentGuard, CallbackClassParameterArgumentValidation as CallbackFunctionParameterArgumentValidation } from "./callback-class-parameter";
+import Static from "./static";
+import ValidatableType from "./validatable";
 /**
  * assemble {@see Validatable} from value,
  * callback validation, and callback message
@@ -16,12 +15,36 @@ import { CallbackFunctionType } from "./callback-function-parameters";
  * function implementation version offer
  * more accurate type
  */
-export declare type CallbackFunctionArgumentGuard<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[]> = Value<Type> & Readonly<Argument<Arguments>> & Guard<ValueType, Type> & Message<(result: Readonly<StrictOmit<Validatable<ValueType>, 'message'>>) => MessageType>;
-export declare type CallbackFunctionArgumentValidation<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[]> = Value<Type> & Validation<[ValueType], boolean> & Readonly<Argument<Arguments>> & Message<(result: Readonly<StrictOmit<Validatable<ValueType>, 'message'>>) => MessageType>;
-export default function CallbackFunctionParameter<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown>({ value, validation, message }: CallbackFunctionArgumentGuard<ValueType, Type, MessageType>): CallbackFunctionType<ValueType, Type, MessageType>;
-export default function CallbackFunctionParameter<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown>({ value, validation, message }: CallbackFunctionArgumentValidation<ValueType, Type, MessageType>): CallbackFunctionType<ValueType, Type, MessageType>;
+export { CallbackFunctionParameterArgumentGuard, CallbackFunctionParameterArgumentValidation };
 /**
- * destructure argument implementation for function
+ * simple validation
  */
-export default function CallbackFunctionParameter<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Argument extends unknown[] = unknown[]>(argument: CallbackFunctionArgumentValidation<ValueType, Type, MessageType, Argument> & Validation<[ValueType], boolean>): Readonly<Value<ValueType> & BaseValidatable<boolean> & Message<MessageType>>;
-export default function CallbackFunctionParameter<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown>(argument: StrictOmit<CallbackFunctionArgumentValidation<ValueType, Type, MessageType, []>, 'argument'> & Validation<[ValueType], boolean>): Readonly<Value<ValueType> & BaseValidatable<boolean> & Message<MessageType>>;
+export default function CallbackFunctionParameter<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown>(argument: StrictOmit<CallbackFunctionParameterArgumentValidation<ValueType, Type, MessageType>, 'argument'>): Readonly<Value<ValueType> & BaseValidatable<boolean> & Message<MessageType>>;
+/**
+ * simple guard
+ */
+export default function CallbackFunctionParameter<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown>(argument: StrictOmit<CallbackFunctionParameterArgumentGuard<ValueType, Type, MessageType>, 'argument'>): Readonly<Value<ValueType> & BaseValidatable<boolean> & Message<MessageType>>;
+/**
+ * simple validation arguments
+ */
+export default function CallbackFunctionParameter<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[]>(argument: Required<CallbackFunctionParameterArgumentValidation<ValueType, Type, MessageType, Arguments>, 'argument'>): Readonly<Value<ValueType> & BaseValidatable<boolean> & Message<MessageType>>;
+/**
+ * simple guard arguments
+ */
+export default function CallbackFunctionParameter<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[]>(argument: Required<CallbackFunctionParameterArgumentGuard<ValueType, Type, MessageType, Arguments>, 'argument'>): Readonly<Value<ValueType> & BaseValidatable<boolean> & Message<MessageType>>;
+/**
+ * static guard
+ */
+export default function CallbackFunctionParameter<Allow = unknown, Expectation extends Allow = Allow, Allowed extends boolean = boolean, Expected extends boolean = boolean, MessageType = unknown>(argument: StrictOmit<CallbackFunctionParameterArgumentGuard<Allow, Expectation, MessageType>, 'argument'>): Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>>;
+/**
+ * static validation
+ */
+export default function CallbackFunctionParameter<ValueType = unknown, Allow = unknown, Expectation extends Allow = Allow, Allowed extends boolean = boolean, Expected extends boolean = boolean, MessageType = unknown>(argument: StrictOmit<CallbackFunctionParameterArgumentValidation<Allow, Expectation, MessageType>, 'argument'>): Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>>;
+/**
+ * static guard argument
+ */
+export default function CallbackFunctionParameter<Allow = unknown, Expectation extends Allow = Allow, Allowed extends boolean = boolean, Expected extends boolean = boolean, MessageType = unknown, Arguments extends unknown[] = unknown[]>(argument: Required<CallbackFunctionParameterArgumentGuard<Allow, Expectation, MessageType, Arguments>, 'argument'>): Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>>;
+/**
+ * static validation argument
+ */
+export default function CallbackFunctionParameter<ValueType = unknown, Allow = unknown, Expectation extends Allow = Allow, Allowed extends boolean = boolean, Expected extends boolean = boolean, MessageType = unknown, Arguments extends unknown[] = unknown[]>(argument: Required<CallbackFunctionParameterArgumentValidation<Allow, Expectation, MessageType, Arguments>, 'argument'>): Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>>;

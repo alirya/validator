@@ -1,6 +1,6 @@
+import Static from "./validatable/static";
 import ValidatableType from "./validatable/validatable";
 import ReplaceValue from "@dikac/t-value/value/replace";
-import ReplaceValidatable from "@dikac/t-validatable/boolean/replace";
 /**
  * {@template Allow} type which can be handled by implementation
  *
@@ -14,7 +14,7 @@ import ReplaceValidatable from "@dikac/t-validatable/boolean/replace";
  *
  * {@template ValidatableType} return value for {@see Validator} callback
  */
-export default interface Validator<Allow = any, Expectation extends Allow = Allow, Allowed extends boolean = boolean, Expected extends boolean = boolean, Validatable extends ValidatableType<Allow> = ValidatableType<Allow>> {
-    <Argument extends Allow>(value: Argument): ReplaceValue<ReplaceValidatable<Validatable, Allowed>, Argument>;
-    <Argument extends Expectation>(value: Argument): ReplaceValue<ReplaceValidatable<Validatable, Expected>, Argument>;
+export default interface Validator<Allow = unknown, Expectation = unknown, Allowed extends boolean = boolean, Expected extends boolean = boolean, Validatable extends ValidatableType<Allow | Expectation> = ValidatableType<Allow | Expectation>> {
+    <Argument extends Expectation>(value: Argument): Static<Argument, Expectation, Allowed, Expected, ReplaceValue<Validatable, Argument>>;
+    <Argument extends Allow>(value: Argument): Static<Argument, Expectation, Allowed, Expected, ReplaceValue<Validatable, Argument>>;
 }

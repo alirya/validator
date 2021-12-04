@@ -1,10 +1,10 @@
-import Dynamic from "./dynamic";
+import Dynamic from "./validatable";
 import Static from "./static";
 
 type Simple<
     Allow = unknown,
-    Expectation extends Allow = Allow,
-    Validatable extends Dynamic<Allow> = Dynamic<Allow>
+    Expectation = unknown,
+    Validatable extends Dynamic<Allow|Expectation> = Dynamic<Allow|Expectation>
 > = Static<
     Allow,
     Expectation,

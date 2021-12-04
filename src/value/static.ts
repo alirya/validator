@@ -1,13 +1,13 @@
 import ReplaceValue from "@dikac/t-value/value/replace";
-import Dynamic from "./dynamic";
+import Dynamic from "./validatable";
 import ReplaceValidatable from "@dikac/t-validatable/boolean/replace";
 
 type Static<
     Allow = unknown,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
-    Validatable extends Dynamic<Allow> = Dynamic<Allow>
+    Validatable extends Dynamic<Allow|Expectation> = Dynamic<Allow|Expectation>
 > =
     ReplaceValue<ReplaceValidatable<Validatable, Allowed>, Allow> |
     ReplaceValue<ReplaceValidatable<Validatable, Expected>, Expectation>

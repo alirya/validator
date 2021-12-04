@@ -1,6 +1,5 @@
 import Simple from "./simple";
 import Validatable from "./validatable/validatable";
-import ValidationCallback from "./validatable/callback-function-parameter";
 import MessageCallback from "./message/function/simple";
 import ValidatableType from "./validatable/validatable";
 import StaticMessage from "./message/function/static-parameter";
@@ -100,15 +99,12 @@ export default function CallbackParameter<
 ) : Validator<Allow, Expectation, Allowed, Expected, Validatable>
 
 export default function CallbackParameter<
-    // Base = unknown,
-    // Expectation extends Base = Base,
-    // MessageType = unknown,
-
     Allow = any,
     Expectation extends Allow = Allow,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
-    Validatable extends ValidatableType<Allow> = ValidatableType<Allow>
+    MessageType = unknown,
+    Arguments extends unknown[] = unknown[]
     >(
     // validation : <Argument extends Allow>(argument:Allow) => boolean,
     // message : StaticMessage<Allow, Expectation, Allowed, Expected, Infer<Validatable>>,
@@ -116,8 +112,8 @@ export default function CallbackParameter<
         validation,
         message,
     } : Message<StaticMessage<Allow, Expectation, Allowed, Expected, Infer<Validatable>>> & Guard<Allow|Expectation, Expectation>
-) : Validator<Allow, Expectation, Allowed, Expected, Validatable> {
+) : Validator<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>> {
 
     return CallbackParameters(validation, (value, valid) => message({value, valid})) as
-        Validator<Allow, Expectation, Allowed, Expected, Validatable>
+        Validator<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>
 }
