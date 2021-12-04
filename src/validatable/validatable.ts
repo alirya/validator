@@ -5,10 +5,11 @@ import DynamicValue from "../value/validatable";
  * extended {@see ValidatableInterface} with added {@see Message}
  * and {@see Value} for {@see Validator} result
  */
-type Validatable<
+export default interface Validatable<
     Base = unknown,
     MessageType = unknown,
     Boolean extends boolean = boolean
-> = Message<MessageType> & DynamicValue<Base, Boolean>;
+> extends Message<MessageType>, DynamicValue<Base, Boolean> {
 
-export default Validatable;
+}
+
