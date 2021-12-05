@@ -18,8 +18,8 @@ import Validation from "@dikac/t-boolean/validation/validation";
  * @param message
  * @constructor
  */
-export default function CallbackParameter<Base = unknown, Expectation extends Base = Base, MessageType = unknown>({ validation, message, }: Message<MessageCallback.Parameters<Base, Expectation, MessageType>> & Guard<Base | Expectation, Expectation>): Simple<Base, Expectation, Readonly<Validatable<Base, MessageType>>>;
-export default function CallbackParameter<Base = unknown, Expectation extends Base = Base, MessageType = unknown>({ validation, message, }: Message<MessageCallback.Parameters<Base, Expectation, MessageType>> & Validation<[Base | Expectation]>): Simple<Base, Expectation, Readonly<Validatable<Base, MessageType>>>;
+export default function CallbackParameter<Base = unknown, Expectation = unknown, MessageType = unknown>({ validation, message, }: Message<MessageCallback.Parameters<Base, Expectation, MessageType>> & Guard<Base | Expectation, Expectation>): Simple<Base, Expectation, Readonly<Validatable<Base, MessageType>>>;
+export default function CallbackParameter<Base = unknown, Expectation = unknown, MessageType = unknown>({ validation, message, }: Message<MessageCallback.Parameters<Base, Expectation, MessageType>> & Validation<[Base | Expectation]>): Simple<Base, Expectation, Readonly<Validatable<Base, MessageType>>>;
 /**
  * Static
  *
@@ -27,5 +27,5 @@ export default function CallbackParameter<Base = unknown, Expectation extends Ba
  * @param message
  * @constructor
  */
-export default function CallbackParameter<Allow = any, Expectation extends Allow = Allow, Allowed extends boolean = boolean, Expected extends boolean = boolean, Validatable extends ValidatableType<Allow> = ValidatableType<Allow>>({ validation, message, }: Message<StaticMessage<Allow, Expectation, Allowed, Expected, Infer<Validatable>>> & Guard<Allow | Expectation, Expectation>): Validator<Allow, Expectation, Allowed, Expected, Validatable>;
-export default function CallbackParameter<Allow = any, Expectation extends Allow = Allow, Allowed extends boolean = boolean, Expected extends boolean = boolean, Validatable extends ValidatableType<Allow> = ValidatableType<Allow>>({ validation, message, }: Message<StaticMessage<Allow, Expectation, Allowed, Expected, Infer<Validatable>>> & Validation<[Allow | Expectation]>): Validator<Allow, Expectation, Allowed, Expected, Validatable>;
+export default function CallbackParameter<Allow = any, Expectation = unknown, Allowed extends boolean = boolean, Expected extends boolean = boolean, Validatable extends ValidatableType<Allow> = ValidatableType<Allow>>({ validation, message, }: Message<StaticMessage<Allow, Expectation, Allowed, Expected, Infer<Validatable>>> & Guard<Allow | Expectation, Expectation>): Validator<Allow, Expectation, Allowed, Expected, Validatable>;
+export default function CallbackParameter<Allow = any, Expectation = unknown, Allowed extends boolean = boolean, Expected extends boolean = boolean, Validatable extends ValidatableType<Allow> = ValidatableType<Allow>>({ validation, message, }: Message<StaticMessage<Allow, Expectation, Allowed, Expected, Infer<Validatable>>> & Validation<[Allow | Expectation]>): Validator<Allow, Expectation, Allowed, Expected, Validatable>;

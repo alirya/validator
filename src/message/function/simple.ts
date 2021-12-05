@@ -7,14 +7,14 @@ export namespace Simple {
 
     export type Parameters<
         Allow = unknown,
-        Expectation extends Allow = Allow,
+        Expectation = unknown,
         MessageType = unknown,
         ExtraArgument extends unknown[] = unknown[]
     > = SimpleParameters<Allow, Expectation, MessageType, ExtraArgument>;
 
     export type Parameter<
         Allow = unknown,
-        Expectation extends Allow = Allow,
+        Expectation = unknown,
         MessageType = unknown,
         Validatable extends SimpleReturn<Allow, Expectation, Readonly<Dynamic<Allow>>> =
             SimpleReturn<Allow, Expectation, Readonly<Dynamic<Allow>>>

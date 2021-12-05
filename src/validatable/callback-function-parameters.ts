@@ -23,7 +23,7 @@ import Guard from "@dikac/t-boolean/function/guard";
 
 export type CallbackFunctionType<
     ValueType = unknown,
-    Type extends ValueType = ValueType,
+    Type = unknown,
     MessageType = unknown
     > =
     Simple<ValueType, Type, Readonly<Value<ValueType> & BaseValidatable & Message<MessageType>>>
@@ -40,7 +40,7 @@ export type CallbackFunctionType<
 //  */
 // export default function CallbackFunctionParameters<
 //     ValueType = unknown,
-//     Type extends ValueType = ValueType,
+//     Type = unknown,
 //     MessageType = unknown,
 //     Argument extends unknown[] = unknown[],
 // >(
@@ -61,7 +61,7 @@ export type CallbackFunctionType<
 //  */
 // export default function CallbackFunctionParameters<
 //     ValueType = unknown,
-//     Type extends ValueType = ValueType,
+//     Type = unknown,
 //     MessageType = unknown,
 //     Argument extends unknown[] = unknown[],
 // >(
@@ -81,7 +81,7 @@ export type CallbackFunctionType<
 //  */
 // export default function CallbackFunctionParameters<
 //     ValueType = unknown,
-//     Type extends ValueType = ValueType,
+//     Type = unknown,
 //     MessageType = unknown,
 // >(
 //     value : ValueType,
@@ -99,7 +99,7 @@ export type CallbackFunctionType<
 //  */
 // export default function CallbackFunctionParameters<
 //     ValueType = unknown,
-//     Type extends ValueType = ValueType,
+//     Type = unknown,
 //     MessageType = unknown,
 // >(
 //     value : Type,
@@ -113,7 +113,7 @@ export type CallbackFunctionType<
 //  */
 // export default function CallbackFunctionParameters<
 //     Allow = unknown,
-//     Expectation extends Allow = Allow,
+//     Expectation = unknown,
 //     Validatable extends ValidatableType<Allow> = ValidatableType<Allow>,
 // >(
 //     value : Allow,
@@ -131,7 +131,7 @@ export type CallbackFunctionType<
  */
 export default function CallbackFunctionParameters<
     Allow = unknown,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Message = unknown,
 >(
     value : Allow,
@@ -149,7 +149,7 @@ export default function CallbackFunctionParameters<
  */
 export default function CallbackFunctionParameters<
     Allow = unknown,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Message = unknown,
 >(
     value : Allow,
@@ -167,7 +167,7 @@ export default function CallbackFunctionParameters<
  */
 export default function CallbackFunctionParameters<
     Allow = unknown,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Message = unknown,
     Arguments extends unknown[] = unknown[],
 >(
@@ -187,7 +187,7 @@ export default function CallbackFunctionParameters<
  */
 export default function CallbackFunctionParameters<
     Allow = unknown,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Message = unknown,
     Arguments extends unknown[] = unknown[],
 >(
@@ -204,7 +204,7 @@ export default function CallbackFunctionParameters<
  */
 // export default function CallbackFunctionParameters<
 //     Allow = unknown,
-//     Expectation extends Allow = Allow,
+//     Expectation = unknown,
 //     Allowed extends boolean = boolean,
 //     Expected extends boolean = boolean,
 //     Message = unknown,
@@ -221,7 +221,7 @@ export default function CallbackFunctionParameters<
  */
 export default function CallbackFunctionParameters<
     Allow = unknown,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     Message = unknown,
@@ -235,7 +235,7 @@ export default function CallbackFunctionParameters<
  */
 export default function CallbackFunctionParameters<
     Allow = unknown,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     Message = unknown,
@@ -252,7 +252,7 @@ export default function CallbackFunctionParameters<
  */
 export default function CallbackFunctionParameters<
     Allow = unknown,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     Message = unknown,
@@ -268,7 +268,7 @@ export default function CallbackFunctionParameters<
  */
 export default function CallbackFunctionParameters<
     Allow = unknown,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     Message = unknown,
@@ -284,7 +284,7 @@ export default function CallbackFunctionParameters<
 
 export default function CallbackFunctionParameters<
     Allow = unknown,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     MessageType = unknown,

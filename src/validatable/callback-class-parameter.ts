@@ -29,14 +29,14 @@ import Dynamic from "../value/validatable";
  */
 // export type CallbackClassParameterArgument<
 //     ValueType = unknown,
-//     Type extends ValueType = ValueType,
+//     Type = unknown,
 //     MessageType = unknown,
 //     Arguments extends unknown[]= unknown[]
 //     > = CallbackFunctionArgumentValidation<ValueType, Type, MessageType, Arguments>;
 
 type CallbackClassParameterArgument<
     ValueType = unknown,
-    Type extends ValueType = ValueType,
+    Type = unknown,
     MessageType = unknown,
     Arguments extends unknown[] = unknown[],
     Boolean extends boolean = boolean
@@ -48,7 +48,7 @@ type CallbackClassParameterArgument<
 
 export type CallbackClassParameterArgumentValidation<
     ValueType = unknown,
-    Type extends ValueType = ValueType,
+    Type = unknown,
     MessageType = unknown,
     Arguments extends unknown[] = unknown[],
     Boolean extends boolean = boolean
@@ -60,7 +60,7 @@ export type CallbackClassParameterArgumentValidation<
 
 export type CallbackClassParameterArgumentGuard<
     ValueType = unknown,
-    Type extends ValueType = ValueType,
+    Type = unknown,
     MessageType = unknown,
     Arguments extends unknown[] = unknown[],
     Boolean extends boolean = boolean
@@ -87,7 +87,7 @@ export type CallbackClassParameterArgumentGuard<
 
 export default class CallbackClassParameter<
     ValueType = unknown,
-    Type extends ValueType = ValueType,
+    Type = unknown,
     MessageType = unknown,
     Arguments extends unknown[] = unknown[],
     Boolean extends boolean = boolean

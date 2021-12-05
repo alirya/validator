@@ -22,7 +22,7 @@ import Validation from "@dikac/t-boolean/validation/validation";
  */
 export default function CallbackParameter<
     Base = unknown,
-    Expectation extends Base = Base,
+    Expectation = unknown,
     MessageType = unknown,
     >(
     // validation : <Value extends Base>(argument:Value|Expectation) => argument is Expectation,
@@ -35,7 +35,7 @@ export default function CallbackParameter<
 ) : Simple<Base, Expectation, Readonly<Validatable<Base, MessageType>>>;
 export default function CallbackParameter<
     Base = unknown,
-    Expectation extends Base = Base,
+    Expectation = unknown,
     MessageType = unknown,
     >(
     // validation : <Argument extends Base>(argument:Base) => boolean,
@@ -67,7 +67,7 @@ export default function CallbackParameter<
     // Expectation extends Base = Base,
     // MessageType = unknown,
     Allow = any,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     Validatable extends ValidatableType<Allow> = ValidatableType<Allow>
@@ -85,7 +85,7 @@ export default function CallbackParameter<
     // Expectation extends Base = Base,
     // MessageType = unknown,
     Allow = any,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     Validatable extends ValidatableType<Allow> = ValidatableType<Allow>
@@ -100,7 +100,7 @@ export default function CallbackParameter<
 
 export default function CallbackParameter<
     Allow = any,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     MessageType = unknown,

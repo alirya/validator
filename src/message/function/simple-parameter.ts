@@ -5,7 +5,7 @@ import ReplaceValidatable from "@dikac/t-validatable/boolean/replace";
 
 export default interface SimpleParameter<
     Allow = unknown,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     MessageType = unknown,
     Validatable extends  SimpleReturn<Allow, Expectation, Readonly<Dynamic<Allow>>> =
         SimpleReturn<Allow, Expectation, Readonly<Dynamic<Allow>>>

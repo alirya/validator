@@ -36,7 +36,7 @@ namespace Callback {
 
         export type ArgumentGuard<
             ValueType = unknown,
-            Type extends ValueType = ValueType,
+            Type = unknown,
             MessageType = unknown
             > = CallbackClassParameterArgumentGuard<
             ValueType,
@@ -46,7 +46,7 @@ namespace Callback {
 
         export type ArgumentValidation<
             ValueType = unknown,
-            Type extends ValueType = ValueType,
+            Type = unknown,
             MessageType = unknown
             > = CallbackClassParameterArgumentValidation<
             ValueType,
@@ -63,7 +63,7 @@ namespace Callback {
 
         export type Type<
             ValueType = unknown,
-            Type extends ValueType = ValueType,
+            Type = unknown,
             MessageType = unknown,
             > =
             CallbackFunctionType<
@@ -74,7 +74,7 @@ namespace Callback {
 
         export type ArgumentGuard<
             ValueType = unknown,
-            Type extends ValueType = ValueType,
+            Type = unknown,
             MessageType = unknown,
             Arguments extends unknown[] = unknown[]
         > = CallbackFunctionParameterArgumentGuard<
@@ -86,7 +86,7 @@ namespace Callback {
 
         export type ArgumentValidation<
             ValueType = unknown,
-            Type extends ValueType = ValueType,
+            Type = unknown,
             MessageType = unknown,
             Arguments extends unknown[] = unknown[]
         > = CallbackFunctionParameterArgumentValidation<

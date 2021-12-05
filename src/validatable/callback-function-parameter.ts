@@ -25,7 +25,7 @@ export {CallbackFunctionParameterArgumentGuard, CallbackFunctionParameterArgumen
 
 // export type CallbackFunctionArgumentGuard<
 //     ValueType = unknown,
-//     Type extends ValueType = ValueType,
+//     Type = unknown,
 //     MessageType = unknown,
 //     Arguments extends unknown[] = unknown[]
 //     > =
@@ -36,7 +36,7 @@ export {CallbackFunctionParameterArgumentGuard, CallbackFunctionParameterArgumen
 //
 // export type CallbackFunctionArgumentValidation<
 //     ValueType = unknown,
-//     Type extends ValueType = ValueType,
+//     Type = unknown,
 //     MessageType = unknown,
 //     Arguments extends unknown[] = unknown[]
 //     > =
@@ -47,7 +47,7 @@ export {CallbackFunctionParameterArgumentGuard, CallbackFunctionParameterArgumen
 //
 // export type CallbackFunctionArgumentGuard<
 //     Allow = unknown,
-//     Expectation extends Allow = Allow,
+//     Expectation = unknown,
 //     Allowed extends boolean = boolean,
 //     Expected extends boolean = boolean,
 //     MessageType = unknown,
@@ -60,7 +60,7 @@ export {CallbackFunctionParameterArgumentGuard, CallbackFunctionParameterArgumen
 //
 // export type CallbackFunctionArgumentValidation<
 //     Allow = unknown,
-//     Expectation extends Allow = Allow,
+//     Expectation = unknown,
 //     Allowed extends boolean = boolean,
 //     Expected extends boolean = boolean,
 //     MessageType = unknown,
@@ -74,7 +74,7 @@ export {CallbackFunctionParameterArgumentGuard, CallbackFunctionParameterArgumen
 //
 // export default function CallbackFunctionParameter<
 //     ValueType = unknown,
-//     Type extends ValueType = ValueType,
+//     Type = unknown,
 //     MessageType = unknown,
 //     >({
 //           value,
@@ -85,7 +85,7 @@ export {CallbackFunctionParameterArgumentGuard, CallbackFunctionParameterArgumen
 //
 // export default function CallbackFunctionParameter<
 //     ValueType = unknown,
-//     Type extends ValueType = ValueType,
+//     Type = unknown,
 //     MessageType = unknown,
 //     >({
 //           value,
@@ -98,7 +98,7 @@ export {CallbackFunctionParameterArgumentGuard, CallbackFunctionParameterArgumen
 //  */
 // export default function CallbackFunctionParameter<
 //     ValueType = unknown,
-//     Type extends ValueType = ValueType,
+//     Type = unknown,
 //     MessageType = unknown,
 //     Argument extends unknown[] = unknown[],
 //     >(argument : CallbackFunctionArgumentValidation<ValueType, Type, MessageType, Argument> & Validation<[ValueType], boolean>
@@ -110,7 +110,7 @@ export {CallbackFunctionParameterArgumentGuard, CallbackFunctionParameterArgumen
  */
 export default function CallbackFunctionParameter<
     ValueType = unknown,
-    Type extends ValueType = ValueType,
+    Type = unknown,
     MessageType = unknown,
     >(argument : StrictOmit<CallbackFunctionParameterArgumentValidation<ValueType, Type, MessageType>, 'argument'>
 ) :  Readonly<Value<ValueType> & BaseValidatable<boolean> & Message<MessageType>>;
@@ -119,7 +119,7 @@ export default function CallbackFunctionParameter<
  */
 export default function CallbackFunctionParameter<
     ValueType = unknown,
-    Type extends ValueType = ValueType,
+    Type = unknown,
     MessageType = unknown,
     >(argument : StrictOmit<CallbackFunctionParameterArgumentGuard<ValueType, Type, MessageType>, 'argument'>
 ) :  Readonly<Value<ValueType> & BaseValidatable<boolean> & Message<MessageType>>;
@@ -130,7 +130,7 @@ export default function CallbackFunctionParameter<
  */
 export default function CallbackFunctionParameter<
     ValueType = unknown,
-    Type extends ValueType = ValueType,
+    Type = unknown,
     MessageType = unknown,
     Arguments extends unknown[] = unknown[],
     >(argument : Required<CallbackFunctionParameterArgumentValidation<ValueType, Type, MessageType, Arguments>, 'argument'>
@@ -140,7 +140,7 @@ export default function CallbackFunctionParameter<
  */
 export default function CallbackFunctionParameter<
     ValueType = unknown,
-    Type extends ValueType = ValueType,
+    Type = unknown,
     MessageType = unknown,
     Arguments extends unknown[] = unknown[],
     >(argument : Required<CallbackFunctionParameterArgumentGuard<ValueType, Type, MessageType, Arguments>, 'argument'>
@@ -155,7 +155,7 @@ export default function CallbackFunctionParameter<
  */
 export default function CallbackFunctionParameter<
     Allow = unknown,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     MessageType = unknown,
@@ -169,7 +169,7 @@ export default function CallbackFunctionParameter<
 export default function CallbackFunctionParameter<
     ValueType = unknown,
     Allow = unknown,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     MessageType = unknown,
@@ -186,7 +186,7 @@ export default function CallbackFunctionParameter<
  */
 export default function CallbackFunctionParameter<
     Allow = unknown,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     MessageType = unknown,
@@ -201,7 +201,7 @@ export default function CallbackFunctionParameter<
 export default function CallbackFunctionParameter<
     ValueType = unknown,
     Allow = unknown,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     MessageType = unknown,
@@ -213,7 +213,7 @@ export default function CallbackFunctionParameter<
 
 export default function CallbackFunctionParameter<
     Allow = unknown,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     MessageType = unknown,

@@ -23,15 +23,15 @@ declare namespace Callback {
         const Parameter: typeof CallbackClassParameter;
         const Parameters: typeof CallbackClassParameters;
         type Type<ValueType = unknown, MessageType = unknown> = CallbackClassParametersType<ValueType, MessageType>;
-        type ArgumentGuard<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackClassParameterArgumentGuard<ValueType, Type, MessageType>;
-        type ArgumentValidation<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackClassParameterArgumentValidation<ValueType, Type, MessageType>;
+        type ArgumentGuard<ValueType = unknown, Type = unknown, MessageType = unknown> = CallbackClassParameterArgumentGuard<ValueType, Type, MessageType>;
+        type ArgumentValidation<ValueType = unknown, Type = unknown, MessageType = unknown> = CallbackClassParameterArgumentValidation<ValueType, Type, MessageType>;
     }
     namespace Function {
         const Parameter: typeof CallbackFunctionParameter;
         const Parameters: typeof CallbackFunctionParameters;
-        type Type<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown> = CallbackFunctionType<ValueType, Type, MessageType>;
-        type ArgumentGuard<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[]> = CallbackFunctionParameterArgumentGuard<ValueType, Type, MessageType, Arguments>;
-        type ArgumentValidation<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[]> = CallbackFunctionParameterArgumentValidation<ValueType, Type, MessageType, Arguments>;
+        type Type<ValueType = unknown, Type = unknown, MessageType = unknown> = CallbackFunctionType<ValueType, Type, MessageType>;
+        type ArgumentGuard<ValueType = unknown, Type = unknown, MessageType = unknown, Arguments extends unknown[] = unknown[]> = CallbackFunctionParameterArgumentGuard<ValueType, Type, MessageType, Arguments>;
+        type ArgumentValidation<ValueType = unknown, Type = unknown, MessageType = unknown, Arguments extends unknown[] = unknown[]> = CallbackFunctionParameterArgumentValidation<ValueType, Type, MessageType, Arguments>;
     }
 }
 export default Callback;

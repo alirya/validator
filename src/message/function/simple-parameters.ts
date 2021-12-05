@@ -1,6 +1,6 @@
 export default interface SimpleParameters<
     Allow = unknown,
-    Expectation extends Allow = Allow,
+    Expectation = unknown,
     MessageType = unknown,
     ExtraArgument extends unknown[] = unknown[]
 >  {

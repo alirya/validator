@@ -21,9 +21,9 @@ import Dynamic from "../value/validatable";
 /**
  * class object argument
  */
-declare type CallbackClassParameterArgument<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[], Boolean extends boolean = boolean> = Value<ValueType> & Readonly<Argument<Arguments>> & Message<ValidatableParameter<ValueType, MessageType, Dynamic<ValueType, Boolean> & Partial<Argument<Arguments>>>>;
-export declare type CallbackClassParameterArgumentValidation<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[], Boolean extends boolean = boolean> = CallbackClassParameterArgument<ValueType, Type, MessageType, Arguments, Boolean> & Validation<[ValueType, ...Arguments], Boolean>;
-export declare type CallbackClassParameterArgumentGuard<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[], Boolean extends boolean = boolean> = CallbackClassParameterArgument<ValueType, Type, MessageType, Arguments, Boolean> & Guard<ValueType, Type, Arguments>;
+declare type CallbackClassParameterArgument<ValueType = unknown, Type = unknown, MessageType = unknown, Arguments extends unknown[] = unknown[], Boolean extends boolean = boolean> = Value<ValueType> & Readonly<Argument<Arguments>> & Message<ValidatableParameter<ValueType, MessageType, Dynamic<ValueType, Boolean> & Partial<Argument<Arguments>>>>;
+export declare type CallbackClassParameterArgumentValidation<ValueType = unknown, Type = unknown, MessageType = unknown, Arguments extends unknown[] = unknown[], Boolean extends boolean = boolean> = CallbackClassParameterArgument<ValueType, Type, MessageType, Arguments, Boolean> & Validation<[ValueType, ...Arguments], Boolean>;
+export declare type CallbackClassParameterArgumentGuard<ValueType = unknown, Type = unknown, MessageType = unknown, Arguments extends unknown[] = unknown[], Boolean extends boolean = boolean> = CallbackClassParameterArgument<ValueType, Type, MessageType, Arguments, Boolean> & Guard<ValueType, Type, Arguments>;
 /**
  * class object argument
  */
@@ -37,7 +37,7 @@ export declare type CallbackClassParameterArgumentGuard<ValueType = unknown, Typ
 /**
  * destructure argument version
  */
-export default class CallbackClassParameter<ValueType = unknown, Type extends ValueType = ValueType, MessageType = unknown, Arguments extends unknown[] = unknown[], Boolean extends boolean = boolean> extends CallbackClassParameters<ValueType, MessageType, Arguments, Boolean> {
+export default class CallbackClassParameter<ValueType = unknown, Type = unknown, MessageType = unknown, Arguments extends unknown[] = unknown[], Boolean extends boolean = boolean> extends CallbackClassParameters<ValueType, MessageType, Arguments, Boolean> {
     constructor({ value, validation, message, argument }: CallbackClassParameterArgumentValidation<ValueType, Type, MessageType, Arguments, Boolean> | CallbackClassParameterArgumentGuard<ValueType, Type, MessageType, Arguments, Boolean>);
 }
 export {};

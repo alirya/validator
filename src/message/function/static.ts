@@ -7,7 +7,7 @@ export namespace Static {
 
     export type Parameter<
         Allow = unknown,
-        Expectation extends Allow = Allow,
+        Expectation = unknown,
         Allowed extends boolean = boolean,
         Expected extends boolean = boolean,
         MessageType = unknown,
@@ -17,7 +17,7 @@ export namespace Static {
 
     export type Parameters<
         Allow = unknown,
-        Expectation extends Allow = Allow,
+        Expectation = unknown,
         Allowed extends boolean = boolean,
         Expected extends boolean = boolean,
         MessageType = unknown,
