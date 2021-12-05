@@ -1,6 +1,6 @@
 {
   "name": "@dikac/t-validator",
-  "version": "0.19.0-beta.15",
+  "version": "0.19.0-beta.16",
   "description": "Typescript validator",
   "dependencies": {
     "@dikac/t-boolean": "^0.11.0-beta.2",
