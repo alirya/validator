@@ -1,25 +1,35 @@
-function TestString() {
-    return function (value) {
-        return {
-            valid: typeof value === "string",
-            value: value,
-            message: 'message'
-        };
-    };
-}
-const test = TestString();
-const result = test(1) /* as Static<number, string, false, true>*/;
-if (result.valid) {
-    const string = result.value;
-    // @ts-expect-error
-    const number = result.value;
-}
-else {
-    // @ts-expect-error
-    const string = result.value;
-    const number = result.value;
-}
 export {};
+//
+//
+// function TestString()  : ValidatorSimple<unknown, string, Validatable<number, string>> {
+//
+//     return function(value) {
+//
+//         return <ReturnSimple<unknown, string, Validatable<number, string>>> {
+//             valid : typeof value === "string",
+//             value : value,
+//             message : 'message'
+//         }
+//     }  as any as ValidatorSimple<unknown, string, Validatable<number, string>>
+// }
+//
+// const test : Validator<unknown, string, false, true> = TestString();
+//
+//
+// const result  = test(1)/* as Static<number, string, false, true>*/;
+//
+// if(result.valid) {
+//
+//     const string : string = result.value;
+//     // @ts-expect-error
+//     const number : number = result.value;
+//
+// } else {
+//
+//     // @ts-expect-error
+//     const string : string = result.value;
+//     const number : number = result.value;
+// }
 //
 //
 //

@@ -6,7 +6,6 @@ import ValidatorSimple from "./simple";
 import Validatable from "./validatable/validatable";
 import ReturnSimple from "./validatable/simple";
 
-
 /**
  * {@template Allow} type which can be handled by implementation
  *
@@ -34,36 +33,37 @@ export default interface Validator<
     <Argument extends Allow>(value : Argument) : Static<Argument, Expectation, Allowed, Expected, ReplaceValue<Validatable, Argument>>
 }
 
-
-function TestString()  : ValidatorSimple<unknown, string, Validatable<number, string>> {
-
-    return function(value) {
-
-        return <ReturnSimple<unknown, string, Validatable<number, string>>> {
-            valid : typeof value === "string",
-            value : value,
-            message : 'message'
-        }
-    }  as any as ValidatorSimple<unknown, string, Validatable<number, string>>
-}
-
-const test : Validator<unknown, string, false, true> = TestString();
-
-
-const result  = test(1)/* as Static<number, string, false, true>*/;
-
-if(result.valid) {
-
-    const string : string = result.value;
-    // @ts-expect-error
-    const number : number = result.value;
-
-} else {
-
-    // @ts-expect-error
-    const string : string = result.value;
-    const number : number = result.value;
-}
+//
+//
+// function TestString()  : ValidatorSimple<unknown, string, Validatable<number, string>> {
+//
+//     return function(value) {
+//
+//         return <ReturnSimple<unknown, string, Validatable<number, string>>> {
+//             valid : typeof value === "string",
+//             value : value,
+//             message : 'message'
+//         }
+//     }  as any as ValidatorSimple<unknown, string, Validatable<number, string>>
+// }
+//
+// const test : Validator<unknown, string, false, true> = TestString();
+//
+//
+// const result  = test(1)/* as Static<number, string, false, true>*/;
+//
+// if(result.valid) {
+//
+//     const string : string = result.value;
+//     // @ts-expect-error
+//     const number : number = result.value;
+//
+// } else {
+//
+//     // @ts-expect-error
+//     const string : string = result.value;
+//     const number : number = result.value;
+// }
 
 
 
