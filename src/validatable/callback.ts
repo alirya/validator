@@ -3,6 +3,8 @@ import CallbackClassParameters, {CallbackClassType} from "./callback-class-param
 import CallbackFunctionParameters, {CallbackFunctionType} from "./callback-function-parameters";
 import CallbackFunctionParameter from "./callback-function-parameter";
 import {CallbackFunctionParameterArgumentGuard, CallbackFunctionParameterArgumentValidation} from "./callback-function-parameter";
+import CallbackClass from "./callback-class";
+import CallbackFunction from "./callback-function";
 
 /**
  * assemble {@see Dynamic} from value,
@@ -24,78 +26,9 @@ import {CallbackFunctionParameterArgumentGuard, CallbackFunctionParameterArgumen
  */
 namespace Callback {
 
-    export namespace Class {
-        export const Parameter = CallbackClassParameter;
-        export const Parameters = CallbackClassParameters;
+    export const Class = CallbackClass;
+    export const Function = CallbackFunction;
 
-        export type Type<
-            ValueType = unknown,
-            MessageType = unknown,
-            > =
-            CallbackClassType<ValueType, MessageType>;
-
-        export type ArgumentGuard<
-            ValueType = unknown,
-            Type = unknown,
-            MessageType = unknown
-            > = CallbackClassParameterArgumentGuard<
-            ValueType,
-            Type,
-            MessageType
-            >
-
-        export type ArgumentValidation<
-            ValueType = unknown,
-            Type = unknown,
-            MessageType = unknown
-            > = CallbackClassParameterArgumentValidation<
-            ValueType,
-            Type,
-            MessageType
-            >
-    }
-
-
-    export namespace Function {
-
-        export const Parameter = CallbackFunctionParameter;
-        export const Parameters = CallbackFunctionParameters;
-
-        export type Type<
-            ValueType = unknown,
-            Type = unknown,
-            MessageType = unknown,
-            > =
-            CallbackFunctionType<
-                ValueType,
-                Type,
-                MessageType
-                >;
-
-        export type ArgumentGuard<
-            ValueType = unknown,
-            Type = unknown,
-            MessageType = unknown,
-            Arguments extends unknown[] = unknown[]
-        > = CallbackFunctionParameterArgumentGuard<
-            ValueType,
-            Type,
-            MessageType,
-            Arguments
-        >
-
-        export type ArgumentValidation<
-            ValueType = unknown,
-            Type = unknown,
-            MessageType = unknown,
-            Arguments extends unknown[] = unknown[]
-        > = CallbackFunctionParameterArgumentValidation<
-            ValueType,
-            Type,
-            MessageType,
-            Arguments
-        >
-    }
 }
 
 
