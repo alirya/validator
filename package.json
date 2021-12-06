@@ -11,7 +11,8 @@
     "@dikac/t-validatable": "^0.20.0-beta.4",
     "@dikac/t-value": "^0.15.0-beta.0",
     "ts-toolbelt": "^9.6.0",
-    "utility-types": "^3.10.0"
+    "utility-types": "^3.10.0",
+    "@dikac/deployer": "^0.1.8"
   },
   "devDependencies": {
     "@types/jasmine": "^3.10.2",
@@ -44,10 +45,11 @@
     "compile-script-watch": "tsc -w",
     "compile-watch": "npm-run-all --sequential compile-ensure-directory --parallel compile-script-watch cleanup-watch",
     "compile-ensure-directory": "mkdirp dist",
-    "release": "remove-json-properties dist/package.json private scripts.postinstall",
+    "release": "remove-json-properties dist/package.json private scripts.postinstall scripts.deploy dependencies.@dikac/deployer",
     "postrelease": "npm publish ./dist",
     "prerelease": "cpy     package.json package-lock.json LICENSE Readme.md .npmignore dist",
-    "postpublish": "rimraf package.json package-lock.json LICENSE Readme.md .npmignore"
+    "postpublish": "rimraf package.json package-lock.json LICENSE Readme.md .npmignore",
+    "deploy": "deployer /.git /dist /"
   },
   "author": "",
   "private": true,
