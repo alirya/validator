@@ -1,5 +1,5 @@
 import CallbackClassParameter, {CallbackClassParameterArgumentGuard, CallbackClassParameterArgumentValidation} from "./callback-class-parameter";
-import CallbackClassParameters, {CallbackClassParametersType} from "./callback-class-parameters";
+import CallbackClassParameters, {CallbackClassType} from "./callback-class-parameters";
 import CallbackFunctionParameters, {CallbackFunctionType} from "./callback-function-parameters";
 import CallbackFunctionParameter from "./callback-function-parameter";
 import {CallbackFunctionParameterArgumentGuard, CallbackFunctionParameterArgumentValidation} from "./callback-function-parameter";
@@ -32,7 +32,7 @@ namespace Callback {
             ValueType = unknown,
             MessageType = unknown,
             > =
-            CallbackClassParametersType<ValueType, MessageType>;
+            CallbackClassType<ValueType, MessageType>;
 
         export type ArgumentGuard<
             ValueType = unknown,

@@ -19,12 +19,12 @@ import ValidatableParameters from "../message/function/validatable-parameters";
  * main implementation
  *
  */
-export declare type CallbackClassParametersType<ValueType = unknown, MessageType = unknown, Arguments extends unknown[] = unknown[], Boolean extends boolean = boolean> = Validatable<ValueType, MessageType> & Validation<[ValueType, ...Arguments], Boolean> & Argument<Arguments>;
+export declare type CallbackClassType<ValueType = unknown, MessageType = unknown, Arguments extends unknown[] = unknown[], Boolean extends boolean = boolean> = Validatable<ValueType, MessageType> & Validation<[ValueType, ...Arguments], Boolean> & Argument<Arguments>;
 /**
  * main implementation
  *
  */
-export default class CallbackClassParameters<ValueType = unknown, MessageType = unknown, Arguments extends unknown[] = unknown[], Boolean extends boolean = boolean> implements CallbackClassParametersType<ValueType, MessageType, Arguments, Boolean> {
+export default class CallbackClassParameters<ValueType = unknown, MessageType = unknown, Arguments extends unknown[] = unknown[], Boolean extends boolean = boolean> implements CallbackClassType<ValueType, MessageType, Arguments, Boolean> {
     readonly value: ValueType;
     readonly validation: ValidationFunction<[ValueType, ...Arguments], Boolean>;
     readonly messageFactory: ValidatableParameters<ValueType, MessageType, Arguments, Boolean>;

@@ -25,7 +25,7 @@ import ValidatableParameters from "../message/function/validatable-parameters";
  * main implementation
  *
  */
-export type CallbackClassParametersType<
+export type CallbackClassType<
     ValueType = unknown,
     MessageType = unknown,
     Arguments extends unknown[]= unknown[],
@@ -44,7 +44,7 @@ export default class CallbackClassParameters<
     MessageType = unknown,
     Arguments extends unknown[] = unknown[],
      Boolean extends boolean = boolean
-    > implements CallbackClassParametersType<ValueType, MessageType, Arguments, Boolean> {
+    > implements CallbackClassType<ValueType, MessageType, Arguments, Boolean> {
 
     /**
      *
