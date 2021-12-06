@@ -5,7 +5,7 @@ import Validatable from "./validatable";
 type Replace<
     ValueType,
     Boolean extends boolean,
-    ValidatableType extends Validatable<ValueType>
+    ValidatableType extends Validatable
 > = ReplaceValue<ValidatableReplace<ValidatableType, Boolean>, ValueType>;
 
 export default Replace;

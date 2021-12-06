@@ -4,7 +4,7 @@ import Static from "./static";
 type Simple<
     Allow = unknown,
     Expectation = unknown,
-    Validatable extends Dynamic<Allow|Expectation> = Dynamic<Allow|Expectation>
+    Validatable extends Dynamic = Dynamic
 > = Static<
     Allow,
     Expectation,

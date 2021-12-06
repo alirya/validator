@@ -7,10 +7,10 @@ type Static<
     Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
-    Validatable extends Dynamic<Allow|Expectation> = Dynamic<Allow|Expectation>
+    Validatable extends Dynamic = Dynamic
 > =
-    ReplaceValue<ReplaceValidatable<Validatable, Allowed>, Allow> |
-    ReplaceValue<ReplaceValidatable<Validatable, Expected>, Expectation>
+    ReplaceValue<ReplaceValidatable<Validatable, Expected>, Expectation> |
+    ReplaceValue<ReplaceValidatable<Validatable, Allowed>, Allow>
 ;
 
 export default Static;

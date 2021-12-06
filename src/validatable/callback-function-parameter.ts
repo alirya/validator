@@ -167,7 +167,6 @@ export default function CallbackFunctionParameter<
  * static validation
  */
 export default function CallbackFunctionParameter<
-    ValueType = unknown,
     Allow = unknown,
     Expectation = unknown,
     Allowed extends boolean = boolean,
@@ -199,7 +198,6 @@ export default function CallbackFunctionParameter<
  * static validation argument
  */
 export default function CallbackFunctionParameter<
-    ValueType = unknown,
     Allow = unknown,
     Expectation = unknown,
     Allowed extends boolean = boolean,

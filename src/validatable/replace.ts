@@ -4,7 +4,7 @@ import ReplaceValue from "../value/replace";
 type Replace<
     ValueType,
     Boolean extends boolean,
-    ValidatableType extends Validatable<ValueType>
+    ValidatableType extends Validatable
 > = ReplaceValue<ValueType, Boolean, ValidatableType>;
 
 export default Replace;

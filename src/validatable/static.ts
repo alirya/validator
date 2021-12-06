@@ -6,7 +6,7 @@ type Static<
     Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
-    Validatable extends ValidatableType<Allow|Expectation> = ValidatableType<Allow|Expectation>
+    Validatable extends ValidatableType = ValidatableType
 > = StaticValue<Allow, Expectation, Allowed, Expected, Validatable>
 ;
 
