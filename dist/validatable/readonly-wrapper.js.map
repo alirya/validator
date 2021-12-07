@@ -1,1 +1,0 @@
-{"version":3,"file":"readonly-wrapper.js","sourceRoot":"","sources":["../../src/validatable/readonly-wrapper.ts"],"names":[],"mappings":"AAGA,OAAO,yBAAgD,MAAM,+BAA+B,CAAC;AAC7F,OAAO,wBAAwB,MAAM,8BAA8B,CAAC;AAEpE;;GAEG;AAEH,IAAU,eAAe,CAYxB;AAZD,WAAU,eAAe;IASR,0BAAU,GAAG,yBAAyB,CAAC;IACvC,yBAAS,GAAG,wBAAwB,CAAC;AAEtD,CAAC,EAZS,eAAe,KAAf,eAAe,QAYxB;AAED,eAAe,eAAe,CAAC"}
