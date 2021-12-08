@@ -27,12 +27,6 @@ import Dynamic from "../value/validatable";
 /**
  * class object argument
  */
-// export type CallbackClassParameterArgument<
-//     ValueType = unknown,
-//     Type = unknown,
-//     MessageType = unknown,
-//     Arguments extends unknown[]= unknown[]
-//     > = CallbackFunctionArgumentValidation<ValueType, Type, MessageType, Arguments>;
 
 type CallbackClassParameterArgument<
     ValueType = unknown,

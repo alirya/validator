@@ -1,8 +1,6 @@
 import Static from "./validatable/static";
 import Validatable from "./validatable/validatable";
 import ValidatableType from "./validatable/validatable";
-import ValidatorSimple from "./simple";
-import ReturnSimple from "./validatable/simple";
 
 /**
  * {@template Allow} type which can be handled by implementation
@@ -25,58 +23,9 @@ export default interface Validator<
     Expected extends boolean = boolean,
     Validatable extends ValidatableType = ValidatableType
 > {
-
-    // <Argument extends Allow|Expectation>(value: Argument): Static<Argument, Argument, Allowed|Expected, Allowed|Expected, ReplaceValue<Validatable, Argument>>;
-
      <Argument extends Allow>(value: Argument): Static<Argument, Expectation, Allowed, Expected, Validatable>;
      <Argument extends Expectation>(value: Argument): Static<Allow, Argument, Allowed, Expected, Validatable>;
-
-     // <Argument extends Expectation>(value: Argument): Static<Allow, Argument, Allowed, Expected, ReplaceValue<Validatable, Argument>>;
-     // <Argument extends Allow>(value: Argument): Static<Argument, Expectation, Allowed, Expected, ReplaceValue<Validatable, Argument>>;
-
-    // <Argument extends Allow|Expectation>(value: Argument): Static<Argument, Argument, Allowed, Expected, ReplaceValue<Validatable, Argument>>;
-
-    //<Argument extends Expectation>(value: Argument): ReplaceValidatable<ReplaceValue<Validatable, Argument>, Expected>;
-    //<Argument extends Allow>(value: Argument): ReplaceValidatable<ReplaceValue<Validatable, Argument>, Allowed>;
-
-   // <Argument extends Allow>(value: Argument): Replace<Argument, Allowed, Validatable>;
-
-   // <Argument extends Expectation>(value: Argument): Replace<Argument, Expected, Validatable>;
-
 }
-
-
-
-function TestString()  : ValidatorSimple<unknown, string, Validatable<number, string>> {
-
-    return function(value) {
-
-        return <ReturnSimple<unknown, string, Validatable<number, string>>> {
-            valid : typeof value === "string",
-            value : value,
-            message : 'message'
-        }
-    }  as any as ValidatorSimple<unknown, string, Validatable<number, string>>
-}
-
-const test : Validator<unknown, string, false, true> = TestString();
-
-
-const result  = test(1)/* as Static<number, string, false, true>*/;
-
-if(result.valid) {
-
-    const string : string = result.value;
-    // @ts-expect-error
-    const number : number = result.value;
-
-} else {
-
-    // @ts-expect-error
-    const string : string = result.value;
-    const number : number = result.value;
-}
-
 
 
 
