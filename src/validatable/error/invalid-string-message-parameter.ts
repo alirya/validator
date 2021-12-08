@@ -1,4 +1,4 @@
-import ValidatableInvalid from "@dikac/t-validatable/error/invalid";
+import ValidatableInvalid from "@dikac/t-validatable/error/invalid-parameters";
 import Validatable from "../validatable";
 import Infer from "@dikac/t-message/message/infer";
 import Message from "@dikac/t-message/message";
@@ -6,8 +6,6 @@ import ValidatableContainer from "@dikac/t-validatable/validatable/validatable";
 import StrictOmit from "@dikac/t-object/strict-omit";
 import New from "@dikac/t-function/new";
 import InvalidStringMessageParameters from "./invalid-string-message-parameters";
-
-const defaultError = New(ValidatableInvalid.Parameter);
 
 /**
  * @param validatable
@@ -47,7 +45,7 @@ export default function InvalidStringMessageParameter<ValidatableType extends Va
 export default function InvalidStringMessageParameter<ValidatableType extends Validatable, Error extends globalThis.Error>({
       validatable,
       message,
-      error,
+      error = New(ValidatableInvalid),
   } : InvalidStringMessageParameterArgument<ValidatableType, Error|globalThis.Error>
 ) : Error|globalThis.Error {
 

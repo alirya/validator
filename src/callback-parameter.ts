@@ -1,6 +1,6 @@
 import Simple from "./simple";
 import Validatable from "./validatable/validatable";
-import MessageCallback from "./message/function/simple";
+import MessageCallback from "./message/function/simple-parameters";
 import ValidatableType from "./validatable/validatable";
 import StaticMessage from "./message/function/static-parameter";
 import Infer from "@dikac/t-message/message/infer";
@@ -28,7 +28,7 @@ export default function CallbackParameter<
     {
         validation,
         message,
-    } : Message<MessageCallback.Parameters<Base, Expectation, MessageType>> & Guard<Base|Expectation, Expectation>
+    } : Message<MessageCallback<Base, Expectation, MessageType>> & Guard<Base|Expectation, Expectation>
 
 ) : Simple<Base, Expectation, Readonly<Validatable<Base, MessageType>>>;
 export default function CallbackParameter<
@@ -39,7 +39,7 @@ export default function CallbackParameter<
     {
         validation,
         message,
-    } : Message<MessageCallback.Parameters<Base, Expectation, MessageType>> & Validation<[Base|Expectation]>
+    } : Message<MessageCallback<Base, Expectation, MessageType>> & Validation<[Base|Expectation]>
 ) : Simple<Base, Expectation, Readonly<Validatable<Base, MessageType>>>;
 
 
