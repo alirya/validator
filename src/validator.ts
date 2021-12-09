@@ -1,7 +1,6 @@
 import Static from "./validatable/static";
-import Validatable from "./validatable/validatable";
 import ValidatableType from "./validatable/validatable";
-
+import Replace from "./validatable/replace";
 /**
  * {@template Allow} type which can be handled by implementation
  *
@@ -23,83 +22,7 @@ export default interface Validator<
     Expected extends boolean = boolean,
     Validatable extends ValidatableType = ValidatableType
 > {
-     <Argument extends Allow>(value: Argument): Static<Argument, Expectation, Allowed, Expected, Validatable>;
-     <Argument extends Expectation>(value: Argument): Static<Allow, Argument, Allowed, Expected, Validatable>;
+    <Argument extends Expectation>(value: Argument): Replace<Argument, Expected, Validatable>;
+    <Argument extends Allow>(value: Argument): Static<Argument, Expectation, Allowed, Expected, Validatable>;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import ValidatableEqual from "@dikac/t-boolean/validatable/equal-parameters";
-import Simple from "./simple";
-import Dynamic from "./message/function/validatable-parameters";
-import EqualMessage from "@dikac/t-boolean/assert/string/equal-parameters";
-
-
-
-/**
- * {@template Base} type which can be handled by implmentation
- * {@template Type} valid value type
- */
-
-function EqualParameters<
-    Base = unknown,
-    Type = unknown,
-    MessageType = unknown,
-    >(
-    compare : Type,
-    message : Dynamic<Base, MessageType, [Type]>,
-) : Simple<Base, Type, Validatable<Base, MessageType>>
-
-function EqualParameters<
-    Base = unknown,
-    Type = unknown,
-    >(
-    compare : Type,
-) : Simple<Base, Type, Validatable<Base, string>>
-
-function EqualParameters<
-    Base = unknown,
-    Type = unknown,
-    MessageType = unknown,
-    >(
-    compare : Type,
-    message : Dynamic<Base, MessageType|string, [Type]> = EqualMessage,
-) : Simple<Base, Type, Validatable<Base, MessageType|string>> {
-
-    return function (value)  {
-
-        return ValidatableEqual(value, compare, message as any);
-
-    } as Simple<Base, Type, Validatable<Base, MessageType>>
-}
-
-
-let validator = EqualParameters<number, 1>(1,  EqualMessage)
-
-let equal = validator(2);
-
-if(equal.valid) {
-
-    let specific : 1 = equal.value;
-    let number : number = equal.value;
-    let unknown : unknown = equal.value;
-
-} else {
-
-    let specific : 2 = equal.value;
-    let number : number = equal.value;
-    let unknown : unknown = equal.value;
-}
