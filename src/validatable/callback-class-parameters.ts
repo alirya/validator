@@ -1,9 +1,9 @@
-import Validatable from "./validatable";
-import MemoizeAccessor from "@alirya/object/function/memoize-accessor";
-import Validation from "@alirya/boolean/validation/validation";
-import ValidationFunction from "@alirya/boolean/function/validation";
-import Argument from "@alirya/function/argument/argument";
-import ValidatableParameters from "../message/function/validatable-parameters";
+import Validatable from './validatable';
+import MemoizeAccessor from '@alirya/object/function/memoize-accessor';
+import Validation from '@alirya/boolean/validation/validation';
+import ValidationFunction from '@alirya/boolean/function/validation';
+import Argument from '@alirya/function/argument/argument';
+import ValidatableParameters from '../message/function/validatable-parameters';
 
 
 /**
@@ -33,7 +33,7 @@ export type CallbackClassType<
 > =
     Validatable<ValueType, MessageType> &
     Validation<[ValueType, ...Arguments], Boolean> &
-    Argument<Arguments>
+    Argument<Arguments>;
 
 /**
  * main implementation

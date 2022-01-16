@@ -1,10 +1,10 @@
-import InferMessage from "@alirya/message/message/infer";
-import InferValue from "@alirya/value/value/infer";
-import Validatable from "./validatable";
-import InferValidatable from "@alirya/validatable/boolean/infer";
-import Value from "@alirya/value/value";
-import Message from "@alirya/message/message";
-import ValidatableInterface from "@alirya/validatable/validatable";
+import InferMessage from '@alirya/message/message/infer';
+import InferValue from '@alirya/value/value/infer';
+import Validatable from './validatable';
+import InferValidatable from '@alirya/validatable/boolean/infer';
+import Value from '@alirya/value/value';
+import Message from '@alirya/message/message';
+import ValidatableInterface from '@alirya/validatable/validatable';
 
 /**
  * read only wrapper for {@link Message}, {@link Value} and {@link ValidatableInterface}
@@ -19,9 +19,9 @@ export interface ReadonlyWrapperType<
         InferMessage<MessageType>,
         InferValidatable<ValidatableType>
 >> {
-    readonly valueContainer: ValueType,
-    readonly messageContainer: MessageType,
-    readonly validatableContainer: ValidatableType,
+    readonly valueContainer: ValueType;
+    readonly messageContainer: MessageType;
+    readonly validatableContainer: ValidatableType;
 }
 
 export default class ReadonlyWrapperParameters<

@@ -1,6 +1,6 @@
-import Static from "./validatable/static";
-import ValidatableType from "./validatable/validatable";
-import Replace from "./validatable/replace";
+import Static from './validatable/static';
+import ValidatableType from './validatable/validatable';
+import Replace from './validatable/replace';
 /**
  * {@template Allow} type which can be handled by implementation
  *

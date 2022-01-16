@@ -1,7 +1,7 @@
-import TestObject from "../tesobject";
-import TestString from "../tesstring";
+import TestObject from '../tesobject';
+import TestString from '../tesstring';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('compiler compatibility', ()=>{
 

@@ -1,8 +1,8 @@
-import Callback from "../../dist/callback-parameters";
-import String from "@alirya/string/boolean/string";
-import MessageString from "@alirya/string/assert/string/string-parameters";
+import Callback from '../../dist/callback-parameters';
+import String from '@alirya/string/boolean/string';
+import MessageString from '@alirya/string/assert/string/string-parameters';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 let callback = Callback<unknown, string, string>(
     String,

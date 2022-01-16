@@ -1,7 +1,7 @@
-import StaticReturn from "../../value/static";
-import Dynamic from "../../value/validatable";
-import ReplaceValue from "@alirya/value/value/replace";
-import ReplaceValidatable from "@alirya/validatable/boolean/replace";
+import StaticReturn from '../../value/static';
+import Dynamic from '../../value/validatable';
+import ReplaceValue from '@alirya/value/value/replace';
+import ReplaceValidatable from '@alirya/validatable/boolean/replace';
 
 export interface StaticParameter<
     Allow = unknown,

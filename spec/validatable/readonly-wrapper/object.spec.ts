@@ -1,10 +1,10 @@
-import WrapperMerge from "../../../dist/validatable/readonly-wrapper";
+import WrapperMerge from '../../../dist/validatable/readonly-wrapper';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('construct', function () {
 
-    it("data", () => {
+    it('data', () => {
 
         let wrapper = new WrapperMerge.Parameter({
             value: 1,
@@ -12,9 +12,9 @@ describe('construct', function () {
             valid: true,
         });
 
-        expect(wrapper.valid).toBeTrue()
-        expect(wrapper.value).toBe(1)
-        expect(wrapper.message).toBe('message')
+        expect(wrapper.valid).toBeTrue();
+        expect(wrapper.value).toBe(1);
+        expect(wrapper.message).toBe('message');
     });
 
 });
@@ -22,7 +22,7 @@ describe('construct', function () {
 
 describe('set', function () {
 
-    it("data", () => {
+    it('data', () => {
         let value =  {value:1};
         let message = {message:'message'};
         let validatable =  {valid:true};
@@ -32,9 +32,9 @@ describe('set', function () {
         wrapper.validatable.valid = false;
         wrapper.validatable.message = 'message 2';
 
-        expect(wrapper.message).toBe('message 2')
-        expect(wrapper.valid).toBeFalse()
-        expect(wrapper.value).toBe(3)
+        expect(wrapper.message).toBe('message 2');
+        expect(wrapper.valid).toBeFalse();
+        expect(wrapper.value).toBe(3);
     });
 
 });

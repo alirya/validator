@@ -1,4 +1,4 @@
-import Validator from "../validator";
+import Validator from '../validator';
 
 type Expectation<Type> = Type extends Validator<any, infer As> ? As : never;
 

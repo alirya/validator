@@ -1,9 +1,9 @@
-import ValidatorInterface from "../validator";
+import ValidatorInterface from '../validator';
 
 /**
  * Container for {@link ValidatorInterface}
  */
 export default interface Validators<ValidatorType extends ValidatorInterface> {
 
-    validator :  ValidatorType,
+    validator :  ValidatorType;
 }

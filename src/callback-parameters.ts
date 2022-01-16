@@ -1,12 +1,12 @@
-import Simple from "./simple";
-import Validatable from "./validatable/validatable";
-import ValidationCallback from "./validatable/callback-function-parameters";
-import SimpleMessage from "./message/function/simple-parameters";
-import ValidatableType from "./validatable/validatable";
-import StaticMessage from "./message/function/static-parameters";
-import Validator from "./validator";
-import Validation from "@alirya/boolean/function/validation";
-import Guard from "@alirya/boolean/function/guard";
+import Simple from './simple';
+import Validatable from './validatable/validatable';
+import ValidationCallback from './validatable/callback-function-parameters';
+import SimpleMessage from './message/function/simple-parameters';
+import ValidatableType from './validatable/validatable';
+import StaticMessage from './message/function/static-parameters';
+import Validator from './validator';
+import Validation from '@alirya/boolean/function/validation';
+import Guard from '@alirya/boolean/function/guard';
 /**
  * create {@see Validator} from multiple callback
  */
@@ -97,7 +97,7 @@ export default function CallbackParameters<
 >(
     validation : Guard<Allow, Expectation>,
     message : StaticMessage<Allow, Expectation, Allowed, Expected, MessageType>,
-) : Validator<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>
+) : Validator<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>;
 /**
  * static validation
  *
@@ -114,7 +114,7 @@ export default function CallbackParameters<
 >(
     validation : Validation<[Allow], Allowed|Expected>,
     message : StaticMessage<Allow, Expectation, Allowed, Expected, MessageType>,
-) : Validator<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>
+) : Validator<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>;
 
 /**
  * Static guard argument
@@ -134,7 +134,7 @@ export default function CallbackParameters<
 >(
     validation : Guard<Allow, Expectation, Arguments>,
     message : StaticMessage<Allow, Expectation, Allowed, Expected, MessageType, Arguments>,
-) : Validator<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>
+) : Validator<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>;
 /**
  * static validation argument
  *
@@ -152,7 +152,7 @@ export default function CallbackParameters<
 >(
     validation : Validation<[Allow, ...Arguments], Allowed|Expected>,
     message : StaticMessage<Allow, Expectation, Allowed, Expected, MessageType, Arguments>,
-) : Validator<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>
+) : Validator<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>;
 
 export default function CallbackParameters<
     Allow = unknown,
@@ -171,5 +171,5 @@ export default function CallbackParameters<
 
         return ValidationCallback(value, validation, message, argument);
 
-    } as Validator<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>
+    } as Validator<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>;
 }

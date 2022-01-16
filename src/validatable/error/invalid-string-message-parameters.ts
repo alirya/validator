@@ -1,7 +1,7 @@
-import ValidatableInvalid from "@alirya/validatable/error/invalid-parameters";
-import Validatable from "../validatable";
-import Infer from "@alirya/message/message/infer";
-import New from "@alirya/function/new";
+import ValidatableInvalid from '@alirya/validatable/error/invalid-parameters';
+import Validatable from '../validatable';
+import Infer from '@alirya/message/message/infer';
+import New from '@alirya/function/new';
 
 /**
  * @param validatable
@@ -33,5 +33,5 @@ export default function InvalidStringMessageParameters<ValidatableType extends V
     error : (validatable: ValidatableType, message : string) => Error|globalThis.Error = New(ValidatableInvalid)
 ) : Error|globalThis.Error {
 
-    return error(validatable, message(validatable.message as Infer<ValidatableType>))
+    return error(validatable, message(validatable.message as Infer<ValidatableType>));
 }

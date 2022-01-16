@@ -1,11 +1,11 @@
-import ValidatableInvalid from "@alirya/validatable/error/invalid-parameters";
-import Validatable from "../validatable";
-import Infer from "@alirya/message/message/infer";
-import Message from "@alirya/message/message";
-import ValidatableContainer from "@alirya/validatable/validatable/validatable";
-import StrictOmit from "@alirya/object/strict-omit";
-import New from "@alirya/function/new";
-import InvalidStringMessageParameters from "./invalid-string-message-parameters";
+import ValidatableInvalid from '@alirya/validatable/error/invalid-parameters';
+import Validatable from '../validatable';
+import Infer from '@alirya/message/message/infer';
+import Message from '@alirya/message/message';
+import ValidatableContainer from '@alirya/validatable/validatable/validatable';
+import StrictOmit from '@alirya/object/strict-omit';
+import New from '@alirya/function/new';
+import InvalidStringMessageParameters from './invalid-string-message-parameters';
 
 /**
  * @param validatable
@@ -22,7 +22,7 @@ import InvalidStringMessageParameters from "./invalid-string-message-parameters"
 export type InvalidStringMessageParameterArgument<ValidatableType extends Validatable, Error extends globalThis.Error> =
     ValidatableContainer<ValidatableType> &
     Partial<Message<(validatable: Infer<ValidatableType>) => string>> &
-    {error ?: (validatable: ValidatableType, message : string) => Error}
+    {error ?: (validatable: ValidatableType, message : string) => Error};
 
 export default function InvalidStringMessageParameter<ValidatableType extends Validatable>({
         validatable

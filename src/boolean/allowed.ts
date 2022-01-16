@@ -1,4 +1,4 @@
-import Validator from "../validator";
+import Validator from '../validator';
 
 /**
  * get {@Template Allowed} {@see boolean} value of {@see Validator}

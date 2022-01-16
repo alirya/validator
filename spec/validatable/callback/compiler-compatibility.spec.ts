@@ -1,7 +1,7 @@
-import CallbackFunction from "../../../dist/validatable/callback";
-import {TestMessageParameter} from "./tesmessage";
+import CallbackFunction from '../../../dist/validatable/callback';
+import {TestMessageParameter} from './tesmessage';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 describe('function', function () {

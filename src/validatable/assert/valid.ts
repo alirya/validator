@@ -1,5 +1,5 @@
-import Validatable from "../validatable";
-import InvalidStringMessage from "../error/invalid-string-message-parameters";
+import Validatable from '../validatable';
+import InvalidStringMessage from '../error/invalid-string-message-parameters';
 
 /**
  * Throw exception if given value is not {@link InvalidStringMessage} type

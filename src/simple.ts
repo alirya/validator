@@ -1,5 +1,5 @@
-import ValidatableType from "./validatable/validatable";
-import Validator from "./validator";
+import ValidatableType from './validatable/validatable';
+import Validator from './validator';
 
 /**
  * simple implementation of {@see Validator}

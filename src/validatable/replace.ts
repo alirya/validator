@@ -1,5 +1,5 @@
-import Validatable from "./validatable";
-import ReplaceValue from "../value/replace";
+import Validatable from './validatable';
+import ReplaceValue from '../value/replace';
 
 type Replace<
     ValueType,

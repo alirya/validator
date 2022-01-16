@@ -1,5 +1,5 @@
-import ValidatableType from "./validatable";
-import SimpleValue from "../value/simple";
+import ValidatableType from './validatable';
+import SimpleValue from '../value/simple';
 
 type Simple<
     Allow = unknown,

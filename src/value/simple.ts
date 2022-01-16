@@ -1,5 +1,5 @@
-import Dynamic from "./validatable";
-import Static from "./static";
+import Dynamic from './validatable';
+import Static from './static';
 
 type Simple<
     Allow = unknown,

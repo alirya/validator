@@ -1,5 +1,5 @@
-import Value from "@alirya/value/value";
-import BaseValidatable from "@alirya/validatable/validatable";
+import Value from '@alirya/value/value';
+import BaseValidatable from '@alirya/validatable/validatable';
 
 /**
  * extended {@see ValidatableInterface} with added {@see Message}

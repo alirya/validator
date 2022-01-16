@@ -1,5 +1,5 @@
-import ValidatableType from "./validatable";
-import StaticValue from "../value/static";
+import ValidatableType from './validatable';
+import StaticValue from '../value/static';
 
 type Static<
     Allow = unknown,

@@ -1,11 +1,11 @@
-import Validatable from "@alirya/validatable/validatable";
-import Value from "@alirya/value/value";
+import Validatable from '@alirya/validatable/validatable';
+import Value from '@alirya/value/value';
 
 
 export function TestMessageParameter (value : unknown, valid : boolean) : string {
-    return 'type:' + typeof value + ', valid:' + (valid ? 'true' : 'false')
+    return 'type:' + typeof value + ', valid:' + (valid ? 'true' : 'false');
 }
 
 export function TestMessageObject (value : Validatable & Value) : string {
-    return 'type:' + typeof value.value + ', valid:' + (value.valid ? 'true' : 'false')
+    return 'type:' + typeof value.value + ', valid:' + (value.valid ? 'true' : 'false');
 }

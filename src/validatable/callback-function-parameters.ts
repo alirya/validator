@@ -1,14 +1,14 @@
-import Value from "@alirya/value/value";
-import BaseValidatable from "@alirya/validatable/validatable";
-import Static from "./static";
-import Message from "@alirya/message/message";
-import Simple from "./simple";
-import CallbackClassParameters from "./callback-class-parameters";
-import ValidatableType from "./validatable";
-import StaticParameters from "../message/function/static-parameters";
-import SimpleParameters from "../message/function/simple-parameters";
-import Validation from "@alirya/boolean/function/validation";
-import Guard from "@alirya/boolean/function/guard";
+import Value from '@alirya/value/value';
+import BaseValidatable from '@alirya/validatable/validatable';
+import Static from './static';
+import Message from '@alirya/message/message';
+import Simple from './simple';
+import CallbackClassParameters from './callback-class-parameters';
+import ValidatableType from './validatable';
+import StaticParameters from '../message/function/static-parameters';
+import SimpleParameters from '../message/function/simple-parameters';
+import Validation from '@alirya/boolean/function/validation';
+import Guard from '@alirya/boolean/function/guard';
 
 
 /**
@@ -26,7 +26,7 @@ export type CallbackFunctionType<
     Type = unknown,
     MessageType = unknown
     > =
-    Simple<ValueType, Type, Readonly<Value<ValueType> & BaseValidatable & Message<MessageType>>>
+    Simple<ValueType, Type, Readonly<Value<ValueType> & BaseValidatable & Message<MessageType>>>;
 
 /**
  * simple validation
@@ -44,7 +44,7 @@ export default function CallbackFunctionParameters<
     value : Allow,
     validation : Guard<Allow, Expectation>,
     message : SimpleParameters<Allow, Expectation, Message>,
-) : Readonly<Simple<Allow, Expectation, ValidatableType<Allow, Message>>>
+) : Readonly<Simple<Allow, Expectation, ValidatableType<Allow, Message>>>;
 
 /**
  * simple guard
@@ -62,7 +62,7 @@ export default function CallbackFunctionParameters<
     value : Allow,
     validation : Validation<[Allow]>,
     message : SimpleParameters<Allow, Expectation, Message>,
-) : Readonly<Simple<Allow, Expectation, ValidatableType<Allow, Message>>>
+) : Readonly<Simple<Allow, Expectation, ValidatableType<Allow, Message>>>;
 
 /**
  * simple argument validation
@@ -82,7 +82,7 @@ export default function CallbackFunctionParameters<
     validation : Guard<Allow, Expectation, Arguments>,
     message : SimpleParameters<Allow, Expectation, Message, Arguments>,
     argument : Arguments,
-) : Readonly<Simple<Allow, Expectation, ValidatableType<Allow, Message>>>
+) : Readonly<Simple<Allow, Expectation, ValidatableType<Allow, Message>>>;
 
 /**
  * simple argument guard
@@ -102,7 +102,7 @@ export default function CallbackFunctionParameters<
     validation : Validation<[Allow, ...Arguments]>,
     message : SimpleParameters<Allow, Expectation, Message, Arguments>,
     argument : Arguments,
-) : Readonly<Simple<Allow, Expectation, ValidatableType<Allow, Message>>>
+) : Readonly<Simple<Allow, Expectation, ValidatableType<Allow, Message>>>;
 
 /**
  * static validation
@@ -117,7 +117,7 @@ export default function CallbackFunctionParameters<
     value : Allow,
     validation : Validation<[Allow], Allowed|Expected>,
     message : StaticParameters<Allow, Expectation, Allowed, Expected, Message>,
-) : Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, Message>>>
+) : Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, Message>>>;
 /**
  * static guard
  */
@@ -131,7 +131,7 @@ export default function CallbackFunctionParameters<
     value : Allow,
     validation : Guard<Allow, Expectation>,
     message : StaticParameters<Allow, Expectation, Allowed, Expected, Message>,
-) : Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, Message>>>
+) : Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, Message>>>;
 
 
 
@@ -150,7 +150,7 @@ export default function CallbackFunctionParameters<
     validation : Validation<[Allow, ...Arguments], Allowed|Expected>,
     message : StaticParameters<Allow, Expectation, Allowed, Expected, Message, Arguments>,
     argument : Arguments,
-) : Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, Message>>>
+) : Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, Message>>>;
 /**
  * static guard argument
  */
@@ -166,7 +166,7 @@ export default function CallbackFunctionParameters<
     validation : Guard<Allow, Expectation, Arguments>,
     message : StaticParameters<Allow, Expectation, Allowed, Expected, Message, Arguments>,
     argument : Arguments,
-) : Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, Message>>>
+) : Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, Message>>>;
 
 
 

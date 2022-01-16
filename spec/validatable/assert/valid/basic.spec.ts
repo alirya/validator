@@ -1,9 +1,9 @@
-import Validatable from "@alirya/validatable/validatable";
-import Value from "@alirya/value/value";
-import Message from "@alirya/message/message";
-import Valid from "../../../../dist/validatable/assert/valid";
+import Validatable from '@alirya/validatable/validatable';
+import Value from '@alirya/value/value';
+import Message from '@alirya/message/message';
+import Valid from '../../../../dist/validatable/assert/valid';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('compiler compatible', ()=>{
 
@@ -20,9 +20,9 @@ describe('compiler compatible', ()=>{
     Valid<Validatable & Value<number> & Message>(argument, (val1)=>new Error('error'));
 
     let value : number = argument.value;
-})
+});
 
-it("valid", function() {
+it('valid', function() {
 
     let argument : Validatable & Value & Message = {
         value : 1,
@@ -38,7 +38,7 @@ it("valid", function() {
 
 });
 
-it("invalid", function() {
+it('invalid', function() {
 
     let argument : Validatable & Value & Message = {
         value : 1,

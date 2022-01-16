@@ -1,12 +1,12 @@
-import CallbackClassParameters from "./callback-class-parameters";
-import Value from "@alirya/value/value";
-import Validation from "@alirya/boolean/validation/validation";
-import ValidationFunction from "@alirya/boolean/function/validation";
-import Argument from "@alirya/function/argument/argument";
-import Message from "@alirya/message/message";
-import ValidatableParameter from "../message/function/validatable-parameter";
-import Guard from "@alirya/boolean/validation/guard";
-import Dynamic from "../value/validatable";
+import CallbackClassParameters from './callback-class-parameters';
+import Value from '@alirya/value/value';
+import Validation from '@alirya/boolean/validation/validation';
+import ValidationFunction from '@alirya/boolean/function/validation';
+import Argument from '@alirya/function/argument/argument';
+import Message from '@alirya/message/message';
+import ValidatableParameter from '../message/function/validatable-parameter';
+import Guard from '@alirya/boolean/validation/guard';
+import Dynamic from '../value/validatable';
 
 
 /**

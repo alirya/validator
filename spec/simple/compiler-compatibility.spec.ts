@@ -1,12 +1,12 @@
-import Simple from "../../dist/simple";
-import Validator from "../../dist/validator";
-import Validatable from "../../dist/validatable/validatable";
-import BaseInfer from "../../dist/subject/allow";
-import TypeInfer from "../../dist/subject/expectation";
-import ValidatorInfer from "../../dist/validatable/infer-static";
-import ExtendInfer from "../../dist/subject/expectation";
+import Simple from '../../dist/simple';
+import Validator from '../../dist/validator';
+import Validatable from '../../dist/validatable/validatable';
+import BaseInfer from '../../dist/subject/allow';
+import TypeInfer from '../../dist/subject/expectation';
+import ValidatorInfer from '../../dist/validatable/infer-static';
+import ExtendInfer from '../../dist/subject/expectation';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('compiler compatibility', () => {
 

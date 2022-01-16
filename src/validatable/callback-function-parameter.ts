@@ -1,14 +1,14 @@
-import Value from "@alirya/value/value";
-import BaseValidatable from "@alirya/validatable/validatable";
-import Message from "@alirya/message/message";
-import StrictOmit from "@alirya/object/strict-omit";
-import {Required} from "utility-types";
+import Value from '@alirya/value/value';
+import BaseValidatable from '@alirya/validatable/validatable';
+import Message from '@alirya/message/message';
+import StrictOmit from '@alirya/object/strict-omit';
+import {Required} from 'utility-types';
 import CallbackClassParameter, {
     CallbackClassParameterArgumentGuard as CallbackFunctionParameterArgumentGuard,
     CallbackClassParameterArgumentValidation as CallbackFunctionParameterArgumentValidation
-} from "./callback-class-parameter";
-import Static from "./static";
-import ValidatableType from "./validatable";
+} from './callback-class-parameter';
+import Static from './static';
+import ValidatableType from './validatable';
 
 
 /**
@@ -79,7 +79,7 @@ export default function CallbackFunctionParameter<
     MessageType = unknown,
 >(
     argument : StrictOmit<CallbackFunctionParameterArgumentGuard<Allow, Expectation, MessageType>, 'argument'>
-) : Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>>
+) : Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>>;
 
 /**
  * static validation
@@ -92,7 +92,7 @@ export default function CallbackFunctionParameter<
     MessageType = unknown,
 >(
     argument : StrictOmit<CallbackFunctionParameterArgumentValidation<Allow, Expectation, MessageType>, 'argument'>
-) : Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>>
+) : Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>>;
 
 
 
@@ -110,7 +110,7 @@ export default function CallbackFunctionParameter<
     Arguments extends unknown[] = unknown[],
 >(
     argument : Required<CallbackFunctionParameterArgumentGuard<Allow, Expectation, MessageType, Arguments>, 'argument'>
-) : Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>>
+) : Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>>;
 
 /**
  * static validation argument
@@ -124,7 +124,7 @@ export default function CallbackFunctionParameter<
     Arguments extends unknown[] = unknown[],
 >(
     argument : Required<CallbackFunctionParameterArgumentValidation<Allow, Expectation, MessageType, Arguments>, 'argument'>
-) : Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>>
+) : Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>>;
 
 
 export default function CallbackFunctionParameter<
