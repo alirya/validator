@@ -1,10 +1,10 @@
-import ValidatableInvalid from "@dikac/t-validatable/error/invalid-parameters";
+import ValidatableInvalid from "@alirya/validatable/error/invalid-parameters";
 import Validatable from "../validatable";
-import Infer from "@dikac/t-message/message/infer";
-import Message from "@dikac/t-message/message";
-import ValidatableContainer from "@dikac/t-validatable/validatable/validatable";
-import StrictOmit from "@dikac/t-object/strict-omit";
-import New from "@dikac/t-function/new";
+import Infer from "@alirya/message/message/infer";
+import Message from "@alirya/message/message";
+import ValidatableContainer from "@alirya/validatable/validatable/validatable";
+import StrictOmit from "@alirya/object/strict-omit";
+import New from "@alirya/function/new";
 import InvalidStringMessageParameters from "./invalid-string-message-parameters";
 
 /**

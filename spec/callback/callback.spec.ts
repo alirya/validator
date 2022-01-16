@@ -1,6 +1,6 @@
 import Callback from "../../dist/callback-parameters";
-import String from "@dikac/t-string/boolean/string";
-import MessageString from "@dikac/t-string/assert/string/string-parameters";
+import String from "@alirya/string/boolean/string";
+import MessageString from "@alirya/string/assert/string/string-parameters";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 

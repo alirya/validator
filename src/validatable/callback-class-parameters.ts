@@ -1,8 +1,8 @@
 import Validatable from "./validatable";
-import MemoizeAccessor from "@dikac/t-object/function/memoize-accessor";
-import Validation from "@dikac/t-boolean/validation/validation";
-import ValidationFunction from "@dikac/t-boolean/function/validation";
-import Argument from "@dikac/t-function/argument/argument";
+import MemoizeAccessor from "@alirya/object/function/memoize-accessor";
+import Validation from "@alirya/boolean/validation/validation";
+import ValidationFunction from "@alirya/boolean/function/validation";
+import Argument from "@alirya/function/argument/argument";
 import ValidatableParameters from "../message/function/validatable-parameters";
 
 

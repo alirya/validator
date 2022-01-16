@@ -1,11 +1,11 @@
 import CallbackClassParameters from "./callback-class-parameters";
-import Value from "@dikac/t-value/value";
-import Validation from "@dikac/t-boolean/validation/validation";
-import ValidationFunction from "@dikac/t-boolean/function/validation";
-import Argument from "@dikac/t-function/argument/argument";
-import Message from "@dikac/t-message/message";
+import Value from "@alirya/value/value";
+import Validation from "@alirya/boolean/validation/validation";
+import ValidationFunction from "@alirya/boolean/function/validation";
+import Argument from "@alirya/function/argument/argument";
+import Message from "@alirya/message/message";
 import ValidatableParameter from "../message/function/validatable-parameter";
-import Guard from "@dikac/t-boolean/validation/guard";
+import Guard from "@alirya/boolean/validation/guard";
 import Dynamic from "../value/validatable";
 
 

@@ -1,10 +1,10 @@
-import InferMessage from "@dikac/t-message/message/infer";
-import InferValue from "@dikac/t-value/value/infer";
+import InferMessage from "@alirya/message/message/infer";
+import InferValue from "@alirya/value/value/infer";
 import Validatable from "./validatable";
-import InferValidatable from "@dikac/t-validatable/boolean/infer";
-import Value from "@dikac/t-value/value";
-import Message from "@dikac/t-message/message";
-import ValidatableInterface from "@dikac/t-validatable/validatable";
+import InferValidatable from "@alirya/validatable/boolean/infer";
+import Value from "@alirya/value/value";
+import Message from "@alirya/message/message";
+import ValidatableInterface from "@alirya/validatable/validatable";
 
 /**
  * read only wrapper for {@link Message}, {@link Value} and {@link ValidatableInterface}

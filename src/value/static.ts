@@ -1,6 +1,6 @@
-import ReplaceValue from "@dikac/t-value/value/replace";
+import ReplaceValue from "@alirya/value/value/replace";
 import Dynamic from "./validatable";
-import ReplaceValidatable from "@dikac/t-validatable/boolean/replace";
+import ReplaceValidatable from "@alirya/validatable/boolean/replace";
 
 type Static<
     Allow = unknown,

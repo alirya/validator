@@ -1,5 +1,5 @@
-import ReplaceValue from "@dikac/t-value/value/replace";
-import ValidatableReplace from "@dikac/t-validatable/boolean/replace";
+import ReplaceValue from "@alirya/value/value/replace";
+import ValidatableReplace from "@alirya/validatable/boolean/replace";
 import Validatable from "./validatable";
 
 type Replace<

@@ -1,14 +1,14 @@
-import Value from "@dikac/t-value/value";
-import BaseValidatable from "@dikac/t-validatable/validatable";
+import Value from "@alirya/value/value";
+import BaseValidatable from "@alirya/validatable/validatable";
 import Static from "./static";
-import Message from "@dikac/t-message/message";
+import Message from "@alirya/message/message";
 import Simple from "./simple";
 import CallbackClassParameters from "./callback-class-parameters";
 import ValidatableType from "./validatable";
 import StaticParameters from "../message/function/static-parameters";
 import SimpleParameters from "../message/function/simple-parameters";
-import Validation from "@dikac/t-boolean/function/validation";
-import Guard from "@dikac/t-boolean/function/guard";
+import Validation from "@alirya/boolean/function/validation";
+import Guard from "@alirya/boolean/function/guard";
 
 
 /**

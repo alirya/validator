@@ -1,8 +1,8 @@
-import IsObject from "@dikac/t-object/boolean/object";
+import IsObject from "@alirya/object/boolean/object";
 import Asserted from "../../../dist/validatable/asserted";
 import CallbackFunction from "../../../dist/validatable/callback";
-import Validatable from "@dikac/t-validatable/validatable";
-import Value from "@dikac/t-value/value";
+import Validatable from "@alirya/validatable/validatable";
+import Value from "@alirya/value/value";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 

@@ -5,8 +5,8 @@ import SimpleMessage from "./message/function/simple-parameters";
 import ValidatableType from "./validatable/validatable";
 import StaticMessage from "./message/function/static-parameters";
 import Validator from "./validator";
-import Validation from "@dikac/t-boolean/function/validation";
-import Guard from "@dikac/t-boolean/function/guard";
+import Validation from "@alirya/boolean/function/validation";
+import Guard from "@alirya/boolean/function/guard";
 /**
  * create {@see Validator} from multiple callback
  */

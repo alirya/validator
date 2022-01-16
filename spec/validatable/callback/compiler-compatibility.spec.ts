@@ -1,5 +1,5 @@
 import CallbackFunction from "../../../dist/validatable/callback";
-import {TestMessageParameter} from "./test-message";
+import {TestMessageParameter} from "./tesmessage";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 

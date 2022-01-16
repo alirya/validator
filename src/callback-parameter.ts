@@ -3,12 +3,12 @@ import Validatable from "./validatable/validatable";
 import MessageCallback from "./message/function/simple-parameters";
 import ValidatableType from "./validatable/validatable";
 import StaticMessage from "./message/function/static-parameter";
-import Infer from "@dikac/t-message/message/infer";
+import Infer from "@alirya/message/message/infer";
 import Validator from "./validator";
 import CallbackParameters from "./callback-parameters";
-import Message from "@dikac/t-message/message";
-import Guard from "@dikac/t-boolean/validation/guard";
-import Validation from "@dikac/t-boolean/validation/validation";
+import Message from "@alirya/message/message";
+import Guard from "@alirya/boolean/validation/guard";
+import Validation from "@alirya/boolean/validation/validation";
 /**
  * create {@see Validator} from multiple callback
  */

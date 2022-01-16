@@ -1,6 +1,6 @@
-import Validatable from "@dikac/t-validatable/validatable";
-import Value from "@dikac/t-value/value";
-import Message from "@dikac/t-message/message";
+import Validatable from "@alirya/validatable/validatable";
+import Value from "@alirya/value/value";
+import Message from "@alirya/message/message";
 import Valid from "../../../../dist/validatable/assert/valid";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
@@ -13,10 +13,10 @@ describe('compiler compatible', ()=>{
         message : 'one'
     };
 
-    // @ts-expect-error
+    // @ts-expecerror
     let invalid : number = argument.value;
 
-    // @ts-expect-error
+    // @ts-expecerror
     Valid<Validatable & Value<number> & Message>(argument, (val1)=>new Error('error'));
 
     let value : number = argument.value;

@@ -1,7 +1,7 @@
-import ValidatableInvalid from "@dikac/t-validatable/error/invalid-parameters";
+import ValidatableInvalid from "@alirya/validatable/error/invalid-parameters";
 import Validatable from "../validatable";
-import Infer from "@dikac/t-message/message/infer";
-import New from "@dikac/t-function/new";
+import Infer from "@alirya/message/message/infer";
+import New from "@alirya/function/new";
 
 /**
  * @param validatable

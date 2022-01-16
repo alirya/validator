@@ -1,7 +1,7 @@
-import Value from "@dikac/t-value/value";
-import BaseValidatable from "@dikac/t-validatable/validatable";
-import Message from "@dikac/t-message/message";
-import StrictOmit from "@dikac/t-object/strict-omit";
+import Value from "@alirya/value/value";
+import BaseValidatable from "@alirya/validatable/validatable";
+import Message from "@alirya/message/message";
+import StrictOmit from "@alirya/object/strict-omit";
 import {Required} from "utility-types";
 import CallbackClassParameter, {
     CallbackClassParameterArgumentGuard as CallbackFunctionParameterArgumentGuard,

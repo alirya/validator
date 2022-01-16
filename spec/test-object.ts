@@ -24,13 +24,13 @@ const result = test(1);
 if(result.valid) {
 
     const object : object = result.value;
-    // @ts-expect-error
+    // @ts-expecerror
     const number : number = result.value;
     const message : string = result.message;
 
 } else {
 
-    // @ts-expect-error
+    // @ts-expecerror
     const object : object = result.value;
     const number : number = result.value;
     const message : string = result.message;
