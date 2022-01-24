@@ -17,12 +17,12 @@ import Replace from './validatable/replace';
 
 export default interface Validator<
     Allow = unknown,
-    Expectation = unknown,
+    Expectation = Allow,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     Validatable extends ValidatableType = ValidatableType
 > {
-    <Argument extends Expectation>(value: Argument): Replace<Argument, Expected, Validatable>;
     <Argument extends Allow>(value: Argument): Static<Argument, Expectation, Allowed, Expected, Validatable>;
+    <Argument extends Expectation>(value: Argument): Replace<Argument, Expected, Validatable>;
 }
 

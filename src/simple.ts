@@ -7,7 +7,7 @@ import Validator from './validator';
 
 type Simple<
     Allow = unknown,
-    Expectation = unknown,
+    Expectation = Allow,
     Validatable extends ValidatableType = ValidatableType
 > = Validator<Allow, Expectation, false, true, Validatable>;
 
