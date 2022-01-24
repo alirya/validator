@@ -8,7 +8,7 @@ import ExtendInfer from '../../dist/subject/expectation';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-describe('compiler compatibility', () => {
+it('compiler compatibility', () => {
 
     let simple : Simple<unknown, number, Validatable<unknown, string>>;
     let validator : Validator<unknown, number, false, true, Validatable<number, string>>;

@@ -9,7 +9,7 @@ let callback = Callback<unknown, string, string>(
     (result) : string => MessageString(result.valid, result.value)
 );
 
-describe('compiler compatibility', ()=>{
+it('compiler compatibility', ()=>{
 
     let validatable = callback(1);
 
@@ -22,7 +22,7 @@ describe('compiler compatibility', ()=>{
     } else {
 
         let boolean : boolean = validatable.valid;
-        // @ts-expecerror
+        // @ts-expect-error
         let value : string = validatable.value;
         let number : number = validatable.value;
         let message : string = validatable.message;
@@ -30,10 +30,10 @@ describe('compiler compatibility', ()=>{
 
 
     {
-        // @ts-expecerror
+        // @ts-expect-error
         let valid : string = validatable.valid;
         let value : any = validatable.value;
-        // @ts-expecerror
+        // @ts-expect-error
         let message : number = validatable.message;
     }
 });

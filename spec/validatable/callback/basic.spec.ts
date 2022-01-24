@@ -1,5 +1,5 @@
-import CallbackFunction from '../../../dist/validatable/callback';
-import {TestMessageParameter} from './tesmessage';
+import CallbackFunction from '../../../dist/validatable/callback-class-parameters';
+import {TestMessageParameter} from './test-message';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -9,7 +9,7 @@ describe('class', function () {
 
         it('valid', () => {
 
-            let wrapper = new CallbackFunction.Class.Parameters({}, (v)=>typeof v === 'object', TestMessageParameter, []);
+            let wrapper = new CallbackFunction({}, (v)=>typeof v === 'object', TestMessageParameter, []);
 
             expect(wrapper.valid).toBeTrue();
             expect(wrapper.value).toEqual({});
@@ -18,7 +18,7 @@ describe('class', function () {
 
         it('invalid', () => {
 
-            let wrapper = new CallbackFunction.Class.Parameters('str', (v)=>typeof v === 'object', TestMessageParameter, []);
+            let wrapper = new CallbackFunction('str', (v)=>typeof v === 'object', TestMessageParameter, []);
 
             expect(wrapper.valid).toBeFalse();
             expect(wrapper.value).toBe('str');

@@ -1,11 +1,11 @@
-import TestObject from '../tesobject';
-import TestString from '../tesstring';
+import TestObject from '../test-object';
+import TestString from '../test-string';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('compiler compatibility', ()=>{
 
-    describe('writable', () => {
+    it('writable', () => {
 
         let test = TestString();
         let validatable = test(1);
@@ -17,26 +17,26 @@ describe('compiler compatibility', ()=>{
             let message : string = validatable.message;
 
             validatable.valid = true;
-            // @ts-expecerror
+            // @ts-expect-error
             validatable.valid = false;
             validatable.value = '5';
-            // @ts-expecerror
+            // @ts-expect-error
             validatable.value = 5;
             validatable.message = 'message';
 
         } else {
 
             let boolean : boolean = validatable.valid;
-            // @ts-expecerror
+            // @ts-expect-error
             let value : string = validatable.value;
             let number : number = validatable.value;
             let message : string = validatable.message;
 
             validatable.valid = false;
-            // @ts-expecerror
+            // @ts-expect-error
             validatable.valid = true;
             validatable.value = 5;
-            // @ts-expecerror
+            // @ts-expect-error
             validatable.value = '5';
             validatable.message = 'message';
         }
@@ -46,7 +46,7 @@ describe('compiler compatibility', ()=>{
 
         let test = TestObject();
 
-        describe('typed', () => {
+        it('typed', () => {
 
             let validatable = test(test);
 
@@ -54,7 +54,7 @@ describe('compiler compatibility', ()=>{
 
                 let value : object = validatable.value;
 
-                //@ts-expecerror
+
                 let exact : ReturnType<typeof TestObject> = validatable.value;
 
                 let boolean : boolean = validatable.valid;
@@ -72,17 +72,17 @@ describe('compiler compatibility', ()=>{
             }
         });
 
-        describe('unknown', () => {
+        it('unknown', () => {
 
             let validatable = test(<unknown>test);
 
             if(validatable.valid) {
 
-                // @ts-expecerror
+                // @ts-expect-error
                 let string : string = validatable.value;
 
                 let value : object = validatable.value;
-                // @ts-expecerror
+                // @ts-expect-error
                 let exact : TestObject = validatable.value;
 
                 let boolean : boolean = validatable.valid;
@@ -91,15 +91,15 @@ describe('compiler compatibility', ()=>{
 
             } else {
 
-                // @ts-expecerror
+                // @ts-expect-error
                 let string : string = validatable.value;
 
                 let boolean : boolean = validatable.valid;
 
-                // @ts-expecerror
+                // @ts-expect-error
                 let value : object = validatable.value;
 
-                // @ts-expecerror
+                // @ts-expect-error
                 let number : TestObject = validatable.value;
 
                 let message : string = validatable.message;

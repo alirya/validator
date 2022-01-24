@@ -1,4 +1,4 @@
-import WrapperMerge from '../../../dist/validatable/readonly-wrapper';
+import WrapperMerge from '../../../dist/validatable/readonly-wrapper-parameter';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -6,7 +6,7 @@ describe('construct', function () {
 
     it('data', () => {
 
-        let wrapper = new WrapperMerge.Parameter({
+        let wrapper = new WrapperMerge({
             value: 1,
             message: 'message',
             valid: true,
@@ -26,7 +26,7 @@ describe('set', function () {
         let value =  {value:1};
         let message = {message:'message'};
         let validatable =  {valid:true};
-        let wrapper = new WrapperMerge.Parameter({...value, ...message, ...validatable});
+        let wrapper = new WrapperMerge({...value, ...message, ...validatable});
 
         wrapper.validatable.value = 3;
         wrapper.validatable.valid = false;

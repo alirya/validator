@@ -5,7 +5,7 @@ import Valid from '../../../../dist/validatable/assert/valid';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
-describe('compiler compatible', ()=>{
+it('compiler compatible', ()=>{
 
     let argument : Validatable & Value & Message = {
         value : 1,
@@ -13,10 +13,10 @@ describe('compiler compatible', ()=>{
         message : 'one'
     };
 
-    // @ts-expecerror
+    // @ts-expect-error
     let invalid : number = argument.value;
 
-    // @ts-expecerror
+    // @ts-expect-error
     Valid<Validatable & Value<number> & Message>(argument, (val1)=>new Error('error'));
 
     let value : number = argument.value;

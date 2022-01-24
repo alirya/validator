@@ -1,6 +1,6 @@
 import IsObject from '@alirya/object/boolean/object';
 import Asserted from '../../../dist/validatable/asserted';
-import CallbackFunction from '../../../dist/validatable/callback';
+import CallbackFunction from '../../../dist/validatable/callback-function-parameters';
 import Validatable from '@alirya/validatable/validatable';
 import Value from '@alirya/value/value';
 
@@ -12,7 +12,7 @@ function TestMessage (value, valid) {
 
 describe('invalid', function () {
 
-    let subject = new CallbackFunction.Class.Parameters(1, IsObject, TestMessage, []);
+    let subject = CallbackFunction(1, IsObject, TestMessage, []);
     let callback = new Asserted(subject);
 
     it('check value', () => {
@@ -35,7 +35,7 @@ describe('invalid', function () {
 
 describe('valid', function () {
 
-    let subject = new CallbackFunction.Class.Parameters({}, IsObject, TestMessage, []);
+    let subject = CallbackFunction({}, IsObject, TestMessage, []);
     let callback = new Asserted(subject);
 
     it('check value', () => {
