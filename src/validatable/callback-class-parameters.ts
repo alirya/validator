@@ -75,17 +75,16 @@ export default class CallbackClassParameters<
         readonly messageFactory : ValidatableParameters<ValueType, MessageType, Arguments, Boolean>,
         readonly argument : Arguments = ([] as Arguments|[] as Arguments),
     ) {
-        console.log({ messageFactory });
-        console.log({ messageFactory: messageFactory('k' as any, true as any, ...[] as any) });
+
     }
 
-    // @MemoizeAccessor()
+    @MemoizeAccessor()
     get valid() : Boolean {
 
         return this.validation(this.value, ...this.argument) as Boolean;
     }
 
-    // @MemoizeAccessor()
+    @MemoizeAccessor()
     get message() : MessageType {
 
         return this.messageFactory(this.value, this.valid, ...(this.argument as Arguments));
