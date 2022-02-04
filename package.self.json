@@ -9,9 +9,7 @@
     "@alirya/object": "0.37.0",
     "@alirya/string": "0.16.0",
     "@alirya/validatable": "0.20.0",
-    "@alirya/value": "0.15.0",
-    "ts-toolbelt": "^9.6.0",
-    "utility-types": "^3.10.0"
+    "@alirya/value": "0.15.0"
   },
   "homepage": "https://github.com/alirya/validator",
   "repository": {
