@@ -21,7 +21,7 @@ import Guard from '@alirya/boolean/function/guard';
  * more accurate type
  */
 
-export type CallbackFunctionType<
+export type CallbackFunctionReturn<
     ValueType = unknown,
     Type = unknown,
     MessageType = unknown
