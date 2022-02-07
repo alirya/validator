@@ -3,6 +3,7 @@
   "version": "0.19.1",
   "description": "Typescript validator",
   "dependencies": {
+    "tslib": "^2.3.1",
     "@alirya/boolean": "0.11.0",
     "@alirya/function": "0.15.0",
     "@alirya/message": "0.12.0",
