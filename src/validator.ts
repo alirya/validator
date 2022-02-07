@@ -22,7 +22,7 @@ export default interface Validator<
     Expected extends boolean = boolean,
     Validatable extends ValidatableType = ValidatableType
 > {
-    <Argument extends Allow>(value: Argument): Static<Argument, Expectation, Allowed, Expected, Validatable>;
     <Argument extends Expectation>(value: Argument): Replace<Argument, Expected, Validatable>;
+    <Argument extends Allow>(value: Argument): Static<Argument, Expectation, Allowed, Expected, Validatable>;
 }
 
