@@ -1,14 +1,14 @@
 {
   "name": "@alirya/validator",
-  "version": "0.19.1",
+  "version": "0.19.2",
   "description": "Typescript validator",
   "dependencies": {
     "tslib": "^2.3.1",
     "@alirya/boolean": "^0.11.0",
     "@alirya/function": "^0.15.0",
     "@alirya/message": "^0.12.0",
-    "@alirya/object": "^0.37.1",
-    "@alirya/string": "^0.16.2",
+    "@alirya/object": "^0.37.2",
+    "@alirya/string": "^0.16.3",
     "@alirya/validatable": "^0.20.0",
     "@alirya/value": "^0.15.0"
   },
