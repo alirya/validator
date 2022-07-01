@@ -186,7 +186,7 @@ export const CallbackParameters : CallbackParametersType = function <
         return ValidationCallback.Parameters(value, validation, message, argument);
 
     } as Validator<Allow, Expectation, Allowed, Expected, Validatable<Allow, MessageType>>;
-}
+};
 
 
 /**

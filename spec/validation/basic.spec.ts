@@ -1,5 +1,5 @@
-import TestString from "../test-string";
-import Create from "../../dist/validation/create";
+import TestString from '../test-string';
+import Create from '../../dist/validation/create';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

@@ -1,5 +1,5 @@
-import Validator from "../validator";
-import {Return} from "./validation";
+import Validator from '../validator';
+import {Return} from './validation';
 
 export default function Validation<ValidatorType extends Validator>(
     validator : ValidatorType,
@@ -9,5 +9,5 @@ export default function Validation<ValidatorType extends Validator>(
 
         return validator(value).valid;
 
-    } as Return<ValidatorType>
+    } as Return<ValidatorType>;
 }
