@@ -24,7 +24,7 @@ export interface ReadonlyWrapperType<
     readonly validatableContainer: ValidatableType;
 }
 
-export default class ReadonlyWrapperParameters<
+export class ReadonlyWrapperParameters<
     ValueType extends Value,
     MessageType extends Message,
     ValidatableType extends ValidatableInterface,
@@ -55,3 +55,36 @@ export default class ReadonlyWrapperParameters<
     }
 }
 
+
+
+/**
+ * read only wrapper for {@link Message}, {@link Value} and {@link ValidatableInterface}
+ */
+
+export class ReadonlyWrapperParameter<
+    ValidatableType extends Validatable
+> extends ReadonlyWrapperParameters<ValidatableType, ValidatableType, ValidatableType>{
+
+    constructor(public validatable : ValidatableType) {
+
+        super(validatable, validatable, validatable);
+    }
+}
+
+
+
+
+namespace ReadonlyWrapper {
+    export const Parameters = ReadonlyWrapperParameters;
+    export const Parameter = ReadonlyWrapperParameter;
+    export interface Type<
+        ValueType extends Value,
+        MessageType extends Message,
+        ValidatableType extends ValidatableInterface
+    > extends ReadonlyWrapperType<
+        ValueType,
+        MessageType,
+        ValidatableType
+    > {}
+}
+export default ReadonlyWrapper;

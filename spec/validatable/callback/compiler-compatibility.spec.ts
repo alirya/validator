@@ -1,5 +1,5 @@
-import CallbackFunction from '../../../dist/validatable/callback-function-parameters';
-import CallbackClass from '../../../dist/validatable/callback-class-parameters';
+import CallbackFunction from '../../../dist/validatable/callback';
+import CallbackClass from '../../../dist/validatable/callback';
 import {TestMessageParameter} from './test-message';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -11,7 +11,7 @@ describe('function', function () {
 
         it('guard', function () {
 
-            let wrapper = CallbackFunction({}, (v:unknown) : v is string => true, TestMessageParameter);
+            let wrapper = CallbackFunction.Parameters({}, (v:unknown) : v is string => true, TestMessageParameter);
 
             if(wrapper.valid) {
 
@@ -33,7 +33,7 @@ describe('function', function () {
         it('validation', function () {
 
             let v = 12;
-            let wrapper = new CallbackClass<number, string>(v, (v: unknown) : boolean => true, TestMessageParameter, []);
+            let wrapper = new CallbackClass.ClassParameters<number, number, string>(v, (v: unknown) : boolean => true, TestMessageParameter, []);
 
             if(wrapper.valid) {
 

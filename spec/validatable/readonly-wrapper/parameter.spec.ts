@@ -1,5 +1,5 @@
-import WrapperMergeParameters from '../../../dist/validatable/readonly-wrapper-parameters';
-import WrapperMergeParameter from '../../../dist/validatable/readonly-wrapper-parameter';
+import {ReadonlyWrapperParameters} from '../../../dist/validatable/readonly-wrapper';
+import {ReadonlyWrapperParameter} from '../../../dist/validatable/readonly-wrapper';
 import Validatable from '@alirya/validatable/validatable';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -8,13 +8,13 @@ describe('construct', function () {
 
     it('data', () => {
 
-        let standard = new WrapperMergeParameters(
+        let standard = new ReadonlyWrapperParameters(
             {value:1},
             {message:'message'},
             {valid:true},
         );
 
-        let wrapper = new WrapperMergeParameter(standard);
+        let wrapper = new ReadonlyWrapperParameter(standard);
 
         expect(wrapper.valid).toBeTrue();
         expect(wrapper.value).toBe(1);
@@ -28,13 +28,13 @@ describe('set', function () {
 
     it('data', () => {
 
-        let standard = new WrapperMergeParameters(
+        let standard = new ReadonlyWrapperParameters(
             {value:3},
             {message:'message 2'},
             <Validatable<boolean>>{valid:false},
         );
 
-        let wrapper = new WrapperMergeParameter(standard);
+        let wrapper = new ReadonlyWrapperParameter(standard);
 
         expect(wrapper.valid).toBeFalse();
         expect(wrapper.value).toBe(3);

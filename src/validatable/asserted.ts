@@ -1,7 +1,7 @@
 import ValueInfer from '@alirya/value/value/infer';
-import ReadonlyWrapper from './readonly-wrapper-parameter';
+import ReadonlyWrapper from './readonly-wrapper';
 import Validatable from './validatable';
-import InvalidStringMessage from './error/invalid-string-message-parameter';
+import InvalidStringMessage from './error/invalid-string-message';
 import Value from '@alirya/value/value';
 import ValidatableContainer from '@alirya/validatable/validatable/validatable';
 
@@ -15,7 +15,7 @@ type KeepImport = Value;
  */
 export default class Asserted<
     ValidatableType extends Validatable = Validatable
-> extends ReadonlyWrapper<
+> extends ReadonlyWrapper.Parameter<
     ValidatableType
 > {
     /**
@@ -24,7 +24,7 @@ export default class Asserted<
      */
     constructor(
         validatable : ValidatableType,
-        public error : (validatable: ValidatableContainer<ValidatableType>)=>Error = InvalidStringMessage
+        public error : (validatable: ValidatableContainer<ValidatableType>)=>Error = InvalidStringMessage.Parameter
     ) {
 
         super(validatable);

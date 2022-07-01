@@ -1,12 +1,12 @@
-import Callback from '../../dist/callback-parameters';
+import Callback from '../../dist/callback';
 import String from '@alirya/string/boolean/string';
-import MessageString from '@alirya/string/assert/string/string-parameters';
+import MessageString from '@alirya/string/assert/string/string';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-let callback = Callback<unknown, string, string>(
+let callback = Callback.Parameters<unknown, string, string>(
     String,
-    (result) : string => MessageString(result.valid, result.value)
+    (result) : string => MessageString.Parameters(result.valid, result.value)
 );
 
 it('compiler compatibility', ()=>{
