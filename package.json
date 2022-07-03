@@ -1,6 +1,6 @@
 {
   "name": "@alirya/validator",
-  "version": "0.19.4",
+  "version": "0.20.0",
   "description": "Typescript validator",
   "publishConfig": {
     "directory": "dist"
@@ -16,13 +16,13 @@
   },
   "dependencies": {
     "tslib": "^2.3.1",
-    "@alirya/boolean": "^0.11.2",
-    "@alirya/function": "^0.16.2",
-    "@alirya/message": "^0.12.2",
-    "@alirya/object": "^0.37.8",
-    "@alirya/string": "^0.16.8",
-    "@alirya/validatable": "^0.20.2",
-    "@alirya/value": "^0.15.2"
+    "@alirya/boolean": "^0.12.0",
+    "@alirya/function": "^0.17.0",
+    "@alirya/message": "^0.13.0",
+    "@alirya/object": "^0.38.0",
+    "@alirya/string": "^0.17.0",
+    "@alirya/validatable": "^0.21.0",
+    "@alirya/value": "^0.16.0"
   },
   "devDependencies": {
     "@types/jasmine": "^3.10.2",
