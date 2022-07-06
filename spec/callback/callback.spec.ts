@@ -1,6 +1,6 @@
-import {CallbackParameters} from '../../dist/callback';
-import String from '@alirya/string/boolean/string';
-import MessageString from '@alirya/string/assert/string/string';
+import {CallbackParameters} from '../../dist/callback.js';
+import String from '@alirya/string/boolean/string.js';
+import MessageString from '@alirya/string/assert/string/string.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

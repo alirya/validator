@@ -1,4 +1,4 @@
-import ValidatorInterface from '../validator';
+import ValidatorInterface from '../validator.js';
 
 /**
  * Container for {@link ValidatorInterface}

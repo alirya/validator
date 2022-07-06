@@ -1,10 +1,10 @@
-import {InvalidParameters} from '@alirya/validatable/error/invalid';
-import Validatable from '../validatable';
-import Infer from '@alirya/message/message/infer';
-import New from '@alirya/function/new';
-import Message from '@alirya/message/message';
-import ValidatableContainer from '@alirya/validatable/validatable/validatable';
-import StrictOmit from '@alirya/object/strict-omit';
+import {InvalidParameters} from '@alirya/validatable/error/invalid.js';
+import Validatable from '../validatable.js';
+import Infer from '@alirya/message/message/infer.js';
+import New from '@alirya/function/new.js';
+import Message from '@alirya/message/message.js';
+import ValidatableContainer from '@alirya/validatable/validatable/validatable.js';
+import StrictOmit from '@alirya/object/strict-omit.js';
 
 
 /**

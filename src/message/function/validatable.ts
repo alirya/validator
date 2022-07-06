@@ -1,4 +1,4 @@
-import Dynamic from '../../value/validatable';
+import Dynamic from '../../value/validatable.js';
 
 export interface  ValidatableParameters<
     Base = unknown,

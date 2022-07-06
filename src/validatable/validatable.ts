@@ -1,5 +1,5 @@
-import Message from '@alirya/message/message';
-import DynamicValue from '../value/validatable';
+import Message from '@alirya/message/message.js';
+import DynamicValue from '../value/validatable.js';
 
 /**
  * extended {@see ValidatableInterface} with added {@see Message}

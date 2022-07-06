@@ -1,16 +1,16 @@
-import Simple from './simple';
-import Validatable from './validatable/validatable';
-import ValidationCallback from './validatable/callback';
-import SimpleMessage from './message/function/simple';
-import StaticMessage from './message/function/static';
-import Validator from './validator';
-import Validation from '@alirya/boolean/function/validation';
-import Guard from '@alirya/boolean/function/guard';
-import ValidatableType from './validatable/validatable';
-import Infer from '@alirya/message/message/infer';
-import Message from '@alirya/message/message';
-import GuardContainer from '@alirya/boolean/validation/guard';
-import ValidationContainer from '@alirya/boolean/validation/validation';
+import Simple from './simple.js';
+import Validatable from './validatable/validatable.js';
+import ValidationCallback from './validatable/callback.js';
+import SimpleMessage from './message/function/simple.js';
+import StaticMessage from './message/function/static.js';
+import Validator from './validator.js';
+import Validation from '@alirya/boolean/function/validation.js';
+import Guard from '@alirya/boolean/function/guard.js';
+import ValidatableType from './validatable/validatable.js';
+import Infer from '@alirya/message/message/infer.js';
+import Message from '@alirya/message/message.js';
+import GuardContainer from '@alirya/boolean/validation/guard.js';
+import ValidationContainer from '@alirya/boolean/validation/validation.js';
 
 /**
  * create {@see Validator} from multiple callback

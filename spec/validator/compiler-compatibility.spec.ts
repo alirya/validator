@@ -1,5 +1,5 @@
-import TestObject from '../test-object';
-import TestString from '../test-string';
+import TestObject from '../test-object.js';
+import TestString from '../test-string.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

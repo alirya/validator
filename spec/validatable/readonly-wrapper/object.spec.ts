@@ -1,4 +1,4 @@
-import WrapperMerge from '../../../dist/validatable/readonly-wrapper';
+import WrapperMerge from '../../../dist/validatable/readonly-wrapper.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

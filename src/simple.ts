@@ -1,5 +1,5 @@
-import ValidatableType from './validatable/validatable';
-import Validator from './validator';
+import ValidatableType from './validatable/validatable.js';
+import Validator from './validator.js';
 
 /**
  * simple implementation of {@see Validator}

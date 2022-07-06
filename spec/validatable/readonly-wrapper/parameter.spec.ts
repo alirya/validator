@@ -1,6 +1,6 @@
-import {ReadonlyWrapperParameters} from '../../../dist/validatable/readonly-wrapper';
-import {ReadonlyWrapperParameter} from '../../../dist/validatable/readonly-wrapper';
-import Validatable from '@alirya/validatable/validatable';
+import {ReadonlyWrapperParameters} from '../../../dist/validatable/readonly-wrapper.js';
+import {ReadonlyWrapperParameter} from '../../../dist/validatable/readonly-wrapper.js';
+import Validatable from '@alirya/validatable/validatable.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

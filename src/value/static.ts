@@ -1,6 +1,6 @@
-import ReplaceValue from '@alirya/value/value/replace';
-import Dynamic from './validatable';
-import ReplaceValidatable from '@alirya/validatable/boolean/replace';
+import ReplaceValue from '@alirya/value/value/replace.js';
+import Dynamic from './validatable.js';
+import ReplaceValidatable from '@alirya/validatable/boolean/replace.js';
 
 type Static<
     Allow = unknown,

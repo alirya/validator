@@ -1,10 +1,10 @@
-import Simple from '../../dist/simple';
-import Validator from '../../dist/validator';
-import Validatable from '../../dist/validatable/validatable';
-import BaseInfer from '../../dist/subject/allow';
-import TypeInfer from '../../dist/subject/expectation';
-import ValidatorInfer from '../../dist/validatable/infer-static';
-import ExtendInfer from '../../dist/subject/expectation';
+import Simple from '../../dist/simple.js';
+import Validator from '../../dist/validator.js';
+import Validatable from '../../dist/validatable/validatable.js';
+import BaseInfer from '../../dist/subject/allow.js';
+import TypeInfer from '../../dist/subject/expectation.js';
+import ValidatorInfer from '../../dist/validatable/infer-static.js';
+import ExtendInfer from '../../dist/subject/expectation.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

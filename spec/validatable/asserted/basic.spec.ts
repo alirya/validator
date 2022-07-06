@@ -1,6 +1,6 @@
-import IsObject from '@alirya/object/boolean/object';
-import Asserted from '../../../dist/validatable/asserted';
-import CallbackFunction from '../../../dist/validatable/callback';
+import IsObject from '@alirya/object/boolean/object.js';
+import Asserted from '../../../dist/validatable/asserted.js';
+import CallbackFunction from '../../../dist/validatable/callback.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

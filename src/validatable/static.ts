@@ -1,5 +1,5 @@
-import ValidatableType from './validatable';
-import StaticValue from '../value/static';
+import ValidatableType from './validatable.js';
+import StaticValue from '../value/static.js';
 
 type Static<
     Allow = unknown,

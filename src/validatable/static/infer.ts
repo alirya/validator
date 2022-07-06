@@ -1,4 +1,4 @@
-import Simple from '../../simple';
+import Simple from '../../simple.js';
 
 /**
  * get {@Template Validatable} type value from {@see Simple}

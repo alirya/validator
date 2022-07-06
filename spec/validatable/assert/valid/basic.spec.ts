@@ -1,7 +1,7 @@
-import Validatable from '@alirya/validatable/validatable';
-import Value from '@alirya/value/value';
-import Message from '@alirya/message/message';
-import Valid from '../../../../dist/validatable/assert/valid';
+import Validatable from '@alirya/validatable/validatable.js';
+import Value from '@alirya/value/value.js';
+import Message from '@alirya/message/message.js';
+import Valid from '../../../../dist/validatable/assert/valid.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

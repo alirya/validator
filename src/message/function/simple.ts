@@ -1,7 +1,7 @@
-import SimpleReturn from '../../value/simple';
-import Dynamic from '../../value/validatable';
-import ReplaceValue from '@alirya/value/value/replace';
-import ReplaceValidatable from '@alirya/validatable/boolean/replace';
+import SimpleReturn from '../../value/simple.js';
+import Dynamic from '../../value/validatable.js';
+import ReplaceValue from '@alirya/value/value/replace.js';
+import ReplaceValidatable from '@alirya/validatable/boolean/replace.js';
 
 export interface SimpleParameters<
     Allow = unknown,
