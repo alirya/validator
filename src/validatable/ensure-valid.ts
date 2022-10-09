@@ -1,6 +1,8 @@
 import Validatable from './validatable';
 import InvalidStringMessage from './error/invalid-string-message';
 import ReplaceValidatable from '@alirya/validatable/boolean/replace';
+import ReplaceValue from '@alirya/value/value/replace';
+import Expectation from '../subject/expectation';
 
 
 export function EnsureValidParameters<
@@ -8,14 +10,14 @@ export function EnsureValidParameters<
 >(
     validatable : ValidatableType,
     error : (validatable: ValidatableType)=>Error = InvalidStringMessage.Parameters
-) : ReplaceValidatable<ValidatableType, true> {
+) : Validatable<Expectation<ValidatableType>, ValidatableType['message'], true> & Omit<ValidatableType, 'valid'|'value'> {
 
     if(!validatable.valid) {
 
         throw error(validatable);
     }
 
-    return validatable as ReplaceValidatable<ValidatableType, true>;
+    return validatable as Validatable<Expectation<ValidatableType>, ValidatableType['message'], true> & Omit<ValidatableType, 'valid'|'value'>;
 }
 
 export type EnsureValidArgument<ValidatableType extends Validatable> = {
@@ -28,7 +30,7 @@ export function EnsureValidParameter<
 >(  {
         validatable,
         error = InvalidStringMessage.Parameters
-} : EnsureValidArgument<ValidatableType>) : ReplaceValidatable<ValidatableType, true> {
+} : EnsureValidArgument<ValidatableType>) : Validatable<Expectation<ValidatableType>, ValidatableType['message'], true> & Omit<ValidatableType, 'valid'|'value'> {
 
     return EnsureValidParameters(validatable, error);
 }
