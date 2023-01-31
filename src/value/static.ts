@@ -1,16 +1,14 @@
-import ReplaceValue from '@alirya/value/value/replace';
 import Dynamic from './validatable';
-import ReplaceValidatable from '@alirya/validatable/boolean/replace';
 
 type Static<
     Allow = unknown,
     Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
-    Validatable extends Dynamic = Dynamic
+    Context extends object = {},
 > =
-    ReplaceValue<ReplaceValidatable<Validatable, Expected>, Expectation> |
-    ReplaceValue<ReplaceValidatable<Validatable, Allowed>, Allow>
+    Dynamic<Expectation, Expected, Context> |
+    Dynamic<Allow, Allowed, Context>
 ;
 
 export default Static;

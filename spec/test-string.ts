@@ -2,16 +2,16 @@ import ValidatorSimple  from '../dist/simple';
 import Validatable from '../dist/validatable/validatable';
 import ReturnSimple from '../dist/validatable/simple';
 
-export default function TestString()  : ValidatorSimple<unknown, string, Validatable<unknown, string>> {
+export default function TestString()  : ValidatorSimple<unknown, string, string> {
 
     return function(value) {
 
-        return <ReturnSimple<unknown, string, Validatable<unknown, string>>> {
+        return <ReturnSimple<unknown, string, string>> {
             valid : typeof value === 'string',
             value : value,
             message : 'message'
         };
-    }   as ValidatorSimple<unknown, string, Validatable<unknown, string>>;
+    }   as ValidatorSimple<unknown, string, string>;
 }
 
 const test  = TestString();

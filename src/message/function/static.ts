@@ -1,7 +1,4 @@
-import StaticReturn from '../../value/static';
-import Dynamic from '../../value/validatable';
-import ReplaceValue from '@alirya/value/value/replace';
-import ReplaceValidatable from '@alirya/validatable/boolean/replace';
+import Validatable from '../../value/validatable';
 
 export interface StaticParameters<
     Allow = unknown,
@@ -23,11 +20,10 @@ export interface StaticParameter<
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     MessageType = unknown,
-    Validatable extends StaticReturn<Allow, Expectation, Allowed, Expected, Readonly<Dynamic<Allow>>> =
-        StaticReturn<Allow, Expectation, Allowed, Expected, Readonly<Dynamic<Allow>>>
+    Context extends object = {}
 > {
-    <Value extends Allow>(argument: ReplaceValidatable<ReplaceValue<Validatable, Value>, Allowed>) : MessageType;
-    <Value extends Expectation>(argument: ReplaceValidatable<ReplaceValue<Validatable, Value>, Expected>) : MessageType;
+    <Value extends Allow>(argument: Validatable<Value, Allowed>) : MessageType;
+    <Value extends Expectation>(argument: Validatable<Value, Expected>) : MessageType;
 }
 
 
@@ -52,15 +48,12 @@ namespace Static {
         Expectation = unknown,
         Allowed extends boolean = boolean,
         Expected extends boolean = boolean,
-        MessageType = unknown,
-        Validatable extends StaticReturn<Allow, Expectation, Allowed, Expected, Readonly<Dynamic<Allow>>> =
-            StaticReturn<Allow, Expectation, Allowed, Expected, Readonly<Dynamic<Allow>>>
+        Validatable extends object = {}
     > extends StaticParameter<
         Allow,
         Expectation,
         Allowed,
         Expected,
-        MessageType,
         Validatable
     > {}
 }

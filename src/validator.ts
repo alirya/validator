@@ -1,6 +1,5 @@
 import Static from './validatable/static';
 import ValidatableType from './validatable/validatable';
-import Replace from './validatable/replace';
 /**
  * {@template Allow} type which can be handled by implementation
  *
@@ -20,9 +19,10 @@ export default interface Validator<
     Expectation = Allow,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
-    Validatable extends ValidatableType = ValidatableType
+    Message  = unknown,
+    Context extends object = {}
 > {
-    <Argument extends Expectation>(value: Argument): Replace<Argument, Expected, Validatable>;
-    <Argument extends Allow>(value: Argument): Static<Argument, Expectation, Allowed, Expected, Validatable>;
+    <Argument extends Expectation>(value: Argument): ValidatableType<Argument, Message, Expected, Context>;
+    <Argument extends Allow>(value: Argument): Static<Argument, Expectation, Allowed, Expected, Message, Context>;
 }
 

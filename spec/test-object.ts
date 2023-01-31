@@ -2,17 +2,17 @@ import ValidatorSimple  from '../dist/simple';
 import Validatable from '../dist/validatable/validatable';
 import ReturnSimple from '../dist/validatable/simple';
 
-export default function TestObject()  : ValidatorSimple<unknown, object, Validatable<unknown, string>> {
+export default function TestObject()  : ValidatorSimple<unknown, object, string> {
 
     return function(value) {
 
-        return <ReturnSimple<unknown, object, Validatable<unknown, string>>> {
+        return <ReturnSimple<unknown, object, string>> {
             valid : typeof value === 'object',
             value : value,
             message : 'message'
         };
 
-    } as ValidatorSimple<unknown, object, Validatable<unknown, string>>;
+    } as ValidatorSimple<unknown, object, string>;
 }
 
 const test  = TestObject();

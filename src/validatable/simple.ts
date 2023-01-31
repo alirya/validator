@@ -1,10 +1,17 @@
-import ValidatableType from './validatable';
-import SimpleValue from '../value/simple';
+import Static from './static';
 
 type Simple<
     Allow = unknown,
     Expectation = unknown,
-    Validatable extends ValidatableType = ValidatableType
-> = SimpleValue<Allow, Expectation, Validatable>;
+    Message = unknown,
+    Context extends object = {}
+> = Static<
+    Allow,
+    Expectation,
+    false,
+    true,
+    Message,
+    Context
+>;
 
 export default Simple;

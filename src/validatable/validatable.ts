@@ -1,15 +1,16 @@
 import Message from '@alirya/message/message';
-import DynamicValue from '../value/validatable';
+import Value from '@alirya/value/value';
+import BaseValidatable from '@alirya/validatable/validatable';
 
 /**
  * extended {@see ValidatableInterface} with added {@see Message}
  * and {@see Value} for {@see Validator} result
  */
-export default interface Validatable<
+type Validatable<
     Base = unknown,
     MessageType = unknown,
-    Boolean extends boolean = boolean
-> extends Message<MessageType>, DynamicValue<Base, Boolean> {
+    Boolean extends boolean = boolean,
+    Context extends object = {},
+> = Message<MessageType> & Value<Base>  & BaseValidatable<Boolean> & Context;
 
-}
-
+export default Validatable;

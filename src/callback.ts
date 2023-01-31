@@ -1,13 +1,10 @@
 import Simple from './simple';
-import Validatable from './validatable/validatable';
 import ValidationCallback from './validatable/callback';
 import SimpleMessage from './message/function/simple';
 import StaticMessage from './message/function/static';
 import Validator from './validator';
 import Validation from '@alirya/boolean/function/validation';
 import Guard from '@alirya/boolean/function/guard';
-import ValidatableType from './validatable/validatable';
-import Infer from '@alirya/message/message/infer';
 import Message from '@alirya/message/message';
 import GuardContainer from '@alirya/boolean/validation/guard';
 import ValidationContainer from '@alirya/boolean/validation/validation';
@@ -40,7 +37,7 @@ export interface CallbackParametersType<
     >(
         validation : Guard<Allow, Expectation>,
         message : SimpleMessage.Parameters<Allow, Expectation, MessageType>,
-    ) : Simple<Allow, Expectation, Readonly<ValidatableType & Validatable<Allow, MessageType>>>;
+    ) : Simple<Allow, Expectation, MessageType, ValidatableType>;
 
     /**
      * Simple validation
@@ -56,7 +53,7 @@ export interface CallbackParametersType<
     >(
         validation : Validation<[Allow]>,
         message : SimpleMessage.Parameters<Allow, Expectation, MessageType>,
-    ) : Simple<Allow, Expectation, Readonly<ValidatableType & Validatable<Allow, MessageType>>>;
+    ) : Simple<Allow, Expectation, MessageType, ValidatableType>;
 
     /**
      * Simple guard
@@ -74,7 +71,7 @@ export interface CallbackParametersType<
         validation : Guard<Allow, Expectation, Arguments>,
         message : SimpleMessage.Parameters<Allow, Expectation, MessageType, Arguments>,
 
-    ) : Simple<Allow, Expectation, Readonly<ValidatableType & Validatable<Allow, MessageType>>>;
+    ) : Simple<Allow, Expectation, MessageType, ValidatableType>;
 
     /**
      * Simple validation
@@ -91,7 +88,7 @@ export interface CallbackParametersType<
     >(
         validation : Validation<[Allow, ...Arguments]>,
         message : SimpleMessage.Parameters<Allow, Expectation, MessageType, Arguments>,
-    ) : Simple<Allow, Expectation, Readonly<ValidatableType & Validatable<Allow, MessageType>>>;
+    ) : Simple<Allow, Expectation, MessageType, ValidatableType>;
 
     /**
      * Static guard
@@ -109,7 +106,7 @@ export interface CallbackParametersType<
     >(
         validation : Guard<Allow, Expectation>,
         message : StaticMessage.Parameters<Allow, Expectation, Allowed, Expected, MessageType>,
-    ) : Validator<Allow, Expectation, Allowed, Expected, Readonly<ValidatableType & Validatable<Allow, MessageType>>>;
+    ) : Validator<Allow, Expectation, Allowed, Expected, MessageType, ValidatableType>;
 
     /**
      * static validation
@@ -127,7 +124,7 @@ export interface CallbackParametersType<
     >(
         validation : Validation<[Allow], Allowed|Expected>,
         message : StaticMessage.Parameters<Allow, Expectation, Allowed, Expected, MessageType>,
-    ) : Validator<Allow, Expectation, Allowed, Expected, Readonly<ValidatableType & Validatable<Allow, MessageType>>>;
+    ) : Validator<Allow, Expectation, Allowed, Expected, MessageType, ValidatableType>;
 
     /**
      * Static guard argument
@@ -146,7 +143,7 @@ export interface CallbackParametersType<
     >(
         validation : Guard<Allow, Expectation, Arguments>,
         message : StaticMessage.Parameters<Allow, Expectation, Allowed, Expected, MessageType, Arguments>,
-    ) : Validator<Allow, Expectation, Allowed, Expected, Readonly<ValidatableType & Validatable<Allow, MessageType>>>;
+    ) : Validator<Allow, Expectation, Allowed, Expected, MessageType, ValidatableType>;
 
     /**
      * static validation argument
@@ -165,7 +162,7 @@ export interface CallbackParametersType<
     >(
         validation : Validation<[Allow, ...Arguments], Allowed|Expected>,
         message : StaticMessage.Parameters<Allow, Expectation, Allowed, Expected, MessageType, Arguments>,
-    ) : Validator<Allow, Expectation, Allowed, Expected, Readonly<ValidatableType & Validatable<Allow, MessageType>>>;
+    ) : Validator<Allow, Expectation, Allowed, Expected, MessageType, ValidatableType>;
 }
 
 export const CallbackParameters : CallbackParametersType = function <
@@ -179,13 +176,13 @@ export const CallbackParameters : CallbackParametersType = function <
     validation : Validation<[Allow], Allowed|Expected>,
     message : StaticMessage.Parameters<Allow, Expectation, Allowed, Expected, MessageType>,
     argument : Arguments|[] = []
-) : Validator<Allow, Expectation, Allowed, Expected, Validatable<Allow, MessageType>> {
+) : Validator<Allow, Expectation, Allowed, Expected, MessageType> {
 
     return function (value) {
 
         return ValidationCallback.Parameters(value, validation, message, argument);
 
-    } as Validator<Allow, Expectation, Allowed, Expected, Validatable<Allow, MessageType>>;
+    } as Validator<Allow, Expectation, Allowed, Expected, MessageType>;
 };
 
 
@@ -210,7 +207,7 @@ export function CallbackParameter<
         message,
     } : Message<SimpleMessage.Parameter<Base, Expectation, MessageType>> & GuardContainer<Base|Expectation, Expectation>
 
-) : Simple<Base, Expectation, Readonly<Validatable<Base, MessageType>>>;
+) : Simple<Base, Expectation, MessageType>;
 export function CallbackParameter<
     Base = unknown,
     Expectation = unknown,
@@ -220,7 +217,7 @@ export function CallbackParameter<
         validation,
         message,
     } : Message<SimpleMessage.Parameter<Base, Expectation, MessageType>> & ValidationContainer<[Base|Expectation]>
-) : Simple<Base, Expectation, Readonly<Validatable<Base, MessageType>>>;
+) : Simple<Base, Expectation, MessageType>;
 
 
 /**
@@ -236,25 +233,25 @@ export function CallbackParameter<
     Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
-    Validatable extends ValidatableType<Allow> = ValidatableType<Allow>
-    >(
-    {
+    MessageT = unknown,
+    Validatable extends object = {}
+>(  {
         validation,
         message,
-    } : Message<StaticMessage.Parameter<Allow, Expectation, Allowed, Expected, Infer<Validatable>>> & GuardContainer<Allow|Expectation, Expectation>
-) : Validator<Allow, Expectation, Allowed, Expected, Validatable>;
+    } : Message<StaticMessage.Parameter<Allow, Expectation, Allowed, Expected, Validatable>> & GuardContainer<Allow|Expectation, Expectation>
+) : Validator<Allow, Expectation, Allowed, Expected, MessageT, Validatable>;
 export function CallbackParameter<
     Allow = any,
     Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
-    Validatable extends ValidatableType<Allow> = ValidatableType<Allow>
-    >(
-    {
+    MessageT = unknown,
+    Validatable extends object = {}
+>(  {
         validation,
         message,
-    } : Message<StaticMessage.Parameter<Allow, Expectation, Allowed, Expected, Infer<Validatable>>> & ValidationContainer<[Allow|Expectation]>
-) : Validator<Allow, Expectation, Allowed, Expected, Validatable>;
+    } : Message<StaticMessage.Parameter<Allow, Expectation, Allowed, Expected, /*Message,*/ Validatable>> & ValidationContainer<[Allow|Expectation]>
+) : Validator<Allow, Expectation, Allowed, Expected, MessageT, Validatable>;
 
 export function CallbackParameter<
     Allow = any,
@@ -262,16 +259,16 @@ export function CallbackParameter<
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
     MessageType = unknown,
-    Arguments extends unknown[] = unknown[]
-    >(
-    {
+    Arguments extends unknown[] = unknown[],
+    Validatable extends object = {}
+>(  {
         validation,
         message,
-    } : Message<StaticMessage.Parameter<Allow, Expectation, Allowed, Expected, Infer<Validatable>>> & GuardContainer<Allow|Expectation, Expectation>
-) : Validator<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>> {
+    } : Message<StaticMessage.Parameter<Allow, Expectation, Allowed, Expected, Validatable>> & GuardContainer<Allow|Expectation, Expectation>
+) : Validator<Allow, Expectation, Allowed, Expected, Validatable> {
 
     return CallbackParameters(validation, (value, valid) => message({value, valid})) as
-        Validator<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, MessageType>>;
+        Validator<Allow, Expectation, Allowed, Expected, Validatable>;
 }
 
 

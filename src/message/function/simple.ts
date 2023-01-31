@@ -1,7 +1,5 @@
 import SimpleReturn from '../../value/simple';
 import Dynamic from '../../value/validatable';
-import ReplaceValue from '@alirya/value/value/replace';
-import ReplaceValidatable from '@alirya/validatable/boolean/replace';
 
 export interface SimpleParameters<
     Allow = unknown,
@@ -19,11 +17,10 @@ export interface SimpleParameter<
     Allow = unknown,
     Expectation = unknown,
     MessageType = unknown,
-    Validatable extends  SimpleReturn<Allow, Expectation, Readonly<Dynamic<Allow>>> =
-        SimpleReturn<Allow, Expectation, Readonly<Dynamic<Allow>>>
+    Context extends object = {}
 >  {
-    <Value extends Allow>(argument: ReplaceValidatable<ReplaceValue<Validatable, Value>, false>) : MessageType;
-    <Value extends Expectation>(argument: ReplaceValidatable<ReplaceValue<Validatable, Value>, true>) : MessageType;
+    <Value extends Allow>(argument: Dynamic<Value, false, Context>) : MessageType;
+    <Value extends Expectation>(argument: Dynamic<Value, true, Context>) : MessageType;
 }
 
 

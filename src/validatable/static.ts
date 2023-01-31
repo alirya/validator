@@ -1,13 +1,14 @@
-import ValidatableType from './validatable';
-import StaticValue from '../value/static';
+import Validatable from './validatable';
 
 type Static<
     Allow = unknown,
     Expectation = unknown,
     Allowed extends boolean = boolean,
     Expected extends boolean = boolean,
-    Validatable extends ValidatableType = ValidatableType
-> = StaticValue<Allow, Expectation, Allowed, Expected, Validatable>
-;
+    Message = unknown,
+    Context extends object = {},
+> =
+    Validatable<Expectation, Message, Expected, Context> |
+    Validatable<Allow, Message, Allowed, Context>;
 
 export default Static;

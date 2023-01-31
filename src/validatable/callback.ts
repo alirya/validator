@@ -2,7 +2,6 @@ import Value from '@alirya/value/value';
 import Static from './static';
 import Message from '@alirya/message/message';
 import Simple from './simple';
-import ValidatableType from './validatable';
 import {StaticParameters} from '../message/function/static';
 import {SimpleParameters} from '../message/function/simple';
 import Validation from '@alirya/boolean/function/validation';
@@ -217,7 +216,7 @@ export type CallbackReturnSimple<
     Expectation = unknown,
     Message = unknown,
     > =
-    Readonly<Simple<Allow, Expectation, ValidatableType<Allow, Message>>>;
+    Readonly<Simple<Allow, Expectation, Message>>;
 
 export type CallbackReturnStatic<
     Allow = unknown,
@@ -226,7 +225,7 @@ export type CallbackReturnStatic<
     Expected extends boolean = boolean,
     Message = unknown,
     > =
-    Readonly<Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, Message>>>;
+    Readonly<Static<Allow, Expectation, Allowed, Expected, Message>>;
 
 /**
  * simple validation
@@ -380,11 +379,11 @@ export function CallbackParameters<
 >(
     value : Allow,
     validation : Validation<[Allow, ...Arguments], Allowed|Expected>,
-    message : StaticParameters<Allow, Expectation, Allowed, Expected, Message, Arguments>,
+    message : StaticParameters<Allow, Expectation, Allowed, Expected, MessageType, Arguments>,
     argument : Arguments|[] = [],
-) : CallbackReturnStatic<Allow, Expectation, Allowed, Expected, Message> {
+) : CallbackReturnStatic<Allow, Expectation, Allowed, Expected, MessageType> {
 
-    return new CallbackClassParameters(value, validation, message, argument) as Static<Allow, Expectation, Allowed, Expected, ValidatableType<Allow, Message>>;
+    return new CallbackClassParameters(value, validation, message, argument) as Static<Allow, Expectation, Allowed, Expected, MessageType>;
 }
 
 

@@ -1,4 +1,3 @@
-import ValidatableType from './validatable/validatable';
 import Validator from './validator';
 
 /**
@@ -8,8 +7,9 @@ import Validator from './validator';
 type Simple<
     Allow = unknown,
     Expectation = Allow,
-    Validatable extends ValidatableType = ValidatableType
-> = Validator<Allow, Expectation, false, true, Validatable>;
+    Message  = unknown,
+    Context extends object = {}
+> = Validator<Allow, Expectation, false, true, Message, Context>;
 
 export default Simple;
 

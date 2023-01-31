@@ -1,7 +1,5 @@
 import Validatable from './validatable';
 import InvalidStringMessage from './error/invalid-string-message';
-import ReplaceValidatable from '@alirya/validatable/boolean/replace';
-import ReplaceValue from '@alirya/value/value/replace';
 import Expectation from '../subject/expectation';
 
 

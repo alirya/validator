@@ -1,16 +1,14 @@
-import Dynamic from './validatable';
 import Static from './static';
 
 type Simple<
     Allow = unknown,
     Expectation = unknown,
-    Validatable extends Dynamic = Dynamic
+    Context extends object = {}
 > = Static<
     Allow,
     Expectation,
     false,
-    true,
-    Validatable
->;
+    true
+> & Context;
 
 export default Simple;
