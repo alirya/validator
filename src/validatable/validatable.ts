@@ -11,6 +11,6 @@ type Validatable<
     MessageType = unknown,
     Boolean extends boolean = boolean,
     Context extends object = {},
-> = Message<MessageType> & Value<Base>  & BaseValidatable<Boolean> & Context;
+> = Readonly<Message<MessageType> & Value<Base>  & BaseValidatable<Boolean> & Context>;
 
 export default Validatable;

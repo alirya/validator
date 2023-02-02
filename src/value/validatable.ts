@@ -9,6 +9,6 @@ export type Validatable<
     Base = unknown,
     Boolean extends boolean = boolean,
     Context extends object = {}
-> = Value<Base> & BaseValidatable<Boolean> & Context;
+> = Readonly<Value<Base> & BaseValidatable<Boolean> & Context>;
 
 export default Validatable;
