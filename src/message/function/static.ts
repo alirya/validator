@@ -22,8 +22,8 @@ export interface StaticParameter<
     MessageType = unknown,
     Context extends object = {}
 > {
-    <Value extends Allow>(argument: Validatable<Value, Allowed>) : MessageType;
-    <Value extends Expectation>(argument: Validatable<Value, Expected>) : MessageType;
+    <Value extends Allow>(argument: Validatable<Value, Allowed, Context>) : MessageType;
+    <Value extends Expectation>(argument: Validatable<Value, Expected, Context>) : MessageType;
 }
 
 
@@ -48,12 +48,14 @@ namespace Static {
         Expectation = unknown,
         Allowed extends boolean = boolean,
         Expected extends boolean = boolean,
+        MessageType = unknown,
         Validatable extends object = {}
     > extends StaticParameter<
         Allow,
         Expectation,
         Allowed,
         Expected,
+        MessageType,
         Validatable
     > {}
 }
