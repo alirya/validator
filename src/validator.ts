@@ -1,5 +1,5 @@
-import Static from './validatable/static';
-import ValidatableType from './validatable/validatable';
+import Static from './validatable/static.js';
+import ValidatableType from './validatable/validatable.js';
 /**
  * {@template Allow} type which can be handled by implementation
  *

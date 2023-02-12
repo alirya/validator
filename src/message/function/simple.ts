@@ -1,5 +1,5 @@
-import SimpleReturn from '../../value/simple';
-import Dynamic from '../../value/validatable';
+import SimpleReturn from '../../value/simple.js';
+import Dynamic from '../../value/validatable.js';
 
 export interface SimpleParameters<
     Allow = unknown,
@@ -25,28 +25,28 @@ export interface SimpleParameter<
 
 
 namespace Simple {
-    export interface Parameters<
+    export type Parameters<
         Allow = unknown,
         Expectation = unknown,
         MessageType = unknown,
         ExtraArgument extends unknown[] = unknown[]
-    > extends SimpleParameters<
+    > = SimpleParameters<
         Allow,
         Expectation,
         MessageType,
         ExtraArgument
-    > {}
-    export interface Parameter<
+    >
+    export type Parameter<
         Allow = unknown,
         Expectation = unknown,
         MessageType = unknown,
         Validatable extends  SimpleReturn<Allow, Expectation, Readonly<Dynamic<Allow>>> =
             SimpleReturn<Allow, Expectation, Readonly<Dynamic<Allow>>>
-    > extends SimpleParameter<
+    > = SimpleParameter<
         Allow,
         Expectation,
         MessageType,
         Validatable
-    > {}
+    >
 }
 export default Simple;

@@ -1,6 +1,6 @@
-import Validatable from './validatable';
-import InvalidStringMessage from './error/invalid-string-message';
-import Expectation from '../subject/expectation';
+import Validatable from './validatable.js';
+import InvalidStringMessage from './error/invalid-string-message.js';
+import Expectation from '../subject/expectation.js';
 
 
 export function EnsureValidParameters<

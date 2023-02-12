@@ -1,10 +1,10 @@
-import Validator from './validator';
-import Allow from './subject/allow';
-import Expectation from './subject/expectation';
-import Allowed from './boolean/allowed';
-import Expected from './boolean/expected';
-import Message from './message/message';
-import InferValidator from './context/infer-validator';
+import Validator from './validator.js';
+import Allow from './subject/allow.js';
+import Expectation from './subject/expectation.js';
+import Allowed from './boolean/allowed.js';
+import Expected from './boolean/expected.js';
+import Message from './message/message.js';
+import InferValidator from './context/infer-validator.js';
 
 export default function Chain<
     First extends Validator,

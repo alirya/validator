@@ -1,12 +1,12 @@
-import Validator from '../validator';
-import Static from '../validatable/static';
-import Expectation from '../subject/expectation';
-import Allow from '../subject/allow';
-import Expected from '../boolean/expected';
-import Allowed from '../boolean/allowed';
-import InferStatic from '../validatable/infer-static';
-import Validatable from '../value/validatable';
-import InferValidator from '../context/infer-validator';
+import Validator from '../validator.js';
+import Static from '../validatable/static.js';
+import Expectation from '../subject/expectation.js';
+import Allow from '../subject/allow.js';
+import Expected from '../boolean/expected.js';
+import Allowed from '../boolean/allowed.js';
+import InferStatic from '../validatable/infer-static.js';
+import Validatable from '../value/validatable.js';
+import InferValidator from '../context/infer-validator.js';
 
 /**
  * transform {@see Validator} to standard validation function that return boolean

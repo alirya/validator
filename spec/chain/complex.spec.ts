@@ -1,8 +1,8 @@
-import Chain from '../../dist/chain';
-import TestString from '../test-string';
-import TestSpecificString from '../test-specific-string';
-import ReturnSimple from '../../dist/validatable/simple';
-import ValidatorSimple from '../../dist/simple';
+import Chain from '../../dist/chain.js';
+import TestString from '../test-string.js';
+import TestSpecificString from '../test-specific-string.js';
+import ReturnSimple from '../../dist/validatable/simple.js';
+import ValidatorSimple from '../../dist/simple.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -20,7 +20,7 @@ const validator = Chain(TestString(), TestSpecificString('str'));
 
 it('valid', function () {
 
-    let validatable = validator('str');
+    const validatable = validator('str');
 
     expect(validatable.message).toBe('message');
     expect(validatable.valid).toBeTrue();
@@ -29,7 +29,7 @@ it('valid', function () {
 
 it('invalid', function () {
 
-    let validatable = validator('str1');
+    const validatable = validator('str1');
 
     expect(validatable.message).toBe('message');
     expect(validatable.valid).toBeFalse();

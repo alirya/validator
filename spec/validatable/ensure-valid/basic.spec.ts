@@ -1,20 +1,20 @@
-import Validatable from '@alirya/validatable/validatable';
-import Value from '@alirya/value/value';
-import Message from '@alirya/message/message';
-import Valid from '../../../dist/validatable/ensure-valid';
+import Validatable from '@alirya/validatable/validatable.js';
+import Value from '@alirya/value/value.js';
+import Message from '@alirya/message/message.js';
+import Valid from '../../../dist/validatable/ensure-valid.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 it('compiler compatible', ()=>{
 
-    let argument : Validatable & Value & Message = {
+    const argument : Validatable & Value & Message = {
         value : 1,
         valid : true,
         message : 'one'
     };
 
     // @ts-expect-error
-    let invalid : number = argument.value;
+    const invalid : number = argument.value;
 
 
     const validatable = Valid.Parameters<Validatable & Value<number> & Message>(
@@ -23,12 +23,12 @@ it('compiler compatible', ()=>{
         (val1)=>new Error('error')
     );
 
-    let value : number = validatable.value;
+    const value : number = validatable.value;
 });
 
 it('valid', function() {
 
-    let argument : Validatable & Value & Message = {
+    const argument : Validatable & Value & Message = {
         value : 1,
         valid : true,
         message : 'one'
@@ -44,7 +44,7 @@ it('valid', function() {
 
 it('invalid', function() {
 
-    let argument : Validatable & Value & Message = {
+    const argument : Validatable & Value & Message = {
         value : 1,
         valid : false,
         message : 'one'

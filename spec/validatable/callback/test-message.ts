@@ -1,5 +1,5 @@
-import Validatable from '@alirya/validatable/validatable';
-import Value from '@alirya/value/value';
+import Validatable from '@alirya/validatable/validatable.js';
+import Value from '@alirya/value/value.js';
 
 
 export function TestMessageParameter (value : unknown, valid : boolean) : string {

@@ -1,10 +1,10 @@
-import InferMessage from '@alirya/message/message/infer';
-import InferValue from '@alirya/value/value/infer';
-import Validatable from './validatable';
-import InferValidatable from '@alirya/validatable/boolean/infer';
-import Value from '@alirya/value/value';
-import Message from '@alirya/message/message';
-import ValidatableInterface from '@alirya/validatable/validatable';
+import InferMessage from '@alirya/message/message/infer.js';
+import InferValue from '@alirya/value/value/infer.js';
+import Validatable from './validatable.js';
+import InferValidatable from '@alirya/validatable/boolean/infer.js';
+import Value from '@alirya/value/value.js';
+import Message from '@alirya/message/message.js';
+import ValidatableInterface from '@alirya/validatable/validatable.js';
 
 /**
  * read only wrapper for {@link Message}, {@link Value} and {@link ValidatableInterface}
@@ -77,14 +77,14 @@ export class ReadonlyWrapperParameter<
 namespace ReadonlyWrapper {
     export const Parameters = ReadonlyWrapperParameters;
     export const Parameter = ReadonlyWrapperParameter;
-    export interface Type<
+    export type Type<
         ValueType extends Value,
         MessageType extends Message,
         ValidatableType extends ValidatableInterface
-    > extends ReadonlyWrapperType<
+    > = ReadonlyWrapperType<
         ValueType,
         MessageType,
         ValidatableType
-    > {}
+    >
 }
 export default ReadonlyWrapper;

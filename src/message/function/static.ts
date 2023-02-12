@@ -1,4 +1,4 @@
-import Validatable from '../../value/validatable';
+import Validatable from '../../value/validatable.js';
 
 export interface StaticParameters<
     Allow = unknown,

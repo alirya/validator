@@ -1,5 +1,5 @@
-import Validator from '../validator';
-import Static from './static';
+import Validator from '../validator.js';
+import Static from './static.js';
 
 type InferStatic<ValidatorType> = ValidatorType extends Validator<
     infer Allow,

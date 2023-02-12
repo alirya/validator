@@ -1,4 +1,4 @@
-import Validatable from './validatable';
+import Validatable from './validatable.js';
 
 type Static<
     Allow = unknown,

@@ -1,6 +1,6 @@
-import ValidatorSimple  from '../dist/simple';
-import Validatable from '../dist/validatable/validatable';
-import ReturnSimple from '../dist/validatable/simple';
+import ValidatorSimple  from '../dist/simple.js';
+import Validatable from '../dist/validatable/validatable.js';
+import ReturnSimple from '../dist/validatable/simple.js';
 
 export default function TestString()  : ValidatorSimple<unknown, string, string> {
 

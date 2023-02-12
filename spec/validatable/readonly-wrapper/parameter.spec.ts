@@ -1,6 +1,6 @@
-import {ReadonlyWrapperParameters} from '../../../dist/validatable/readonly-wrapper';
-import {ReadonlyWrapperParameter} from '../../../dist/validatable/readonly-wrapper';
-import Validatable from '@alirya/validatable/validatable';
+import {ReadonlyWrapperParameters} from '../../../dist/validatable/readonly-wrapper.js';
+import {ReadonlyWrapperParameter} from '../../../dist/validatable/readonly-wrapper.js';
+import Validatable from '@alirya/validatable/validatable.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -8,13 +8,13 @@ describe('construct', function () {
 
     it('data', () => {
 
-        let standard = new ReadonlyWrapperParameters(
+        const standard = new ReadonlyWrapperParameters(
             {value:1},
             {message:'message'},
             {valid:true},
         );
 
-        let wrapper = new ReadonlyWrapperParameter(standard);
+        const wrapper = new ReadonlyWrapperParameter(standard);
 
         expect(wrapper.valid).toBeTrue();
         expect(wrapper.value).toBe(1);
@@ -28,13 +28,13 @@ describe('set', function () {
 
     it('data', () => {
 
-        let standard = new ReadonlyWrapperParameters(
+        const standard = new ReadonlyWrapperParameters(
             {value:3},
             {message:'message 2'},
             <Validatable<boolean>>{valid:false},
         );
 
-        let wrapper = new ReadonlyWrapperParameter(standard);
+        const wrapper = new ReadonlyWrapperParameter(standard);
 
         expect(wrapper.valid).toBeFalse();
         expect(wrapper.value).toBe(3);

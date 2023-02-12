@@ -1,4 +1,4 @@
-import Dynamic from './validatable';
+import Dynamic from './validatable.js';
 
 type Static<
     Allow = unknown,

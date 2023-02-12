@@ -1,4 +1,4 @@
-import Validator from '../validator';
+import Validator from '../validator.js';
 
 type Allow<Type> = Type extends Validator<infer As> ? As : never;
 

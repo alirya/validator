@@ -1,6 +1,6 @@
-import ValidatorSimple  from '../dist/simple';
-import Validatable from '../dist/validatable/validatable';
-import ReturnSimple from '../dist/validatable/simple';
+import ValidatorSimple  from '../dist/simple.js';
+import Validatable from '../dist/validatable/validatable.js';
+import ReturnSimple from '../dist/validatable/simple.js';
 
 export default function TestSpecificString(string: string)  : ValidatorSimple<unknown, string, string> {
 
@@ -33,3 +33,9 @@ if(result.valid) {
     const number : number = result.value;
     const message : string = result.message;
 }
+
+let r : Validatable<number, string, true>|Validatable<string, string, false> = {
+    value: 1,
+    valid: true,
+    message: ''
+};

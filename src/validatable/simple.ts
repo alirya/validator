@@ -1,4 +1,4 @@
-import Static from './static';
+import Static from './static.js';
 
 type Simple<
     Allow = unknown,

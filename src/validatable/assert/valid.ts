@@ -1,5 +1,5 @@
-import Validatable from '../validatable';
-import InvalidStringMessage from '../error/invalid-string-message';
+import Validatable from '../validatable.js';
+import InvalidStringMessage from '../error/invalid-string-message.js';
 
 /**
  * Throw exception if given value is not {@link InvalidStringMessage} type

@@ -1,10 +1,10 @@
-import Simple from '../../dist/simple';
-import Validator from '../../dist/validator';
-import Validatable from '../../dist/validatable/validatable';
-import BaseInfer from '../../dist/subject/allow';
-import TypeInfer from '../../dist/subject/expectation';
-import ValidatorInfer from '../../dist/validatable/infer-static';
-import ExtendInfer from '../../dist/subject/expectation';
+import Simple from '../../dist/simple.js';
+import Validator from '../../dist/validator.js';
+import Validatable from '../../dist/validatable/validatable.js';
+import BaseInfer from '../../dist/subject/allow.js';
+import TypeInfer from '../../dist/subject/expectation.js';
+import ValidatorInfer from '../../dist/validatable/infer-static.js';
+import ExtendInfer from '../../dist/subject/expectation.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -14,14 +14,14 @@ it('compiler compatibility', () => {
     let validator : Validator<unknown, number, false, true, string>;
 
 
-    let base : BaseInfer<Simple<unknown, number, string>> = <unknown> 1;
-    let type : TypeInfer<Simple<unknown, number, string>> = 1;
+    const base : BaseInfer<Simple<unknown, number, string>> = <unknown> 1;
+    const type : TypeInfer<Simple<unknown, number, string>> = 1;
 
-    let overload1 : ValidatorInfer<Simple<unknown, number, string>> = {value:1, valid:true, message:'message'};
-    let overload2 : ValidatorInfer<Simple<unknown, number, string>> = {value:<unknown>1, valid:false, message:'message'};
+    const overload1 : ValidatorInfer<Simple<unknown, number, string>> = {value:1, valid:true, message:'message'};
+    const overload2 : ValidatorInfer<Simple<unknown, number, string>> = {value:<unknown>1, valid:false, message:'message'};
 
-    let extend1 : ExtendInfer<Simple<unknown, number, string>> = 1;
+    const extend1 : ExtendInfer<Simple<unknown, number, string>> = 1;
 
-    let extend2 : ExtendInfer<Simple<unknown, number, string>> = 1;
+    const extend2 : ExtendInfer<Simple<unknown, number, string>> = 1;
 
 });

@@ -1,9 +1,9 @@
-import ValueInfer from '@alirya/value/value/infer';
-import ReadonlyWrapper from './readonly-wrapper';
-import Validatable from './validatable';
-import InvalidStringMessage from './error/invalid-string-message';
-import Value from '@alirya/value/value';
-import ValidatableContainer from '@alirya/validatable/validatable/validatable';
+import ValueInfer from '@alirya/value/value/infer.js';
+import ReadonlyWrapper from './readonly-wrapper.js';
+import Validatable from './validatable.js';
+import InvalidStringMessage from './error/invalid-string-message.js';
+import Value from '@alirya/value/value.js';
+import ValidatableContainer from '@alirya/validatable/validatable/validatable.js';
 
 type KeepImport = Value;
 

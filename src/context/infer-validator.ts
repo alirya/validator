@@ -1,4 +1,4 @@
-import Validator from '../validator';
+import Validator from '../validator.js';
 
 type InferValidator<Type> = Type extends Validator<
     any,

@@ -1,40 +1,40 @@
-import Callback from '../../dist/callback';
-import String from '@alirya/string/boolean/string';
-import MessageString from '@alirya/string/assert/string/string';
+import Callback from '../../dist/callback.js';
+import String from '@alirya/string/boolean/string.js';
+import MessageString from '@alirya/string/assert/string/string.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-let callback = Callback.Parameters<unknown, string, string>(
+const callback = Callback.Parameters<unknown, string, string>(
     String,
     (result) : string => MessageString.Parameters(result.valid, result.value)
 );
 
 it('compiler compatibility', ()=>{
 
-    let validatable = callback(1);
+    const validatable = callback(1);
 
     if(validatable.valid) {
 
-        let boolean : boolean = validatable.valid;
-        let value : string = validatable.value;
-        let message : string = validatable.message;
+        const boolean : boolean = validatable.valid;
+        const value : string = validatable.value;
+        const message : string = validatable.message;
 
     } else {
 
-        let boolean : boolean = validatable.valid;
+        const boolean : boolean = validatable.valid;
         // @ts-expect-error
-        let value : string = validatable.value;
-        let number : number = validatable.value;
-        let message : string = validatable.message;
+        const value : string = validatable.value;
+        const number : number = validatable.value;
+        const message : string = validatable.message;
     }
 
 
     {
         // @ts-expect-error
-        let valid : string = validatable.valid;
-        let value : any = validatable.value;
+        const valid : string = validatable.valid;
+        const value : any = validatable.value;
         // @ts-expect-error
-        let message : number = validatable.message;
+        const message : number = validatable.message;
     }
 });
 

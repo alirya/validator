@@ -1,6 +1,6 @@
-// import ReplaceValue from '@alirya/value/value/replace';
-// import ValidatableReplace from '@alirya/validatable/boolean/replace';
-// import Validatable from './validatable';
+// import ReplaceValue from '@alirya/value/value/replace.js';
+// import ValidatableReplace from '@alirya/validatable/boolean/replace.js';
+// import Validatable from './validatable.js';
 //
 // type Replace<
 //     ValueType,
