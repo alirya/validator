@@ -93,6 +93,7 @@ export class CallbackClassParameters<
         readonly argument : Arguments = ([] as Arguments|[] as Arguments),
     ) {
 
+
     }
 
     @MemoizeAccessor()

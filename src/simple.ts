@@ -13,3 +13,4 @@ type Simple<
 
 export default Simple;
 
+export {Simple as SimpleValidator}

@@ -41,3 +41,5 @@ export default function Chain<
         InferValidator<First>|InferValidator<Next>
     >;
 }
+
+export {Chain as ChainValidator}

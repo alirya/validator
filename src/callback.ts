@@ -277,3 +277,7 @@ namespace Callback {
     export const Parameter = CallbackParameter;
 }
 export default Callback;
+
+export {Callback as CallbackValidator};
+export {CallbackParameters as CallbackValidatorParameters};
+export {CallbackParameter as CallbackValidatorParameter};
