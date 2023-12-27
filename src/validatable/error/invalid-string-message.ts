@@ -1,10 +1,10 @@
-import {InvalidParameters} from '@alirya/validatable/error/invalid.js';
+import {InvalidParameters} from '@axiona/validatable/error/invalid.js';
 import Validatable from '../validatable.js';
-import Infer from '@alirya/message/message/infer.js';
-import New from '@alirya/function/new.js';
-import Message from '@alirya/message/message.js';
-import ValidatableContainer from '@alirya/validatable/validatable/validatable.js';
-import StrictOmit from '@alirya/object/strict-omit.js';
+import Infer from '@axiona/message/message/infer.js';
+import New from '@axiona/function/new.js';
+import Message from '@axiona/message/message.js';
+import ValidatableContainer from '@axiona/validatable/validatable/validatable.js';
+import StrictOmit from '@axiona/object/strict-omit.js';
 
 
 /**

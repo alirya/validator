@@ -1,9 +1,9 @@
-import ValueInfer from '@alirya/value/value/infer.js';
+import ValueInfer from '@axiona/value/value/infer.js';
 import ReadonlyWrapper from './readonly-wrapper.js';
 import Validatable from './validatable.js';
 import InvalidStringMessage from './error/invalid-string-message.js';
-import Value from '@alirya/value/value.js';
-import ValidatableContainer from '@alirya/validatable/validatable/validatable.js';
+import Value from '@axiona/value/value.js';
+import ValidatableContainer from '@axiona/validatable/validatable/validatable.js';
 
 type KeepImport = Value;
 

@@ -1,5 +1,5 @@
 {
-  "name": "@alirya/validator",
+  "name": "@axiona/validator",
   "version": "0.20.1",
   "description": "Typescript validator",
   "publishConfig": {
@@ -12,19 +12,19 @@
     "cache": false
   },
   "license": "Apache-2.0",
-  "homepage": "https://github.com/alirya/validator",
+  "homepage": "https://github.com/axiona/validator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alirya/validator"
+    "url": "https://github.com/axiona/validator"
   },
   "dependencies": {
-    "@alirya/boolean": "^0.12.1",
-    "@alirya/function": "^0.17.1",
-    "@alirya/message": "^0.13.1",
-    "@alirya/object": "^0.38.1",
-    "@alirya/string": "^0.17.1",
-    "@alirya/validatable": "^0.21.1",
-    "@alirya/value": "^0.16.1",
+    "@axiona/boolean": "^0.12.1",
+    "@axiona/function": "^0.17.1",
+    "@axiona/message": "^0.13.1",
+    "@axiona/object": "^0.38.1",
+    "@axiona/string": "^0.17.1",
+    "@axiona/validatable": "^0.21.1",
+    "@axiona/value": "^0.16.1",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

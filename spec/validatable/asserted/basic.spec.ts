@@ -1,4 +1,4 @@
-import IsObject from '@alirya/object/boolean/object.js';
+import IsObject from '@axiona/object/boolean/object.js';
 import Asserted from '../../../dist/validatable/asserted.js';
 import CallbackFunction from '../../../dist/validatable/callback.js';
 

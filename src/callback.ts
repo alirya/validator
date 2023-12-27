@@ -3,11 +3,11 @@ import ValidationCallback from './validatable/callback.js';
 import SimpleMessage from './message/function/simple.js';
 import StaticMessage from './message/function/static.js';
 import Validator from './validator.js';
-import Validation from '@alirya/boolean/function/validation.js';
-import Guard from '@alirya/boolean/function/guard.js';
-import Message from '@alirya/message/message.js';
-import GuardContainer from '@alirya/boolean/validation/guard.js';
-import ValidationContainer from '@alirya/boolean/validation/validation.js';
+import Validation from '@axiona/boolean/function/validation.js';
+import Guard from '@axiona/boolean/function/guard.js';
+import Message from '@axiona/message/message.js';
+import GuardContainer from '@axiona/boolean/validation/guard.js';
+import ValidationContainer from '@axiona/boolean/validation/validation.js';
 
 /**
  * create {@see Validator} from multiple callback

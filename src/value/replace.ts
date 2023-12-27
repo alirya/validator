@@ -1,5 +1,5 @@
-// import ReplaceValue from '@alirya/value/value/replace.js';
-// import ValidatableReplace from '@alirya/validatable/boolean/replace.js';
+// import ReplaceValue from '@axiona/value/value/replace.js';
+// import ValidatableReplace from '@axiona/validatable/boolean/replace.js';
 // import Validatable from './validatable.js';
 //
 // type Replace<

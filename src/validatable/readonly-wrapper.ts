@@ -1,10 +1,10 @@
-import InferMessage from '@alirya/message/message/infer.js';
-import InferValue from '@alirya/value/value/infer.js';
+import InferMessage from '@axiona/message/message/infer.js';
+import InferValue from '@axiona/value/value/infer.js';
 import Validatable from './validatable.js';
-import InferValidatable from '@alirya/validatable/boolean/infer.js';
-import Value from '@alirya/value/value.js';
-import Message from '@alirya/message/message.js';
-import ValidatableInterface from '@alirya/validatable/validatable.js';
+import InferValidatable from '@axiona/validatable/boolean/infer.js';
+import Value from '@axiona/value/value.js';
+import Message from '@axiona/message/message.js';
+import ValidatableInterface from '@axiona/validatable/validatable.js';
 
 /**
  * read only wrapper for {@link Message}, {@link Value} and {@link ValidatableInterface}

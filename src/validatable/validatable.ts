@@ -1,6 +1,6 @@
-import Message from '@alirya/message/message.js';
-import Value from '@alirya/value/value.js';
-import BaseValidatable from '@alirya/validatable/validatable.js';
+import Message from '@axiona/message/message.js';
+import Value from '@axiona/value/value.js';
+import BaseValidatable from '@axiona/validatable/validatable.js';
 
 /**
  * extended {@see ValidatableInterface} with added {@see Message}
