@@ -1,6 +1,6 @@
 {
   "name": "@axiona/validator",
-  "version": "0.20.1",
+  "version": "0.21.0",
   "description": "Typescript validator",
   "publishConfig": {
     "directory": "dist"
@@ -18,13 +18,13 @@
     "url": "https://github.com/axiona/validator"
   },
   "dependencies": {
-    "@axiona/boolean": "^0.12.1",
-    "@axiona/function": "^0.17.1",
-    "@axiona/message": "^0.13.1",
-    "@axiona/object": "^0.38.1",
-    "@axiona/string": "^0.17.1",
-    "@axiona/validatable": "^0.21.1",
-    "@axiona/value": "^0.16.1",
+    "@axiona/boolean": "^0.13.0",
+    "@axiona/function": "^0.18.0",
+    "@axiona/message": "^0.14.0",
+    "@axiona/object": "^0.39.0",
+    "@axiona/string": "^0.18.0",
+    "@axiona/validatable": "^0.22.0",
+    "@axiona/value": "^0.17.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
